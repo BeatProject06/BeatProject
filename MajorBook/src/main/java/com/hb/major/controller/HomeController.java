@@ -32,12 +32,12 @@ public class HomeController {
    
    
    
-   
    @RequestMapping(value = "/afterlogin/{kkoid}", method = RequestMethod.POST)
    public String login(@PathVariable("kkoid") String kkoid, Model model, HttpServletRequest req) throws Exception {
 
 		req.setCharacterEncoding("UTF-8");
 
+		
 		System.out.println(req.getParameter("kakao_id"));
 		System.out.println(req.getParameter("kakao_nick"));
 		

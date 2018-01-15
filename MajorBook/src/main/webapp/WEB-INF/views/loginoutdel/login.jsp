@@ -13,22 +13,11 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     
    <script>
-   
- //logoutdel>login으로 대체
-   
     $(document).ready(function(){
     		
     	     //Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //javascript 키 연습앱
     	   Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625'); //전공책앱
     	       
-    	   
-    	  console.log('access token?'+ Kakao.Auth.getAccessToken());
-    	  console.log('refresh token?'+ Kakao.Auth.getRefreshToken());
-    	   
-    	   
-    	   
-    	   
-    	   
     	      // 카카오 로그인 버튼을 생성합니다.
     	      Kakao.Auth.createLoginButton({
     	        container: '#kakao-login-btn',
