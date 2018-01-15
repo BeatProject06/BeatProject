@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hb.major.model.entity.UserVo;
 import com.hb.major.model.user.UserDao;
+import com.hb.major.model.user.UserDaoImpl;
 
 public class UserServiceImpl implements UserService {
 	@Autowired
-	UserDao userDao;
+	UserDaoImpl userDao;
 	
 	@Override
-	public void UserAddOne(UserVo bean) {
+	public void userAddOne(UserVo bean) {
 		try {
 			userDao.userInsertOne(bean);
 		} catch (Exception e) {

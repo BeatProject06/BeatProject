@@ -1,41 +1,29 @@
 package com.hb.major.model.entity;
 
-import java.sql.Date;
-
 public class UserVo {
 
-	private int num;
-	private int id;
-	private String nickname;
+	private String kakao_id;
+	private String kakao_nick;
 	private String profile_img;
 	private String thumb_img;
-	private Date register;
 	
 	public UserVo() {
 	}
 
-	public int getNum() {
-		return num;
+	public String getKakao_id() {
+		return kakao_id;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setKakao_id(String kakao_id) {
+		this.kakao_id = kakao_id;
 	}
 
-	public int getId() {
-		return id;
+	public String getKakao_nick() {
+		return kakao_nick;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getNickname() {
-		return nickname;
-	}
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setKakao_nick(String kakao_nick) {
+		this.kakao_nick = kakao_nick;
 	}
 
 	public String getProfile_img() {
@@ -54,37 +42,26 @@ public class UserVo {
 		this.thumb_img = thumb_img;
 	}
 
-	public Date getRegister() {
-		return register;
-	}
-
-	public void setRegister(Date register) {
-		this.register = register;
-	}
-
-	public UserVo(int num, int id, String nickname, String profile_img, String thumb_img, Date register) {
-		super();
-		this.num = num;
-		this.id = id;
-		this.nickname = nickname;
-		this.profile_img = profile_img;
-		this.thumb_img = thumb_img;
-		this.register = register;
-	}
-
 	@Override
 	public String toString() {
-		return "UserVo [num=" + num + ", id=" + id + ", nickname=" + nickname + ", profile_img=" + profile_img
-				+ ", thumb_img=" + thumb_img + ", register=" + register + "]";
+		return "UserVo [kakao_id=" + kakao_id + ", kakao_nick=" + kakao_nick + ", profile_img=" + profile_img
+				+ ", thumb_img=" + thumb_img + "]";
+	}
+
+	public UserVo(String kakao_id, String kakao_nick, String profile_img, String thumb_img) {
+		super();
+		this.kakao_id = kakao_id;
+		this.kakao_nick = kakao_nick;
+		this.profile_img = profile_img;
+		this.thumb_img = thumb_img;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((nickname == null) ? 0 : nickname.hashCode());
-		result = prime * result + num;
+		result = prime * result + ((kakao_id == null) ? 0 : kakao_id.hashCode());
+		result = prime * result + ((kakao_nick == null) ? 0 : kakao_nick.hashCode());
 		result = prime * result + ((profile_img == null) ? 0 : profile_img.hashCode());
 		result = prime * result + ((thumb_img == null) ? 0 : thumb_img.hashCode());
 		return result;
@@ -99,14 +76,15 @@ public class UserVo {
 		if (getClass() != obj.getClass())
 			return false;
 		UserVo other = (UserVo) obj;
-		if (id != other.id)
-			return false;
-		if (nickname == null) {
-			if (other.nickname != null)
+		if (kakao_id == null) {
+			if (other.kakao_id != null)
 				return false;
-		} else if (!nickname.equals(other.nickname))
+		} else if (!kakao_id.equals(other.kakao_id))
 			return false;
-		if (num != other.num)
+		if (kakao_nick == null) {
+			if (other.kakao_nick != null)
+				return false;
+		} else if (!kakao_nick.equals(other.kakao_nick))
 			return false;
 		if (profile_img == null) {
 			if (other.profile_img != null)
@@ -120,5 +98,5 @@ public class UserVo {
 			return false;
 		return true;
 	}
-	
+
 }

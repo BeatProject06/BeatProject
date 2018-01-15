@@ -3,25 +3,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
-<title>Login Demo - Kakao JavaScript SDK</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>전공책을 찾아서</title>
 
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    	
+    </style>
+    <script src="resources/js/jquery-1.12.4.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/js/kakao.min.js"></script>
 </head>
 <body>
-
-	<a id="kakao-login-btn"></a>
-
-	<script>
+	<div class="container">
+		<div class="row header">
+			<div>
+			<a href="/major/" ><img alt="logo" src="resources/img/book.png"></a>
+			</div>
+		</div>
+	
+	<!-- 상단 배너 메뉴 -->
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button> 
+	    </div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="active"><a href="/major/">HOME <span class="sr-only">(current)</span></a></li>
+			           	<li><a href="#">ABOUT US</a></li>
+						<li><a href="#">공지사항</a></li>
+			            <li><a href="board">게시판</a></li>
+			            <li><a href="#">문의사항</a></li>
+			      </ul>
+			      <form class="navbar-form navbar-left">
+			          <input type="text" class="form-control" placeholder="search">
+			        <button type="submit" class="btn btn-default">검색</button>
+			        </form>
+			        <div>
+			        <a id="kakao-login-btn" class="pull-right"></a>
+			        </div>
+			  <script>
       Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625');
       
       // 카카오 로그인 버튼을 생성합니다.
       Kakao.Auth.createLoginButton({
         container: '#kakao-login-btn',
-        
+        size: 'small',
         success: function(authObj) {
           
           // 로그인 성공시 API를 호출합니다.
@@ -116,9 +152,29 @@
             console.log('oauth fail'+JSON.stringify(err));
         }
       });
+    
     </script>
-
-
-
+		</div>
+	  </div>
+	</nav>
+	</div>
+	<!-- 내용 -->	
+	<div class="container">
+		<div class="row content">
+		  <div class="col-md-12">
+		  	<div class="jumbotron">
+			  <h1>전공책을 찾아서</h1>
+			  <p>설명</p>
+			  
+			  
+			</div>
+		  </div>
+		</div>
+		<div class="row footer">
+		  <div class="col-md-12">
+		 company2018
+		  </div>
+		</div>
+	</div>
 </body>
 </html>

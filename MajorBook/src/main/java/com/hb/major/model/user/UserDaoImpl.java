@@ -13,7 +13,7 @@ public class UserDaoImpl implements UserDao {
 	
 	@Override
 	public void userInsertOne(UserVo bean) throws Exception {
-		session.insert("com.hb.model.UserDao.userInsertOne", bean);
+		session.insert("com.hb.major.model.user.UserDao.userInsertOne", bean);
 	}
 
 }
