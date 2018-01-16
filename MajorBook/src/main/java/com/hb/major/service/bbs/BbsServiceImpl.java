@@ -1,14 +1,12 @@
 package com.hb.major.service.bbs;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.hb.major.model.bbs.BbsDao;
 import com.hb.major.model.entity.BbsVo;
 
-@Component
 @Service
 public class BbsServiceImpl implements BbsService {
 	@Autowired

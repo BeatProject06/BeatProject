@@ -2,6 +2,7 @@ package com.hb.major.controller;
 
 import java.util.Locale;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -21,11 +22,9 @@ import com.hb.major.service.user.UserService;
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	@Autowired
-	UserService userService;
+//	@Autowired private UserService userService;
 	
-	@Autowired
-	BbsService bbsService;
+	@Autowired private BbsService bbsService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale) {
@@ -40,6 +39,13 @@ public class HomeController {
 		
 		bbsService.bbsListAll(model);
 		return "user/board";
+	}
+	
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String detail(Locale locale, Model model) {
+		logger.info("게시글 상세 페이지", locale);
+		
+		return "user/detail";
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
@@ -72,8 +78,7 @@ public class HomeController {
 		bean.setThumb_img(req.getParameter("kakao_thumbnail_image"));
 		System.out.println(bean);
 		
-		userService.userInsertOne(bean);
-//		autowired 해서 의존성 주입을 하는데 에러남.. 의존성 주입이 안된다고 뜸 어노테이션 다했는디..ㅎ
+//		userService.userInsertOne(bean);
 //		System.out.println("입력");
 		
 		return "afterlogin";

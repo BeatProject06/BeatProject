@@ -42,7 +42,7 @@
 			<tr>
 				<td>${bean.no }</td>
 				<td>${bean.status }</td>
-				<td>${bean.bookName }</td>
+				<td><a href="detail">${bean.bookName }</a></td>
 				<td>${bean.nickName }</td>
 				<td>${bean.day }</td>
 				<td>${bean.view }</td>
