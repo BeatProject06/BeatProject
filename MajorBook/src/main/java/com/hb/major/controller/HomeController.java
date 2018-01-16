@@ -15,13 +15,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hb.major.model.entity.UserVo;
+import com.hb.major.service.bbs.BbsService;
 import com.hb.major.service.user.UserService;
 
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-//	@Autowired
-//	UserService userService;
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	BbsService bbsService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale) {
@@ -33,7 +37,8 @@ public class HomeController {
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String board(Locale locale, Model model) {
 		logger.info("게시판", locale);
-
+		
+		bbsService.bbsListAll(model);
 		return "user/board";
 	}
 
@@ -67,7 +72,7 @@ public class HomeController {
 		bean.setThumb_img(req.getParameter("kakao_thumbnail_image"));
 		System.out.println(bean);
 		
-//		userService.userInsertOne(bean);
+		userService.userInsertOne(bean);
 //		autowired 해서 의존성 주입을 하는데 에러남.. 의존성 주입이 안된다고 뜸 어노테이션 다했는디..ㅎ
 //		System.out.println("입력");
 		
