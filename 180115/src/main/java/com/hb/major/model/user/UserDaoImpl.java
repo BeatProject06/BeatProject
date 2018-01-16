@@ -1,11 +1,12 @@
 package com.hb.major.model.user;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.hb.major.model.entity.UserVo;
 
+@Repository
 public class UserDaoImpl implements UserDao {
-	
 	SqlSession session;
 	public void setSession(SqlSession session) {
 		this.session = session;
@@ -13,7 +14,7 @@ public class UserDaoImpl implements UserDao {
 	
 	@Override
 	public void userInsertOne(UserVo bean) throws Exception {
-		session.insert("com.hb.model.UserDao.userInsertOne", bean);
+		session.insert("com.hb.major.model.user.UserDao.userInsertOne", bean);
 	}
 
 }

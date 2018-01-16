@@ -4,10 +4,10 @@
  <%@ include file="/WEB-INF/views/menu/header.jsp" %>
  <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
 			       		<li><a href="/major">HOME </a></li>
-			           	<li><a href="#">ABOUT US</a></li>
-						<li><a href="#">공지사항</a></li>
+			           	<li><a href="aboutus">ABOUT US</a></li>
+						<li><a href="notice">공지사항</a></li>
 			            <li  class="active"><a href="borad">게시판<span class="sr-only">(current)</span></a></li>
-			            <li><a href="#">문의사항</a></li>
+			            <li><a href="question">문의사항</a></li>
 			      </ul>
 			      </div>
 	  </div>
@@ -20,7 +20,7 @@
 		  	<div class="page-header">
 			  <h1>글쓰기 <small>설명</small></h1>
 			</div>
-			<form action="" method="post" >
+			<form action="detail" method="post" enctype="multipart/form-data">
 				<div class="col-md-2"> 
 					<div class="form-group"> 
 						<label for="status">상태</label> 
@@ -81,8 +81,8 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group"> 
-						<label for="file">사진첨부</label> 
-						<input type="file" id="file"> 
+						<label for="filename">사진첨부</label> 
+						<input type="file" name="filename" id="filename"> 
 					</div> 
 				</div>
 				<!-- <div class="col-md-6">
@@ -95,7 +95,4 @@
 				<button class="btn btn-default" type="reset">취소</button>
 				</div>
 			</form>
-				
-		  </div><!--col-md-12 end  -->
-		</div>
 		<%@ include file="/WEB-INF/views/menu/footer.jsp" %>

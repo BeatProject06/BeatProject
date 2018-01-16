@@ -4,9 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   <configuration>
   	<typeAliases>
-  		<typeAlias alias="bean" type="com.hb.major.model.entity.UserVo"/>
+  		<typeAlias alias="userbean" type="com.hb.major.model.entity.UserVo"/>
+  		<typeAlias alias="bbsbean" type="com.hb.major.model.entity.BbsVo"/>
   	</typeAliases>
   	<mappers>
-  		<mapper resource="mapper.xml"/>
+  		<mapper resource="config/userMapper.xml"/>
+  		<mapper resource="config/bbsMapper.xml"/>
   	</mappers>
   </configuration>

@@ -3,11 +3,21 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%@ include file="/WEB-INF/views/menu/header.jsp" %>
 <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#edit').click(function() {
+		$('.form-group input').remove('${readonly}');
+	});
+});
+
+
+</script>
 			       		<li><a href="/major">HOME </a></li>
-			           	<li><a href="#">ABOUT US</a></li>
-						<li><a href="#">공지사항</a></li>
+			           	<li><a href="aboutus">ABOUT US</a></li>
+						<li><a href="notice">공지사항</a></li>
 			            <li  class="active"><a href="borad">게시판<span class="sr-only">(current)</span></a></li>
-			            <li><a href="#">문의사항</a></li>
+			            <li><a href="question">문의사항</a></li>
 			      </ul>
 			      </div>
 	  </div>
@@ -18,9 +28,9 @@
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>${title } <small>설명</small></h1>
+			  <h1>${title } <small>설명</small></h1><!--title:  글보기, 수정 두가지 -->
 			</div>
-			<form action=""  method="post" >
+			<form action="edit/${bean.no }"  method="get" >
 				<div class="col-md-2"> 
 					<div class="form-group"> 
 						<label for="status">상태</label> 
@@ -86,18 +96,19 @@
 						<input type="file" id="file"> 
 					</div> 
 				</div>
-				<c:if test="${title eq '수정' }">
+				<c:if test="${title eq '게시글 수정' }">
 					<div class="col-md-6">
-						<a class="btn btn-danger pull-right" href="#">삭제</a>
-						<a class="btn btn-default pull-right" href="#">수정</a>
+						<a class="btn btn-default" id="edit" href="/major/user/edit/{idx}">수정</button>
+						<a class="btn btn-default" id="delete" href="/major/user/delete/{idx}">삭제</button>
 					</div>
 				</c:if>
+				<c:if test="${title eq '내용보기' }">
 				<div class="col-md-12 text-center">
-				<button class="btn btn-primary" type="submit">완료</button>
-				<button class="btn btn-default" type="reset">취소</button>
+						<a class="btn btn-default" href="#">이전글</a>
+						<a class="btn btn-default" href="#">뒤로</a>
+						<a class="btn btn-default" href="#">다음글</a>
 				</div>
+				</c:if>
 			</form>
 				
-		  </div><!--col-md-12 end  -->
-		</div>
 		<%@ include file="/WEB-INF/views/menu/footer.jsp" %>

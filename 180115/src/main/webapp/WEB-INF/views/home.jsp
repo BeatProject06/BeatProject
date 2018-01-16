@@ -2,11 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/menu/header.jsp" %>
 <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
-			        <li class="active"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
-			           	<li><a href="#">ABOUT US</a></li>
-						<li><a href="#">공지사항</a></li>
+<script type="text/javascript">
+	$(function(){
+		$('#home').click(function() {
+			$(this).addClass('active');
+			console.log(this);
+			//$('#home')
+			
+		});
+	});
+</script>
+			            <li id="home"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
+			           	<li><a href="aboutus">ABOUT US</a></li>
+						<li><a href="notice">공지사항</a></li>
 			            <li><a href="board">게시판</a></li>
-			            <li><a href="#">문의사항</a></li>
+			            <li><a href="complaint">문의사항</a></li>
 			      </ul>
 			      <form class="navbar-form navbar-left">
 			          <input type="text" class="form-control" placeholder="search">
@@ -15,7 +25,7 @@
 			        <div>
 			        <a id="kakao-login-btn" class="pull-right"></a>
 			        </div>
-			  <script src="resources/js/kakaologin.js"></script>
+			  		<script src="resources/js/kakaologin.js"></script>
 		</div>
 	  </div>
 	</nav>
@@ -30,6 +40,4 @@
 			  
 			  
 			</div>
-		  </div>
-		</div>
 	<%@ include file="/WEB-INF/views/menu/footer.jsp" %>	

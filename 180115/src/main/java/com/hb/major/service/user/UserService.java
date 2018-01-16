@@ -4,6 +4,6 @@ import com.hb.major.model.entity.UserVo;
 
 public interface UserService {
 	
-	void UserAddOne(UserVo bean);
+	void userInsertOne(UserVo bean);
 
 }
