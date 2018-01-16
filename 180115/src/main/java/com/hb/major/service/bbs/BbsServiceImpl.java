@@ -24,7 +24,13 @@ public class BbsServiceImpl implements BbsService {
 	@Override
 	public void bbsAddOne(BbsVo bean) {
 		// TODO Auto-generated method stub
-		
+		System.out.println(bean);
+		try {
+			bbsDao.bbsInsertOne(bean);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

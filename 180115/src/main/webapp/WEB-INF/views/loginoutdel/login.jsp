@@ -12,22 +12,38 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     
-   <script>
-    $(document).ready(function(){
+<script>
+ $(document).ready(function(){
     		
     	     //Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //javascript 키 연습앱
     	   Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625'); //전공책앱
     	       
-    	      // 카카오 로그인 버튼을 생성합니다.
-    	      Kakao.Auth.createLoginButton({
-    	        container: '#kakao-login-btn',
-    	        
-    	        success: function(authObj) {
+    	   
+Kakao.Auth.getStatus(function(statusObj){ //현재 로그인 상태를 확인
+    	   		
+    	  console.log(statusObj.status);
+    	  console.log(statusObj.user);
+    	 // var newDiv=document.createElement("div");
+    	 var newDiv=document.getElementById("newDiv");
+    	 
+    	   		
+if(statusObj.status=="not_connected"){
+	
+
+    newDiv.innerHTML='<a id="kakao-login-btn"></a>';
+    	 
+    	   
+    	     // 카카오 로그인 버튼을 생성합니다.
+    	     Kakao.Auth.createLoginButton({
+    	       container: '#kakao-login-btn',
+    	        size: 'small',
+    	       success: function(authObj) {
     	        	
-    	          // 로그인 성공시 API를 호출합니다.
-    	          Kakao.API.request({
+    	       // 로그인 성공시 API를 호출합니다.
+    	       Kakao.API.request({
     	        	  
     	          url: '/v1/user/me',
+    	          
     	          success: function(res) {
     	            var sData = JSON.stringify(res);
     	            //alert(sData);
@@ -43,7 +59,7 @@
     	            var thumbnail_image = sData.properties.thumbnail_image;
     	            var profile_image = sData.properties.profile_image;
     	           
-    	     
+
     	            var f = document.createElement("form");
     	          /*   f.setAttribute("method","get");
     	            f.setAttribute("action","afterlogin/"+i_id);
@@ -88,7 +104,8 @@
     	            
     	            
     	            f.setAttribute("method","post");
-    	            f.setAttribute("action","afterlogin/"+i_id.value);
+    	           // f.setAttribute("action","afterlogin/"+i_id.value);
+    	            f.setAttribute("action","/major");
     	            f.setAttribute("target","_self");
     	            document.body.appendChild(f);
     	            
@@ -98,6 +115,7 @@
     	            f.appendChild(i_profile);
     	            f.appendChild(i_accessToken);
     	            f.appendChild(i_refreshToken);
+    	            
     	            
     	            
     	            f.submit();
@@ -126,30 +144,51 @@
     	        
     	        always : function(authObj, errorObj){
     	        	
-    	        	Kakao.Auth.getStatus(function(statusObj){
-    	        		
     	        		console.log(+statusObj.status+"상태");
     	        		console.log(statusObj.user.id+"유저");
-    	        		
-    	        	});
+    	        
     	        }
     	        
     	      });//  Kakao.Auth.createLoginButton end
     	    
     		
+	}else{//접속상태면
+    		newDiv.innerHTML= statusObj.user.id+"님 웰컴 ㅎ <button id='outbtn'>로그아웃</button>";
+    		
+   			
+    		$('#outbtn').on('click', function(){
+    			
+    			Kakao.Auth.logout(function(){
+    						
+    					alert('로그아웃됨');
+    						Kakao.Auth.getStatus(function(statusObj){
+    								console.log("로갓 상태"+statusObj.status);
+    								console.log("로갓 아이디"+statusObj.user);
+    							});
+    						location.replace("/major");//로그아웃 시 홈페이지로 돌아감
+    						
+    					});
+    		});  
+
     		
     		
-    	});
-    
+    	}
+    	   	
+});//Kakao.Auth.getStatus(function(statusObj) end
+    	   
+    	   			
+
+	
+    		
+});   
     </script>
     
     
   </head>
   <body>
+<div id="newDiv">
 
-    <a id="kakao-login-btn"></a>
-
-  
+</div>
     
   </body>
 </html>

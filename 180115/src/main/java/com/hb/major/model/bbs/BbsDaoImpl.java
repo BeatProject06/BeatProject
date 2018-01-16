@@ -22,13 +22,17 @@ public class BbsDaoImpl implements BbsDao {
 	@Override
 	public void bbsInsertOne(BbsVo bean) throws Exception {
 		// TODO Auto-generated method stub
-		session.selectOne("com.hb.major.model.bbs.BbsDao.bbs.bbsSelectOne");
+		System.out.println(bean);
+			
+		session.insert("com.hb.major.model.bbs.BbsDao.bbsInsertOne", bean);
+		System.out.println(bean);
+		
 	}
 
 	@Override
 	public BbsVo bbsSelectOne(int no) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("com.hb.major.model.bbs.BbsDao.bbs.bbsSelectOne");
 	}
 
 	@Override

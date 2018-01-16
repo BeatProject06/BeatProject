@@ -9,7 +9,13 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script type="text/javascript">
+
+//logoutdel>deleteaccount으로 대체
+
+
 $(document).ready(function(){
+	
+	
 	//Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //연습
 	
 	Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625');//전공

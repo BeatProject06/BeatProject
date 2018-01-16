@@ -6,7 +6,7 @@
 			       		<li><a href="/major">HOME </a></li>
 			           	<li><a href="aboutus">ABOUT US</a></li>
 						<li><a href="notice">공지사항</a></li>
-			            <li  class="active"><a href="borad">게시판<span class="sr-only">(current)</span></a></li>
+			            <li  class="active"><a href="board">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="question">문의사항</a></li>
 			      </ul>
 			      </div>
@@ -33,26 +33,44 @@
 				</div> 
 				<div class="col-md-10">
 					<div class="form-group"> 
-						<label for="dept">제목</label> 
-						<input type="text" class="form-control" name="dept" id="dept" placeholder="제목을 작성하세요">  
+						<label for="title">제목</label> 
+						<input type="text" class="form-control" name="title" id="title" placeholder="제목을 작성하세요">  
 					</div> 
 				</div>
+				<div class="col-md-4">
+					<div class="form-group"> 
+						<label for="nickName">이름</label> <!-- 카카오userinfo에서 닉네임을 받아오는것인가아? -->
+						<input type="text" class="form-control" name="nickName" id="nickName" value="test" readonly="readonly">  
+					</div> 
+				</div>
+				<div class="col-md-4">
+					<div class="form-group"> 
+						<label for="university">대학교</label> 
+						<input type="text" class="form-control" name="university" id="university" placeholder="대학교를 작성하세요">  
+					</div> 
+				</div>
+				<div class="col-md-4">
+					<div class="form-group"> 
+						<label for="dept">과</label> 
+						<input type="text" class="form-control" name="dept" id="dept" placeholder="과를 작성하세요">  
+					</div> 
+				</div>				
 				<div class="col-md-6">
 					<div class="form-group"> 
-						<label for="bookname">책이름</label> 
-						<input type="text" class="form-control" name="bookname" id="bookname" placeholder="책이름을 작성하세요">  
+						<label for="bookName">책이름</label> 
+						<input type="text" class="form-control" name="bookName" id="bookName" placeholder="책이름을 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-3">
 					<div class="form-group"> 
-						<label for="publisher">저자</label> 
-						<input type="text" class="form-control" name="publisher" id="publisher" placeholder="책저자를 작성하세요">  
+						<label for="author">저자</label> 
+						<input type="text" class="form-control" name="author" id="author" placeholder="책저자를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-3">
 					<div class="form-group"> 
-						<label for="author">출판사</label> 
-						<input type="text" class="form-control" name="author" id="author" placeholder="책출판사를 작성하세요">  
+						<label for="publisher">출판사</label> 
+						<input type="text" class="form-control" name="publisher" id="publisher" placeholder="책출판사를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-4">
@@ -63,20 +81,20 @@
 				</div>
 				<div class="col-md-4">
 					<div class="form-group"> 
-						<label for="costprice">원가</label> 
-						<input type="text" class="form-control" name="costprice" id="costprice" placeholder="책원가를 작성하세요">  
+						<label for="costPrice">원가</label> 
+						<input type="text" class="form-control" name="costPrice" id="costPrice" placeholder="책원가를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-4">
 					<div class="form-group"> 
-						<label for="saleprice">판매가</label> 
-						<input type="text" class="form-control" name="saleprice" id="saleprice" placeholder="판매가를 작성하세요">  
+						<label for="salePrice">판매가</label> 
+						<input type="text" class="form-control" name="salePrice" id="salePrice" placeholder="판매가를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-12">
 					<div class="form-group"> 
-						<label for="writedetail">내용</label> 
-						<textarea class="form-control" rows="10" name="writedetail" id="writedetail" placeholder="책상태, 책사진 필히 첨부"></textarea>  
+						<label for="content">내용</label> 
+						<textarea class="form-control" rows="10" name="content" id="content" placeholder="책상태, 책사진 필히 첨부"></textarea>  
 					</div> 
 				</div>
 				<div class="col-md-6">
@@ -85,6 +103,11 @@
 						<input type="file" name="filename" id="filename"> 
 					</div> 
 				</div>
+				
+						<!-- <input type="hidden" name="view" id="view"> 
+						<input type="hidden" name="day" id="day" value="">  -->
+					
+				
 				<!-- <div class="col-md-6">
 					 
 					<a class="btn btn-danger pull-right" href="#">삭제</a>
