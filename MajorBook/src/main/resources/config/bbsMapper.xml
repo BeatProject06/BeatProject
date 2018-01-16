@@ -8,7 +8,7 @@
   	SELECT * FROM BBSLIST ORDER BY NO DESC;
   	</select>
   	
-  	<select id="bbsSelectOne" parameterType="int" resultType="bean">
+  	<select id="bbsSelectOne" parameterType="int" resultType="bbsbean">
   	SELECT * FROM BBSLIST WHERE NO=#{value}
   	</select>
   	
@@ -16,7 +16,7 @@
   	INSERT INTO BBSLIST(nickName, university, dept, bookName, publisher, author, ISBN, costPrice, salePrice, view, status, day, title, content) VALUES (#{nickName}, #{university}, #{dept}, #{bookName}, #{publisher}, #{author}, #{ISBN}, #{costPrice}, #{salePrice}, #{view}, #{status}, now(), #{title}, #{content})
   	</insert>
   	
-  	<update id="updateOne" parameterType="bean">
+  	<update id="updateOne" parameterType="bbsbean">
   	UPDATE BBSLIST SET UNIVERSITY=#{university}, DEPT=#{dept}, BOOKNAME=#{bookName}, PUBLISHER=#{publisher}, AUTHOR=#{author}, ISBN=#{ISBN}, COSTPRICE=#{costPrice}, SALEPRICE=#{salePrice}, STATUS=#{status}, TITLE=#{title}, CONTENT=#{content} WHERE NO=#{no}
   	</update>
   	
