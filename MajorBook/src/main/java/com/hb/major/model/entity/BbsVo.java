@@ -16,6 +16,8 @@ public class BbsVo {
 	private int view;
 	private String status;
 	private Date day;
+	private String title;
+	private String content;
 	
 	public BbsVo() {
 	}
@@ -124,16 +126,33 @@ public class BbsVo {
 		this.day = day;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	@Override
 	public String toString() {
 		return "BbsVo [no=" + no + ", nickName=" + nickName + ", university=" + university + ", dept=" + dept
 				+ ", bookName=" + bookName + ", publisher=" + publisher + ", author=" + author + ", ISBN=" + ISBN
 				+ ", costPrice=" + costPrice + ", salePrice=" + salePrice + ", view=" + view + ", status=" + status
-				+ ", day=" + day + "]";
+				+ ", day=" + day + ", title=" + title + ", content=" + content + "]";
 	}
 
 	public BbsVo(int no, String nickName, String university, String dept, String bookName, String publisher,
-			String author, String iSBN, int costPrice, int salePrice, int view, String status, Date day) {
+			String author, String iSBN, int costPrice, int salePrice, int view, String status, Date day, String title,
+			String content) {
 		super();
 		this.no = no;
 		this.nickName = nickName;
@@ -148,6 +167,8 @@ public class BbsVo {
 		this.view = view;
 		this.status = status;
 		this.day = day;
+		this.title = title;
+		this.content = content;
 	}
 
 	@Override
@@ -157,6 +178,7 @@ public class BbsVo {
 		result = prime * result + ((ISBN == null) ? 0 : ISBN.hashCode());
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((bookName == null) ? 0 : bookName.hashCode());
+		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + costPrice;
 		result = prime * result + ((dept == null) ? 0 : dept.hashCode());
 		result = prime * result + ((nickName == null) ? 0 : nickName.hashCode());
@@ -164,6 +186,7 @@ public class BbsVo {
 		result = prime * result + ((publisher == null) ? 0 : publisher.hashCode());
 		result = prime * result + salePrice;
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		result = prime * result + ((university == null) ? 0 : university.hashCode());
 		result = prime * result + view;
 		return result;
@@ -193,6 +216,11 @@ public class BbsVo {
 				return false;
 		} else if (!bookName.equals(other.bookName))
 			return false;
+		if (content == null) {
+			if (other.content != null)
+				return false;
+		} else if (!content.equals(other.content))
+			return false;
 		if (costPrice != other.costPrice)
 			return false;
 		if (dept == null) {
@@ -218,6 +246,11 @@ public class BbsVo {
 			if (other.status != null)
 				return false;
 		} else if (!status.equals(other.status))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
 			return false;
 		if (university == null) {
 			if (other.university != null)

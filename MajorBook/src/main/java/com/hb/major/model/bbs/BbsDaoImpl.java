@@ -21,26 +21,26 @@ public class BbsDaoImpl implements BbsDao {
 
 	@Override
 	public void bbsInsertOne(BbsVo bean) throws Exception {
-		// TODO Auto-generated method stub
-
+		
+		session.insert("com.hb.major.model.bbs.BbsDao.bbsInsertOne",bean);
 	}
 
 	@Override
 	public BbsVo bbsSelectOne(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return session.selectOne("com.hb.major.model.bbs.BbsDao.bbsSelectOne",no);
 	}
 
 	@Override
 	public int bbsUpdateOne(BbsVo bean) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return session.update("com.hb.major.model.bbs.BbsDao.bbsUpdateOne",bean);
 	}
 
 	@Override
 	public int bbsDeleteOne(int no) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return session.delete("com.hb.major.model.bbs.BbsDao.bbsDeleteOne",no);
 	}
 
 }
