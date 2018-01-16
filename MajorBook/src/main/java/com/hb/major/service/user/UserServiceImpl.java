@@ -1,17 +1,18 @@
 package com.hb.major.service.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.hb.major.model.entity.UserVo;
 import com.hb.major.model.user.UserDao;
-import com.hb.major.model.user.UserDaoImpl;
 
+@Service("userService")
 public class UserServiceImpl implements UserService {
 	@Autowired
-	UserDaoImpl userDao;
+	UserDao userDao;
 	
 	@Override
-	public void userAddOne(UserVo bean) {
+	public void userInsertOne(UserVo bean) {
 		try {
 			userDao.userInsertOne(bean);
 		} catch (Exception e) {

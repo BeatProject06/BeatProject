@@ -19,4 +19,5 @@
 	</bean>
 	
 	<bean id="userDao" class="com.hb.major.model.user.UserDaoImpl" p:session-ref="sqlSession"></bean>
+
 </beans>

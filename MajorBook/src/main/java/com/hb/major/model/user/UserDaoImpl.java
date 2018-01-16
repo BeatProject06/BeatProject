@@ -1,11 +1,12 @@
 package com.hb.major.model.user;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.hb.major.model.entity.UserVo;
 
+@Repository
 public class UserDaoImpl implements UserDao {
-	
 	SqlSession session;
 	public void setSession(SqlSession session) {
 		this.session = session;
