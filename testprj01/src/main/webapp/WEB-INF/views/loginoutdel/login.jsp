@@ -107,7 +107,7 @@ if(statusObj.status=="not_connected"){
     	            
     	            
     	            f.setAttribute("method", "post");
-    	            f.setAttribute("action", "/major");//로그인 시 
+    	            f.setAttribute("action", "/major/");
     	           // f.setAttribute("target","_self");
     	            document.body.appendChild(f);
     	            
