@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>500 에러페이지당......</h1>
-	입력되어야하는 값이 없을 때 뜸
+	<h1>에러페이지당.ㅇㅇㅇ.....</h1>
 </body>
 </html>

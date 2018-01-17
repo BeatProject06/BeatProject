@@ -42,8 +42,10 @@
 	</filter-mapping>
 	
 	
+
 <error-page>
-<error-code>500</error-code>
+
+<exception-type>java.lang.Exception</exception-type>
 <location>/WEB-INF/views/errpage.jsp</location>
 </error-page>
 
