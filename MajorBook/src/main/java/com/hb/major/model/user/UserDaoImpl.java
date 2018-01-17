@@ -17,4 +17,11 @@ public class UserDaoImpl implements UserDao {
 		session.insert("com.hb.major.model.user.UserDao.userInsertOne", bean);
 	}
 
+	@Override
+	public int userDeleteOne(int no) throws Exception {
+		return session.delete("com.hb.major.model.user.UserDao.userDeleteOne", no);
+	}
+
+	
+
 }

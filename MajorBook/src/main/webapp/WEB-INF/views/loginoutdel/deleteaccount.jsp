@@ -9,13 +9,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script type="text/javascript">
-
-//logoutdel>deleteaccount으로 대체
-
-
 $(document).ready(function(){
-	
-	
 	//Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //연습
 	
 	Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625');//전공
@@ -27,8 +21,6 @@ $(document).ready(function(){
 		
 		if(statusObj.status=="connected"){
 			
-		
-		
 			   Kakao.API.request({
  	        	  
 	    	          url: '/v1/user/unlink',
@@ -37,7 +29,7 @@ $(document).ready(function(){
 	    	        	  
 						alert('해제됐다~');
 						
-						location.replace("/major");
+						location.replace("/major"); //해제시 홈페이지로 돌아감
 						
 						},
 						fail: function(err){
@@ -58,7 +50,8 @@ $(document).ready(function(){
 
 		}else{
 			
-		alert('커넥티드 상태 아님');
+			alert('커넥티드 상태 아님');
+			location.replace("/major"); //탈퇴하고 싶으면 로그인부터 하라고 홈페이지로 돌아감
 		}
 		
 		
@@ -69,7 +62,13 @@ $(document).ready(function(){
 </head>
 <body>
 
+이 페이지는 포스트 방식으로 들어와야 함
+
+
+
 	<button id = "dounlink"> 연결 해제</button>
+	
+	
 
 </body>
 </html>

@@ -4,7 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.hb.major.model.user.UserDao">
+  	
   	<insert id="userInsertOne" parameterType="userbean">
-  	insert into userinfo values (#{kakao_id}, #{kakao_nick}, #{kakao_profile_image}, #{kakao_thumbnail_image})
-  	</insert> 
+  	INSERT INTO USERINFO VALUES (#{kakao_id}, #{kakao_nick}, #{kakao_profile_image}, #{kakao_thumbnail_image})
+  	</insert>
+  	
+  	<delete id="userDeleteOne" parameterType="int">
+  	DELETE FROM USERINFO WHERE NO=#{value}
+  	</delete>
+  	
   </mapper>

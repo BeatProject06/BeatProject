@@ -9,17 +9,13 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <script>
-//logoutdel>logout으로 대체 
 
 $(document).ready(function(){
-
+//웹은 그냥 두고 앱은 폰이 개인용 기기니까 토큰 잔여 유효시간받아내서 스스로 로갓안하면 계속 로그인 되어있게 처리할까?
+	
 
 //Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532');
 Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625'); //전공책앱
- 
-console.log('access token?'+ Kakao.Auth.getAccessToken());
-console.log('refresh token?'+ Kakao.Auth.getRefreshToken());
-
 
 Kakao.Auth.getStatus(function(statusObj){
 		
@@ -43,18 +39,11 @@ Kakao.Auth.getStatus(function(statusObj){
 						
 						});
 					
-					location.replace("/major");
+					location.replace("/major");//로그아웃 시 홈페이지로 돌아감
 					
 				});
 	
 });  
-
-/* document.getElementById("demo").addEventListener("click",  function(){
-	alert('클릭');
-	
-});  */
-
-
 
 
 
@@ -68,10 +57,14 @@ Kakao.Auth.getStatus(function(statusObj){
 
 
 <button id="outbtn">로그아웃하기</button>
+
+
 <form action="../unlinkapp" method="post">
-	<button type="submit">연결해제 페이지 버튼</button>
-<p>근데 이걸...폼을 써야 하나....전송할 데이터도 없는데 포스트로 보내려고...?</p>
+	<button type="submit">연결해제 페이지로 가는 버튼</button>
+<p>근데 이걸...폼을 써야 하나....전송할 데이터도 없는데 포스트로 보내려고...? 여튼 이거 위치 생각해볼것</p>
 </form>
+
+
 
 </body>
 </html>

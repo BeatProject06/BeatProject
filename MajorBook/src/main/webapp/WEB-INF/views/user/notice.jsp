@@ -5,8 +5,8 @@
 <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
 <li><a href="/major">HOME </a></li>
 <li><a href="aboutus">ABOUT US</a></li>
-<li><a href="notice">공지사항</a></li>
-<li class="active"><a href="board">게시판<span class="sr-only">(current)</span></a></li>
+<li class="active"><a href="notice">공지사항</a></li>
+<li><a href="board">게시판<span class="sr-only">(current)</span></a></li>
 <li><a href="question">문의사항</a></li>
 </ul>
 </div>
@@ -19,7 +19,7 @@
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1>
-					게시판 <small>설명</small>
+					공지사항 <small>설명</small>
 				</h1>
 			</div>
 
@@ -32,16 +32,16 @@
 					<th class="col-md-2">작성일</th>
 					<th class="col-md-1">조회수</th>
 				</tr>
-				<c:forEach items="${list }" var="bean" varStatus="status">
-					<tr>
-						<td>${bean.no }</td>
-						<td>${bean.status }</td>
-						<td><a href="detail/${bean.no }">${bean.dept }</a></td>
-						<td>${bean.nickName }</td>
-						<td>${bean.day }</td>
-						<td>${bean.view }</td>
-					</tr>
-				</c:forEach>
+				<%--  <c:forEach items="${list }" var="bean" varStatus="status">
+			  <tr>
+			  	<td>${bean.no }</td>
+			  	<td>${bean.status }</td>
+			  	<td><a href="#">${bean.dept }</a></td>
+			  	<td>${bean.nickname }</td>
+			  	<td>${bean.작성일 }</td>
+			  	<td>${bean.view }</td>
+			  </tr>
+			  </c:forEach> --%>
 			</table>
 			<a class="btn btn-default pull-right" href="write" role="button">글쓰기</a>
 
@@ -60,4 +60,5 @@
 					</a></li>
 				</ul>
 			</div>
+
 			<jsp:include page="/WEB-INF/views/menu/footer.jsp"></jsp:include>

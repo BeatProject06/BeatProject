@@ -21,7 +21,7 @@
   	</update>
   	
   	<delete id="deleteOne" parameterType="int">
-  	DELETE FROM BBSLIST WHERE NO=${value}
+  	DELETE FROM BBSLIST WHERE NO=#{value}
   	</delete>
   	
   </mapper>

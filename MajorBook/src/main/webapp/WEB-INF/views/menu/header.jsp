@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>전공책을 찾아서</title>
@@ -20,12 +20,13 @@
 <body>
 	<div class="container">
 		<div class="row header">
-			<div class="col-md-2">
-			<a href="/major" ><img alt="logo" src="resources/img/book.png"></a>
+			<div class="col-md-12">
+			<a href="/major" ><img alt="logo" src="resources/img/book.png" class="pull-left"></a>
+			<h1 class="text-center"><strong>전공책을 찾아서</strong></h1>
 			</div>
-			<div class="col-md-10 text-center">
-			<h1>전공책을 찾아서</h1>
-			</div>
+			<!-- <div class="col-md-10 text-center">
+			<h1><strong>전공책을 찾아서</strong></h1>
+			</div> -->
 		</div>
 	
 	<!-- 상단 배너 메뉴 -->
