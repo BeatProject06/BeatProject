@@ -22,29 +22,27 @@ public class BbsDaoImpl implements BbsDao {
 	@Override
 	public void bbsInsertOne(BbsVo bean) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println(bean);
 			
 		session.insert("com.hb.major.model.bbs.BbsDao.bbsInsertOne", bean);
-		System.out.println(bean);
 		
 	}
 
 	@Override
 	public BbsVo bbsSelectOne(int no) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectOne("com.hb.major.model.bbs.BbsDao.bbs.bbsSelectOne");
+		return session.selectOne("com.hb.major.model.bbs.BbsDao.bbsSelectOne", no);
 	}
 
 	@Override
 	public int bbsUpdateOne(BbsVo bean) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return session.update("com.hb.major.model.bbs.BbsDao.bbsUpdateOne",bean);
 	}
 
 	@Override
 	public int bbsDeleteOne(int no) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return session.delete("com.hb.major.model.bbs.BbsDao.bbsDeleteOne",no);
 	}
 
 }

@@ -143,6 +143,35 @@ public class BbsVo {
 	}
 
 	@Override
+	public String toString() {
+		return "BbsVo [no=" + no + ", nickName=" + nickName + ", university=" + university + ", dept=" + dept
+				+ ", bookName=" + bookName + ", publisher=" + publisher + ", author=" + author + ", ISBN=" + ISBN
+				+ ", costPrice=" + costPrice + ", salePrice=" + salePrice + ", view=" + view + ", status=" + status
+				+ ", day=" + day + ", title=" + title + ", content=" + content + "]";
+	}
+
+	public BbsVo(int no, String nickName, String university, String dept, String bookName, String publisher,
+			String author, String iSBN, int costPrice, int salePrice, int view, String status, Date day, String title,
+			String content) {
+		super();
+		this.no = no;
+		this.nickName = nickName;
+		this.university = university;
+		this.dept = dept;
+		this.bookName = bookName;
+		this.publisher = publisher;
+		this.author = author;
+		ISBN = iSBN;
+		this.costPrice = costPrice;
+		this.salePrice = salePrice;
+		this.view = view;
+		this.status = status;
+		this.day = day;
+		this.title = title;
+		this.content = content;
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -232,18 +261,5 @@ public class BbsVo {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "BbsVo [no=" + no + ", nickName=" + nickName + ", university=" + university + ", dept=" + dept
-				+ ", bookName=" + bookName + ", publisher=" + publisher + ", author=" + author + ", ISBN=" + ISBN
-				+ ", costPrice=" + costPrice + ", salePrice=" + salePrice + ", view=" + view + ", status=" + status
-				+ ", day=" + day + ", title=" + title + ", content=" + content + "]";
-	}
-
-	
-	
-	
-
 	
 }

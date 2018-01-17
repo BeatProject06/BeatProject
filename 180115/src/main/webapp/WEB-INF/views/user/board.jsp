@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ include file="/WEB-INF/views/menu/header.jsp" %>
+<jsp:include page="../menu/header.jsp"></jsp:include>
     <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
 			        	<li><a href="/major">HOME </a></li>
 			           	<li><a href="aboutus">ABOUT US</a></li>
@@ -9,6 +9,11 @@
 			            <li  class="active"><a href="board">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="question">문의사항</a></li>
 			      </ul>
+			      <form class="navbar-form navbar-left">
+			          <input type="text" class="form-control" placeholder="search">
+			        <button type="submit" class="btn btn-default">검색</button>
+			        </form>
+<jsp:include page="../loginoutdel/login.jsp"></jsp:include>
 			      </div>
 	  </div>
 	</nav>
@@ -30,12 +35,12 @@
 			  	<th  class="col-md-2">작성일</th>
 			  	<th  class="col-md-1">조회수</th>
 			  </tr>
-			 <c:forEach items="${list }" var="bean" varStatus="status">
+			 <c:forEach items="${list }" var="bean">
 			  <tr>
 			  	<td>${bean.no }</td>
 			  	<td>${bean.status }</td>
-			  	<td><a href="detail?${bean.no }">${bean.dept }</a></td>
-			  	<td>${bean.nickName }</td>
+			  	<td><a href="detail/${bean.no }">${bean.title }</a></td>
+			  	<td>${bean.nickName }</td><!-- 얘는 뭐다냐그 그그 userinfo.nickname? -->
 			  	<td>${bean.day }</td>
 			  	<td>${bean.view }</td>
 			  </tr>
@@ -60,4 +65,4 @@
 				    </li>
 				  </ul>
 				</div>
-		<%@ include file="/WEB-INF/views/menu/footer.jsp" %>
+		<jsp:include page="../menu/footer.jsp"></jsp:include>

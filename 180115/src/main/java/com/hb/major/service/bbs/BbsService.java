@@ -8,8 +8,7 @@ public interface BbsService {
 	void bbsListAll(Model model);
 	void bbsAddOne(BbsVo bean);
 	void bbsDetailOne(int no, Model model);
-	void bbsEditOne(int sabun, Model model);
 	void bbsUpdateOne(BbsVo bean);
-	void bbsDeleteOne(int sabun);
+	void bbsDeleteOne(int no);
 
 }
