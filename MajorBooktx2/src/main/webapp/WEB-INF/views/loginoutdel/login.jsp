@@ -13,6 +13,7 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     
 <script>
+var tempnick;
  $(document).ready(function(){
     		
     	     //Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //javascript 키 연습앱
@@ -20,6 +21,7 @@
     	       
     	   
 Kakao.Auth.getStatus(function(statusObj){ //현재 로그인 상태를 확인
+
     	   		
     	  console.log(statusObj.status);
     	  console.log(statusObj.user);
@@ -56,6 +58,7 @@ if(statusObj.status=="not_connected"){
     	            var kakao_root_id = sData.id+"@"+route; 
     	            var id = sData.id;     
     	            var nickname = sData.properties.nickname;
+    	        	tempnick=nickname;
     	            var thumbnail_image = sData.properties.thumbnail_image;
     	            var profile_image = sData.properties.profile_image;
     	           
@@ -103,10 +106,9 @@ if(statusObj.status=="not_connected"){
     	           // f.appendChild(i_refreshToken);
     	            
     	            
-    	            f.setAttribute("method","post");
-    	           // f.setAttribute("action","afterlogin/"+i_id.value);
-    	            f.setAttribute("action","/major");
-    	            f.setAttribute("target","_self");
+    	            f.setAttribute("method", "post");
+    	            f.setAttribute("action", "/major");//로그인 시 
+    	           // f.setAttribute("target","_self");
     	            document.body.appendChild(f);
     	            
     	            f.appendChild(i_id);
@@ -116,9 +118,9 @@ if(statusObj.status=="not_connected"){
     	            f.appendChild(i_accessToken);
     	            f.appendChild(i_refreshToken);
     	            
-    	            
-    	            
     	            f.submit();
+    	            
+    	       
     	            
     	          },	
     	          fail : function(error){
@@ -154,7 +156,7 @@ if(statusObj.status=="not_connected"){
     		
 	}else{//접속상태면
     		newDiv.innerHTML= statusObj.user.id+"님 웰컴 ㅎ <button id='outbtn'>로그아웃</button>";
-    		
+    		tempnick = statusObj.user.properties.nickname;
    			
     		$('#outbtn').on('click', function(){
     			

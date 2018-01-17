@@ -28,12 +28,34 @@ public class HomeController {
 	
 	@Autowired private BbsService bbsService;
 
+	
+	
+	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public String login(Locale locale, @ModelAttribute UserVo bean, HttpServletRequest req) {
+		logger.info("The client locale is {}.", locale);
+		System.out.println("포스트메인");
+		
+		bean.setKakao_id(req.getParameter("kakao_id"));
+		bean.setKakao_nick(req.getParameter("kakao_nick"));
+		bean.setProfile_img(req.getParameter("kakao_profile_image"));
+		bean.setThumb_img(req.getParameter("kakao_thumbnail_image"));
+		
+		System.out.println(bean);
+		
+		
+		return "home";
+	}
+	
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale) {
 		logger.info("The client locale is {}.", locale);
-
+		System.out.println("겟메인");
 		return "home";
 	}
+
 
 	
 	
@@ -77,18 +99,40 @@ public class HomeController {
 	@RequestMapping(value = "/board/write", method = RequestMethod.POST)
 	public String writeadd(Locale locale, @ModelAttribute BbsVo bean, HttpServletRequest req) {
 		
+		System.out.println("file encoding : " + System.getProperty("file.encoding"));
+			
+		
+		String originalStr = bean.getContent();
+		String [] charSet = {"utf-8","euc-kr","ksc5601","iso-8859-1","x-windows-949"};
+		  
+		for (int i=0; i<charSet.length; i++) {
+		 for (int j=0; j<charSet.length; j++) {
+		  try {
+		   System.out.println("[" + charSet[i] +"," + charSet[j] +"] = " + new String(originalStr.getBytes(charSet[i]), charSet[j]));
+		  } catch (UnsupportedEncodingException e) {
+		   e.printStackTrace();
+		  }
+		 }
+		}
+		
+		
+		try {
+
+		
+
 		logger.info("게시글 작성", locale);
 		System.out.println("add 포스트 들어옴");
-		try {
-			req.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
+		
+	
+		System.out.println(bean);
+		System.out.println(bean.getNickName());
+		//bean.setNickName("일단 테스트");
+		bbsService.bbsAddOne(bean);
+		
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		bbsService.bbsAddOne(bean);
-		System.out.println(bean);
-		
-		return "redirect:/board";
+		return "redirect:/board/";
 	}
 
 //	@RequestMapping(value = "/afterlogin/{kkoid}", method = RequestMethod.POST)

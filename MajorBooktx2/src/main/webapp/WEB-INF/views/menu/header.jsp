@@ -21,7 +21,7 @@
 	<div class="container">
 		<div class="row header">
 			<div class="col-md-2">
-			<a href="/major" ><img alt="logo" src="/resources/img/book.png"></a>
+			<a href="/major" ><img alt="logo" src="resources/img/book.png"></a>
 			</div>
 			<div class="col-md-10 text-center">
 			<h1>전공책을 찾아서</h1>

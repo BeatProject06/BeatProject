@@ -2,6 +2,24 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%@ include file="/WEB-INF/views/menu/header.jsp" %>
+  <script>
+	
+var putnick = function(){
+
+ var nick=document.createElement("input");
+ nick.setAttribute("type","hidden");
+ nick.setAttribute("name","nickName");
+ nick.setAttribute("value",tempnick);
+ 
+ var wform = document.getElementById('writeform');
+	wform.appendChild(nick);	
+};
+ 	
+
+ 	
+ </script>
+ 
+
  <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
 			       		<li><a href="/major">HOME </a></li>
 			           	<li><a href="#">ABOUT US</a></li>
@@ -10,6 +28,11 @@
 			            <li><a href="#">문의사항</a></li>
 			      </ul>
 			      </div>
+<jsp:include page="../loginoutdel/login.jsp"></jsp:include>
+
+
+
+
 	  </div>
 	</nav>
 	</div>
@@ -20,7 +43,8 @@
 		  	<div class="page-header">
 			  <h1>글쓰기 <small>설명</small></h1>
 			</div>
-			<form action="write" method="post" >
+			<form action="write" method="post" id="writeform" onsubmit="putnick()">
+			
 				<div class="col-md-2"> 
 					<div class="form-group"> 
 						<label for="status">상태</label> 
