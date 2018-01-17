@@ -21,11 +21,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void userDeleteOne(int no) {
+	public void userDeleteOne(String no) {
 		try {
 			userDao.userDeleteOne(no);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

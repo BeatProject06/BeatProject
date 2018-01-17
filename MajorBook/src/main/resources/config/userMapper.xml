@@ -9,7 +9,7 @@
   	INSERT INTO USERINFO VALUES (#{kakao_id}, #{kakao_nick}, #{kakao_profile_image}, #{kakao_thumbnail_image})
   	</insert>
   	
-  	<delete id="userDeleteOne" parameterType="int">
+  	<delete id="userDeleteOne" parameterType="String">
   	DELETE FROM USERINFO WHERE NO=#{value}
   	</delete>
   	

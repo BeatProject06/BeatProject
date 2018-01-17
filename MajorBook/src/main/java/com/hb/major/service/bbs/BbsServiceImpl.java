@@ -34,6 +34,7 @@ public class BbsServiceImpl implements BbsService {
 	public void bbsDetailOne(int no, Model model) {
 		try {
 			bbsDao.bbsSelectOne(no);
+			model.addAttribute("bean", bbsDao.bbsSelectOne(no));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

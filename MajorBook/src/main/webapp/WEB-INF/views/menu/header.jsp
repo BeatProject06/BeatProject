@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>전공책을 찾아서</title>
 
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     	
     </style>
-    <script src="resources/js/jquery-1.12.4.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/kakao.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-1.12.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/kakao.min.js"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="row header">
 			<div class="col-md-12">
-			<a href="/major" ><img alt="logo" src="resources/img/book.png" class="pull-left"></a>
+			<a href="/major" ><img alt="logo" src="${pageContext.request.contextPath}/resources/img/book.png" class="pull-left"></a>
 			<h1 class="text-center"><strong>전공책을 찾아서</strong></h1>
 			</div>
 			<!-- <div class="col-md-10 text-center">

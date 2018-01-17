@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int userDeleteOne(int no) throws Exception {
+	public int userDeleteOne(String no) throws Exception {
 		return session.delete("com.hb.major.model.user.UserDao.userDeleteOne", no);
 	}
 

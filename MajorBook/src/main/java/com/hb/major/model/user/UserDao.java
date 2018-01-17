@@ -7,5 +7,5 @@ public interface UserDao {
 //	UserVo userSelectOne(int no) throws Exception;
 	void userInsertOne(UserVo bean) throws Exception;
 //	int userUpdateOne(UserVo bean) throws Exception;
-	int userDeleteOne(int no) throws Exception;
+	int userDeleteOne(String no) throws Exception;
 }
