@@ -10,7 +10,9 @@
 			            <li  class="active"><a href="board">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="#">문의사항</a></li>
 			      </ul>
+<jsp:include page="../loginoutdel/login.jsp"></jsp:include>
 			      </div>
+			      
 	  </div>
 	</nav>
 	</div>

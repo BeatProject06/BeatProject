@@ -39,8 +39,8 @@ var putnick = function(){
 			            <li  class="active"><a href="borad">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="#">문의사항</a></li>
 			      </ul>
-			      </div>
 <jsp:include page="../loginoutdel/login.jsp"></jsp:include>
+			      </div>
 
 
 
