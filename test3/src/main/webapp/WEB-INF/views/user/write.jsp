@@ -56,19 +56,13 @@
 						<input type="text" class="form-control" name="title" id="title" placeholder="제목을 작성하세요">  
 					</div> 
 				</div>
-				<div class="col-md-4">
-					<div class="form-group"> 
-						<label for="nickName">이름</label> 
-						<input type="text" class="form-control" name="nickName" id="nickName" value="${nick }" readonly="readonly">  
-					</div> 
-				</div>
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<div class="form-group"> 
 						<label for="university">대학교</label> 
 						<input type="text" class="form-control" name="university" id="university" placeholder="대학교를 작성하세요">  
 					</div> 
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<div class="form-group"> 
 						<label for="dept">과</label> 
 						<input type="text" class="form-control" name="dept" id="dept" placeholder="과를 작성하세요">  
@@ -95,19 +89,19 @@
 				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="ISBN">고유번호</label> 
-						<input type="text" class="form-control" name="ISBN" id="ISBN" placeholder="책고유번호를 작성하세요">  
+						<input type="number" class="form-control" name="ISBN" id="ISBN" placeholder="책고유번호를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="costPrice">원가</label> 
-						<input type="text" class="form-control" name="costPrice" id="costPrice" placeholder="책원가를 작성하세요">  
+						<input type="number" class="form-control" name="costPrice" id="costPrice" placeholder="책원가를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="salePrice">판매가</label> 
-						<input type="text" class="form-control" name="salePrice" id="salePrice" placeholder="판매가를 작성하세요">  
+						<input type="number" class="form-control" name="salePrice" id="salePrice" placeholder="판매가를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-12">

@@ -119,9 +119,9 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/delete/{postno}", method = RequestMethod.GET)
-	public String delete(@PathVariable("postno") int no, BbsVo bean, Model model) throws Exception {
+	public String delete(@PathVariable("postno") int no, Model model) throws Exception {
 		bbsService.bbsDetailOne(no, model);
-		System.out.println(bean+"삭제");
+		//System.out.println(bean+"삭제");
 		return "user/delete";
 	}
 	@RequestMapping(value = "/delete/{postno}", method = RequestMethod.DELETE)
