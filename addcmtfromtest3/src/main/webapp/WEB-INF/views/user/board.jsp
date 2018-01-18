@@ -4,10 +4,10 @@
 <jsp:include page="../menu/header.jsp"></jsp:include>
     <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
 			        	<li><a href="/major">HOME </a></li>
-			           	<li><a href="/major/aboutus">ABOUT US</a></li>
-						<li><a href="/major/notice">공지사항</a></li>
-			            <li  class="active"><a href="/major/board">게시판<span class="sr-only">(current)</span></a></li>
-			            <li><a href="/major/question">문의사항</a></li>
+			           	<li><a href="/major/aboutus/">ABOUT US</a></li>
+						<li><a href="/major/notice/">공지사항</a></li>
+			            <li  class="active/"><a href="/major/board/">게시판<span class="sr-only">(current)</span></a></li>
+			            <li><a href="/major/question/">문의사항</a></li>
 			      </ul>
 			      <form class="navbar-form navbar-left">
 			          <input type="text" class="form-control" placeholder="search">
@@ -39,7 +39,7 @@
 			  <tr>
 			  	<td>${bean.no }</td>
 			  	<td>${bean.status }</td>
-			  	<td><a href="board/detail/${bean.no }">${bean.title }</a></td>
+			  	<td><a href="detail/${bean.no }">${bean.title }</a></td>
 			  	<td>${bean.nickName }</td>
 			  	<td>${bean.day }</td>
 			  	<td>${bean.view }</td>

@@ -5,7 +5,7 @@
 			       		<li><a href="/major">HOME </a></li>
 			           	<li><a href="/major/aboutus">ABOUT US</a></li>
 						<li><a href="/major/notice">공지사항</a></li>
-			            <li  class="/major/active"><a href="/major/board">게시판<span class="sr-only">(current)</span></a></li>
+			            <li  class="/major/active"><a href="/major/board/">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="/major/question">문의사항</a></li>
 			      </ul>
 <jsp:include page="../loginoutdel/login.jsp"></jsp:include>
@@ -110,8 +110,8 @@
 						<input type="hidden" name="day" id="day"> 
 				
 					<div class="col-md-6">
-						<a class="btn btn-default" href="/major/edit/${bean.no }" >수정</a>
-						<a class="btn btn-default" href="/major/delete/${bean.no }" >삭제</a>
+						<a class="btn btn-default" href="/major/board/edit/${bean.no }" >수정</a>
+						<a class="btn btn-default" href="/major/board/delete/${bean.no }" >삭제</a>
 						
 					</div>
 				<div class="col-md-12 text-center">
