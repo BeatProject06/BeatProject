@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
   <mapper namespace="com.hb.major.model.bbs.BbsDao">
-  	<select id="bbsSelectAll" resultType="bbsbean">
+  	<select id="bbsSelectAll" resultType="bbsbean" parameterType="int">
   	SELECT * FROM BBSLIST ORDER BY NO DESC;
   	</select>
   	

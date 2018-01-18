@@ -1,5 +1,8 @@
 package com.hb.major.service.bbs;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -14,11 +17,13 @@ public class BbsServiceImpl implements BbsService {
 	
 	@Override
 	public void bbsListAll(Model model) {
-		try {
-			model.addAttribute("list", bbsDao.bbsSelectAll());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
+			 try {
+				 model.addAttribute("list",bbsDao.bbsSelectAll());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	@Override

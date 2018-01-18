@@ -2,6 +2,7 @@ package com.hb.major.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hb.major.model.entity.BbsVo;
 import com.hb.major.model.entity.UserVo;
@@ -58,28 +60,39 @@ public class HomeController {
 		return "main";
 	}
 
-	@RequestMapping(value = "/deleteaccount", method = RequestMethod.GET)
+	@RequestMapping(value = "/userdelete", method = RequestMethod.GET)
 	public String unlinkPage() {
 		System.out.println("앱 연결 해제 페이지 이동 (회원 탈퇴)");
-		return "loginoutdel/deleteaccount";
+		return "loginoutdel/userdelete";
 	}
-	
-	@RequestMapping(value = "/deleteaccount", method = RequestMethod.POST)
+		
+	@RequestMapping(value = "/userdelete", method = RequestMethod.DELETE)
 	public String unlink(@ModelAttribute UserVo bean, HttpServletRequest req) {
 		// db에서 아이디 삭제해야하니까 post방식으로
-		String no = req.getParameter("kakao_id");
-		System.out.println(no);
-		userService.userDeleteOne(no);
-		return "redirect:/main";
+		String delid = req.getParameter("delid");
+		//String no = req.getParameter("kakao_id");
+		
+		
+		System.out.println("탈퇴 들어옴");
+		
+		System.out.println(delid);
+		userService.userDeleteOne(delid);
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/deleteing", method = RequestMethod.GET)
+	public String deleteing() {
+		System.out.println("앱 연결 해제 페이지 이동 (회원 탈퇴)");
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
 	public String board(Locale locale, Model model) {
 
 		logger.info("게시판", locale);
-
+		//조회하려는페이지
 		bbsService.bbsListAll(model);
-
+		
 		return "user/board";
 	}
 
@@ -89,7 +102,9 @@ public class HomeController {
 		logger.info("게시판", locale);
 		System.out.println("게시판 페이지는 " + bbspage);
 		bbsService.bbsListAll(model);
-
+		
+		
+		
 		return "user/board";
 	}
 

@@ -21,10 +21,10 @@
 
  <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
 			       		<li><a href="/major">HOME </a></li>
-			           	<li><a href="aboutus">ABOUT US</a></li>
-						<li><a href="notice">공지사항</a></li>
-			            <li  class="active"><a href="board">게시판<span class="sr-only">(current)</span></a></li>
-			            <li><a href="question">문의사항</a></li>
+			           	<li><a href="/major/aboutus">ABOUT US</a></li>
+						<li><a href="/major/notice">공지사항</a></li>
+			            <li  class="active"><a href="/major/board">게시판<span class="sr-only">(current)</span></a></li>
+			            <li><a href="/major/question">문의사항</a></li>
 			      </ul>
 <jsp:include page="../loginoutdel/login.jsp"></jsp:include>
 			      </div>
@@ -89,7 +89,7 @@
 				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="ISBN">고유번호</label> 
-						<input type="number" class="form-control" name="ISBN" id="ISBN" placeholder="책고유번호를 작성하세요">  
+						<input type="text" class="form-control" name="ISBN" id="ISBN" placeholder="책고유번호를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-4">

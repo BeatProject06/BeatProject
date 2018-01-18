@@ -1,6 +1,7 @@
 package com.hb.major.model.bbs;
 
 import java.util.List;
+import java.util.Map;
 
 import com.hb.major.model.entity.BbsVo;
 

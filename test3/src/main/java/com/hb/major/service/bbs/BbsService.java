@@ -1,5 +1,8 @@
 package com.hb.major.service.bbs;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.ui.Model;
 
 import com.hb.major.model.entity.BbsVo;

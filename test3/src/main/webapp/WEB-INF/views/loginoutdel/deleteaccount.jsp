@@ -29,6 +29,7 @@ $(document).ready(function(){
 	    	        	  
 						alert('해제됐다~');
 						
+						//백으로 id를 쏴줌 
 						location.replace("/major"); //해제시 홈페이지로 돌아감
 						
 						},

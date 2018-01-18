@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="menu/header.jsp"></jsp:include>
 			        <li class="active"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
-			           	<li><a href="aboutus">ABOUT US</a></li>
-						<li><a href="notice">공지사항</a></li>
-			            <li><a href="board">게시판</a></li>
-			            <li><a href="question">문의사항</a></li>
+			           	<li><a href="/major/aboutus">ABOUT US</a></li>
+						<li><a href="/major/notice">공지사항</a></li>
+			            <li><a href="/major/board">게시판</a></li>
+			            <li><a href="/major/question">문의사항</a></li>
 			      </ul>
 			      
 			        <div>
