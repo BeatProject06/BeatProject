@@ -5,7 +5,7 @@
 			        	<li><a href="/major">HOME </a></li>
 			           	<li><a href="/major/aboutus">ABOUT US</a></li>
 						<li><a href="/major/notice">공지사항</a></li>
-			            <li  class="active"><a href="board">게시판<span class="sr-only">(current)</span></a></li>
+			            <li  class="active"><a href="/major/board">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="/major/question">문의사항</a></li>
 			      </ul>
 <jsp:include page="../loginoutdel/login.jsp"></jsp:include>

@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Login Demo - Kakao Javascript SDK</title>
+    <title>전공책을 찾아서</title>
     <script src=" ${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>

@@ -109,14 +109,14 @@
 						<input type="hidden" name="view" id="view"> 
 						<input type="hidden" name="day" id="day"> 
 				
-					<div class="col-md-6">
+					<div class="col-md-6 pull-right">
 						<a class="btn btn-default" href="/major/edit/${bean.no }" >수정</a>
 						<a class="btn btn-default" href="/major/delete/${bean.no }" >삭제</a>
 						
 					</div>
 				<div class="col-md-12 text-center">
 						<a class="btn btn-default" href="#">이전글</a>
-						<a class="btn btn-default" href="#">뒤로</a>
+						<a class="btn btn-default" href="/major/board">뒤로</a>
 						<a class="btn btn-default" href="#">다음글</a>
 				</div>
 			</form>
