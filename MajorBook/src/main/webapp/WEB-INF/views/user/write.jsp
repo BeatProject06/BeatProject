@@ -1,25 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <jsp:include page="../menu/header.jsp" ></jsp:include>
-
-  <script>
-	
-	var putnick = function(){
-	
-	 var nick=document.createElement("input");
-	 nick.setAttribute("type","hidden");
-	 nick.setAttribute("name","nickName");
-	 nick.setAttribute("value",tempnick);
-	 
-	 var wform = document.getElementById('writeform');
-		wform.appendChild(nick);	
-	};
- </script>
- </head>
- <body>
-
- <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <jsp:include page="../menu/header.jsp"></jsp:include>
 			       		<li><a href="/major">HOME </a></li>
 			           	<li><a href="aboutus">ABOUT US</a></li>
 						<li><a href="notice">공지사항</a></li>
@@ -38,15 +20,14 @@
 		  	<div class="page-header">
 			  <h1>글쓰기 <small>설명</small></h1>
 			</div>
-			<form action="write" method="post" id="writeform" onsubmit="putnick()">
-			
+			<form action="write" method="post" enctype="multipart/form-data">
 				<div class="col-md-2"> 
 					<div class="form-group"> 
 						<label for="status">상태</label> 
-						<select class="form-control" name="status">
-						  <option value="팔래요">팔래요</option>
-						  <option value="살래요">살래요</option>
-						  <option value="거래완료">거래완료</option>
+						<select class="form-control">
+						  <option>팔래요</option>
+						  <option>살래요</option>
+						  <option>거래완료</option>
 						</select> 
 					</div> 
 				</div> 
@@ -56,13 +37,19 @@
 						<input type="text" class="form-control" name="title" id="title" placeholder="제목을 작성하세요">  
 					</div> 
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
+					<div class="form-group"> 
+						<label for="nickName">이름</label> 
+						<input type="text" class="form-control" name="nickName" id="nickName" value="userinfo.kakao_nickname" readonly="readonly">  
+					</div> 
+				</div>
+				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="university">대학교</label> 
 						<input type="text" class="form-control" name="university" id="university" placeholder="대학교를 작성하세요">  
 					</div> 
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="dept">과</label> 
 						<input type="text" class="form-control" name="dept" id="dept" placeholder="과를 작성하세요">  
@@ -95,13 +82,13 @@
 				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="costPrice">원가</label> 
-						<input type="number" class="form-control" name="costPrice" id="costPrice" placeholder="책원가를 작성하세요">  
+						<input type="text" class="form-control" name="costPrice" id="costPrice" placeholder="책원가를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="salePrice">판매가</label> 
-						<input type="number" class="form-control" name="salePrice" id="salePrice" placeholder="판매가를 작성하세요">  
+						<input type="text" class="form-control" name="salePrice" id="salePrice" placeholder="판매가를 작성하세요">  
 					</div> 
 				</div>
 				<div class="col-md-12">

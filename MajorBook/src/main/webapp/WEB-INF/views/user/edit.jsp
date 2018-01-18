@@ -4,10 +4,10 @@
 <jsp:include page="../menu/header.jsp"></jsp:include>
 
 			       		<li><a href="/major">HOME </a></li>
-			           	<li><a href="/major/aboutus">ABOUT US</a></li>
-						<li><a href="/major/notice">공지사항</a></li>
-			            <li  class="active"><a href="/major/board">게시판<span class="sr-only">(current)</span></a></li>
-			            <li><a href="/major/question">문의사항</a></li>
+			           	<li><a href="aboutus">ABOUT US</a></li>
+						<li><a href="notice">공지사항</a></li>
+			            <li  class="active"><a href="board">게시판<span class="sr-only">(current)</span></a></li>
+			            <li><a href="question">문의사항</a></li>
 			      </ul>
 <jsp:include page="../loginoutdel/login.jsp"></jsp:include>
 			      </div>
@@ -27,7 +27,7 @@
 				<div class="col-md-2"> 
 					<div class="form-group"> 
 						<label for="status">상태</label> 
-						<select class="form-control" name="status" id="status">
+						<select class="form-control">
 						  <option>팔래요</option>
 						 <option>살래요</option>
 						 <option>거래완료</option>
@@ -42,7 +42,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="form-group"> 
-						<label for="nickName">이름</label> 
+						<label for="nickName">이름</label> <!-- 카카오userinfo에서 닉네임을 받아오는것인가아? -->
 						<input type="text" class="form-control" name="nickName" id="nickName" value="${bean.nickName }" readonly="readonly"/>  
 					</div> 
 				</div>
@@ -97,13 +97,14 @@
 					</div> 
 				</div>
 				
-				<input type="hidden" name="day" value="${bean.day}" disabled="disabled">
 				<input type="hidden" name="view" value="${bean.view }">
 				<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 				<div class="col-md-12">
 					<div class="form-group"> 
 						<label for="content">내용</label> 
-						<textarea class="form-control" rows="20" name="content" id="content" >${bean.content }</textarea>  
+						<textarea class="form-control" rows="20" name="content" id="content" />
+						${bean.content }
+						</textarea>  
 					</div> 
 				</div>
 				<div class="col-md-6">
@@ -112,6 +113,8 @@
 						<input type="file" id="file"> 
 					</div> 
 				</div>
+						 <!-- <input type="hidden" name="view" id="view"> 
+						<input type="date" name="day" id="day" value="${bean.day }" disabled="disabled">-->
 						<input type="hidden" name="no" id="no" value="${bean.no }">
 					
 				<div class="col-md-12 text-center">

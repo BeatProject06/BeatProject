@@ -3,7 +3,6 @@ package com.hb.major.controller;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -42,31 +41,35 @@ public class HomeController {
 
 		req.setCharacterEncoding("UTF-8");
 
-		// kakao_id PK라 동일한 값이 들어오면 원래 입력은 안됨..
-		bean.setKakao_id(req.getParameter("kakao_id"));
-		bean.setKakao_nick(req.getParameter("kakao_nick"));
-		bean.setKakao_profile_image(req.getParameter("kakao_profile_image"));
-		bean.setKakao_thumbnail_image(req.getParameter("kakao_thumbnail_image"));
-		userService.userInsertOne(bean);
-		System.out.println(bean);
-		System.out.println("입력");
-		
+//		if (!(req.getParameter("kakao_id").equals(bean.getKakao_id()))) {
+			// kakao_id PK라 동일한 값이 들어오면 원래 입력은 안됨..
+			bean.setKakao_id(req.getParameter("kakao_id"));
+			bean.setKakao_nick(req.getParameter("kakao_nick"));
+			bean.setKakao_profile_image(req.getParameter("kakao_profile_image"));
+			bean.setKakao_thumbnail_image(req.getParameter("kakao_thumbnail_image"));
+			userService.userInsertOne(bean);
+			System.out.println(bean);
+			System.out.println("입력");
+//		} else {
+//			System.out.println("아이디 있으니께 메인으로 리턴");
+//			return "main";
+//		}
 		return "main";
 	}
 
-	@RequestMapping(value = "/iddelget", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteaccount", method = RequestMethod.GET)
 	public String unlinkPage() {
 		System.out.println("앱 연결 해제 페이지 이동 (회원 탈퇴)");
-		return "/iddelete";
+		return "loginoutdel/deleteaccount";
 	}
 	
-	@RequestMapping(value = "/iddelete", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/deleteaccount", method = RequestMethod.POST)
 	public String unlink(@ModelAttribute UserVo bean, HttpServletRequest req) {
 		// db에서 아이디 삭제해야하니까 post방식으로
 		String no = req.getParameter("kakao_id");
 		System.out.println(no);
 		userService.userDeleteOne(no);
-		return "redirect:/";
+		return "redirect:/main";
 	}
 
 	@RequestMapping(value = "/board", method = RequestMethod.GET)
@@ -114,34 +117,24 @@ public class HomeController {
 		return "redirect:/board";
 	}
 
-	@RequestMapping(value = "/delete/{postno}", method = RequestMethod.GET)
-	public String delete(@PathVariable("postno") int no, Model model) throws Exception {
-		bbsService.bbsDetailOne(no, model);
-		//System.out.println(bean+"삭제");
-		return "user/delete";
-	}
-	
-	@RequestMapping(value = "/delete/{postno}", method = RequestMethod.DELETE)
-	public String deletecompl(@PathVariable("postno") int no, BbsVo bean, HttpServletRequest req) throws Exception {
-		System.out.println(no);
+	@RequestMapping(value = "/delete/{postno}", method = RequestMethod.POST)
+	public String delete(@PathVariable("postno") int no, BbsVo bean, Locale locale) throws Exception {
 		bbsService.bbsDeleteOne(no);
+		System.out.println(bean+"삭제");
 		return "redirect:/board";
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String writeadd(Locale locale, @ModelAttribute BbsVo bean, HttpServletRequest req) {
-		
+
 		logger.info("게시글 작성", locale);
 		System.out.println("add 포스트 들어옴");
-		bean.setNickName("택ㄱ경");
-//		bean.setNickName(req.getParameter("kakao_nick"));
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		bbsService.bbsAddOne(bean);
 		System.out.println(bean);
 
@@ -173,7 +166,6 @@ public class HomeController {
 	public String write(Locale locale, Model model) {
 		logger.info("게시글 작성페이지", locale);
 		System.out.println("add 겟 들어옴");
-		//카카오닉네임받아와서 글쓰기시 이름에 닉네임 떠야함.
 		return "user/write";
 	}
 

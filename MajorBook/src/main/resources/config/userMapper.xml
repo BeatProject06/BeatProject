@@ -10,11 +10,7 @@
   	</insert>
   	
   	<delete id="userDeleteOne" parameterType="String">
-  	DELETE FROM USERINFO WHERE KAKAO_ID=#{value}
+  	DELETE FROM USERINFO WHERE NO=#{value}
   	</delete>
-  	
-<!--   	<select> -->
-  	
-<!--   	</select> -->
   	
   </mapper>

@@ -7,6 +7,7 @@
 <title>Insert title here</title>
  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	//Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //연습
@@ -28,7 +29,7 @@ $(document).ready(function(){
 	    	        	  
 						alert('해제됐다~');
 						
-						location.replace("/iddelete"); //해제시 홈페이지로 돌아감
+						location.replace("/major"); //해제시 홈페이지로 돌아감
 						
 						},
 						fail: function(err){
@@ -66,6 +67,7 @@ $(document).ready(function(){
 
 
 	<button id = "dounlink"> 연결 해제</button>
+	
 	
 
 </body>
