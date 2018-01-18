@@ -11,11 +11,8 @@
 			        <div>
 			        <a id="kakao-login-btn" class="pull-right"></a>
 			        </div>
-
-
 <jsp:include page="loginoutdel/login.jsp"></jsp:include>
-
-
+			        </div>
 		</div>
 	  </div>
 	</nav>
@@ -27,7 +24,6 @@
 		  	<div class="jumbotron">
 			  <h1>전공책을 찾아서</h1>
 			  <p>설명</p>
-			  
-			  
 			</div>
-		  <jsp:include page="menu/footer.jsp"></jsp:include>
+
+	<jsp:include page="/WEB-INF/views/menu/footer.jsp"></jsp:include>
