@@ -4,10 +4,10 @@
 <jsp:include page="../menu/header.jsp"></jsp:include>
     <!--메뉴별로 active들어가서 header에는 포함시키지 못함.  -->
 			        	<li><a href="/major">HOME </a></li>
-			           	<li><a href="aboutus">ABOUT US</a></li>
-						<li><a href="notice">공지사항</a></li>
-			            <li  class="active"><a href="board">게시판<span class="sr-only">(current)</span></a></li>
-			            <li><a href="question">문의사항</a></li>
+			           	<li><a href="../aboutus/">ABOUT US</a></li>
+						<li><a href="../notice/">공지사항</a></li>
+			            <li class="active"><a href=".">게시판<span class="sr-only">(current)</span></a></li>
+			            <li><a href="../question/">문의사항</a></li>
 			      </ul>
 			      <form class="navbar-form navbar-left">
 			          <input type="text" class="form-control" placeholder="search">

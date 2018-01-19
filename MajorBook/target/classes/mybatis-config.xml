@@ -6,9 +6,11 @@
   	<typeAliases>
   		<typeAlias alias="userbean" type="com.hb.major.model.entity.UserVo"/>
   		<typeAlias alias="bbsbean" type="com.hb.major.model.entity.BbsVo"/>
+  		<typeAlias alias="commentbean" type="com.hb.major.model.entity.CommentVo"/>
   	</typeAliases>
   	<mappers>
   		<mapper resource="config/userMapper.xml"/>
   		<mapper resource="config/bbsMapper.xml"/>
+  		<mapper resource="config/commentMapper.xml"/>
   	</mappers>
   </configuration>

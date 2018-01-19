@@ -13,6 +13,7 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     
 <script>
+var tempid;
 var tempnick;
  $(document).ready(function(){
     		
@@ -58,6 +59,7 @@ if(statusObj.status=="not_connected"){
     	            var kakao_root_id = sData.id+"@"+route; 
     	            var id = sData.id;     
     	            var nickname = sData.properties.nickname;
+    	            tempid=id;
     	        	tempnick=nickname;
     	            var thumbnail_image = sData.properties.thumbnail_image;
     	            var profile_image = sData.properties.profile_image;
@@ -156,6 +158,7 @@ if(statusObj.status=="not_connected"){
     		
 	}else{//접속상태면
     		newDiv.innerHTML= statusObj.user.id+"님 웰컴 ㅎ <button id='outbtn' class='btn btn-default'>로그아웃</button>";
+    		tempid = statusObj.user.id;
     		tempnick = statusObj.user.properties.nickname;
    			
     		$('#outbtn').on('click', function(){
