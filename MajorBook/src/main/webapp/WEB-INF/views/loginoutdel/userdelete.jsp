@@ -2,14 +2,16 @@
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../menu/header.jsp"></jsp:include>
+<script src=" ${pageContext.request.contextPath}/resources/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
-
 	//Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //연습
+	//Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625');//전공
 	
-	Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625');//전공
 	
+	$("#accountdeletebtn").click(function(){
+		
+		
 	
 	Kakao.Auth.getStatus(function(statusObj){
 	//	console.log(tempid);
@@ -32,7 +34,8 @@ $(document).ready(function(){
 						  deleteid.setAttribute("name","delid");
 						  deleteid.setAttribute("value", statusObj.user.id);
 		    	          document.getElementById('accountdeleteform').appendChild(deleteid);
-						  
+		    	          document.getElementById('accountdeleteform').submit();
+						alert("악");
 						
 						//location.replace("/major"); //해제시 홈페이지로 돌아감
 						
@@ -54,7 +57,6 @@ $(document).ready(function(){
 			    	        
 	});//Kakao.API.request  엔드
 	
-
 		}else{
 			
 			alert('커넥티드 상태 아님');
@@ -64,10 +66,9 @@ $(document).ready(function(){
 		
 	}); //Kakao.Auth.getStatus 엔드
  
- 
+	});//펑션끝
  
 });
-
 </script>
 
 			        	<li><a href="/major">HOME </a></li>
@@ -92,8 +93,11 @@ $(document).ready(function(){
 			  	개인정보가 해당서비스에서 삭제됩니다.<br/><br/>
 			  	"전공책을 찾아서" 서비스에 남아있는 삭제를 위해 회원탈퇴를 클릭해주세요
 			  </p>
+			  <p>정말로 카카오와 연결을 끊고 전공책을 찾아서 서비스에 남아있는 회원정보를 삭제하시겠습니까? 로 변경하고 </br>
+			  아래 버튼 누르면 실행되게 ㄱㄱ
+			  </p>
 			  <br/><br/>
-			 <form  action="userdelete" method="post" id="accountdeleteform">
+			 <form  action="userdelete" method="post" id="accountdeleteform" onsubmit="false">
 			  		<input name="_method" value="DELETE" type="hidden">
 					<button class="btn btn-danger" id="accountdeletebtn">회원탈퇴</button>
 			</form>

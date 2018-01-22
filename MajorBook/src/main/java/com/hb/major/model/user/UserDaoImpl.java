@@ -1,5 +1,7 @@
 package com.hb.major.model.user;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +22,16 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public int userDeleteOne(String no) throws Exception {
 		return session.delete("com.hb.major.model.user.UserDao.userDeleteOne", no);
+	}
+
+	@Override
+	public UserVo userSelectOne(String no) throws Exception {
+		return session.selectOne("com.hb.major.model.user.UserDao.userSelectOne", no);
+	}
+
+	@Override
+	public int userUpdateOne(UserVo bean) throws Exception {
+		return session.update("com.hb.major.model.user.UserDao.userUpdateOne", bean);
 	}
 
 	

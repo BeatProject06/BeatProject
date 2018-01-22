@@ -102,7 +102,6 @@ public class BbsController {
 		
 		logger.info("게시글 작성", locale);
 		System.out.println("add 포스트 들어옴");
-		bean.setNickName("태꼉쓰");
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {

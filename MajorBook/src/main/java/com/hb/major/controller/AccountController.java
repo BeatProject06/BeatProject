@@ -24,10 +24,10 @@ public class AccountController {
 	@RequestMapping(value = "/userdelete", method = RequestMethod.GET)
 	public String unlinkPage() {
 		System.out.println("앱 연결 해제 페이지 이동 (회원 탈퇴)");
-		return "loginoutdel/deleteaccount";
+		return "loginoutdel/userdelete";
 	}
 	
-	@RequestMapping(value = "/userdelete", method = RequestMethod.POST)
+	@RequestMapping(value = "/userdelete", method = RequestMethod.DELETE)
 	public String unlink(@ModelAttribute UserVo bean, HttpServletRequest req) {
 		// db에서 아이디 삭제해야하니까 post방식으로
 		String delid = req.getParameter("delid");
