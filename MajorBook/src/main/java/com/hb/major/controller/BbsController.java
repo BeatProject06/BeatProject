@@ -1,9 +1,11 @@
 package com.hb.major.controller;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +37,7 @@ public class BbsController {
 
 		logger.info("게시판", locale);
 
-		bbsService.bbsListAll(model);
+		bbsService.bbsListAll(model, 1);
 		return "user/board";
 	}
 
@@ -43,8 +45,8 @@ public class BbsController {
 	public String board(Locale locale, Model model, @PathVariable("bbspage") int bbspage) {
 
 		logger.info("게시판", locale);
+		bbsService.bbsListAll(model, bbspage);
 		System.out.println("게시판 페이지는 " + bbspage);
-		bbsService.bbsListAll(model);
 
 		return "user/board";
 	}
@@ -93,7 +95,6 @@ public class BbsController {
 	public String write(Locale locale, Model model) {
 		logger.info("게시글 작성페이지", locale);
 		System.out.println("add 겟 들어옴");
-		//카카오닉네임받아와서 글쓰기시 이름에 닉네임 떠야함.
 		return "user/write";
 	}
 
@@ -111,6 +112,26 @@ public class BbsController {
 		bbsService.bbsAddOne(bean);
 		System.out.println(bean);
 
-		return "redirect:/board/";
+		return "redirect:/board/1";
 	}
+	
+	@RequestMapping(value = "/bbssearch", method = RequestMethod.GET)
+	protected String bbsSearch(Locale locale, Model model, HttpServletRequest req, HttpServletResponse res) {
+
+		logger.info("게시판 검색", locale);
+		try {
+			req.setCharacterEncoding("UTF-8");
+			String keyword = req.getParameter("bbssearchkeyword");
+
+			bbsService.bbsSearch(model, keyword);
+
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return "user/board";
+	}
+	
 }

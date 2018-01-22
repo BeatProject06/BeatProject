@@ -13,9 +13,33 @@ public class BbsServiceImpl implements BbsService {
 	BbsDao bbsDao;
 	
 	@Override
-	public void bbsListAll(Model model) {
+	public void bbsListAll(Model model, int currentpage) {
 		try {
-			model.addAttribute("list", bbsDao.bbsSelectAll());
+
+			int posttotalnum = bbsDao.bbsSelectAll().size(); // 총 게시글 수
+			int totalpage;
+
+			if (posttotalnum % 10 == 0) {
+				totalpage = posttotalnum / 10; // 한페이지에 게시글 10개씩
+			} else {
+				totalpage = posttotalnum / 10 + 1;
+			}
+
+			int tempstartpage = currentpage / 5; // 페이지는 5페이지씩
+			int startpage = tempstartpage * 5 + 1;
+			int endpage;
+
+			if (totalpage - startpage < 4) {
+				endpage = totalpage;
+			} else {
+				endpage = startpage + 4;
+			}
+
+			model.addAttribute("list", bbsDao.bbsSelectPage(currentpage));
+			model.addAttribute("startpage", startpage);
+			model.addAttribute("endpage", endpage);
+			model.addAttribute("currentpage", currentpage);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,7 +60,6 @@ public class BbsServiceImpl implements BbsService {
 			bbsDao.bbsSelectOne(no);
 			model.addAttribute("bean", bbsDao.bbsSelectOne(no));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -55,7 +78,16 @@ public class BbsServiceImpl implements BbsService {
 		try {
 			bbsDao.bbsDeleteOne(no);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void bbsSearch(Model model, String keyword) {
+		try {
+			model.addAttribute("list", bbsDao.bbsSelectWhere(keyword));
+			System.out.println(bbsDao.bbsSelectWhere(keyword));
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

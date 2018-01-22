@@ -5,7 +5,7 @@
 			       		<li><a href="/major">HOME </a></li>
 			           	<li><a href="../../aboutus/">ABOUT US</a></li>
 						<li><a href="../../notice/">공지사항</a></li>
-			            <li  class="active"><a href="../../board/">게시판<span class="sr-only">(current)</span></a></li>
+			            <li  class="active"><a href="../../board/1">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="../../question/">문의사항</a></li>
 			      </ul>
 <jsp:include page="../loginoutdel/login.jsp"></jsp:include>
@@ -116,7 +116,7 @@
 					</div>
 				<div class="col-md-12 text-center">
 						<a class="btn btn-default" href="#">이전글</a>
-						<a class="btn btn-default" href="../../board/">뒤로</a>
+						<a class="btn btn-default" href="../../board/1">목록</a>
 						<a class="btn btn-default" href="#">다음글</a>
 				</div>
 			</form>

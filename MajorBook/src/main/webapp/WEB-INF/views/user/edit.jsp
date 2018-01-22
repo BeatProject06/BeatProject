@@ -6,7 +6,7 @@
 			       		<li><a href="/major">HOME </a></li>
 			           	<li><a href="../../aboutus/">ABOUT US</a></li>
 						<li><a href="../../notice/">공지사항</a></li>
-			            <li  class="active"><a href="../../board/">게시판<span class="sr-only">(current)</span></a></li>
+			            <li  class="active"><a href="../../board/1">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="../../question/">문의사항</a></li>
 			      </ul>
 <jsp:include page="../loginoutdel/login.jsp"></jsp:include>
@@ -116,7 +116,7 @@
 					
 				<div class="col-md-12 text-center">
 						<button class="btn btn-primary" type="submit">수정완료</button>
-						<a class="btn btn-default" href="../../board/">목록</a>
+						<a class="btn btn-default" href="../../board/1">목록</a>
 						<button class="btn btn-default" type="reset">초기화</button>
 				</div>
 			</form>

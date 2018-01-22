@@ -10,5 +10,6 @@ public interface BbsDao {
 	BbsVo bbsSelectOne(int no) throws Exception;
 	int bbsUpdateOne(BbsVo bean) throws Exception;
 	int bbsDeleteOne(int no) throws Exception;
-	
+	List<BbsVo> bbsSelectPage(int currentpage) throws Exception;
+	List<BbsVo> bbsSelectWhere(String keyword) throws Exception;
 }

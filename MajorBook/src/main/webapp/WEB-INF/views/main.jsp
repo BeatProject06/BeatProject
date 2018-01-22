@@ -4,7 +4,7 @@
 			        <li class="active"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
 			           	<li><a href="aboutus/">ABOUT US</a></li>
 						<li><a href="notice/">공지사항</a></li>
-			            <li><a href="board/">게시판</a></li>
+			            <li><a href="board/1">게시판</a></li>
 			            <li><a href="question/">문의사항</a></li>
 			      </ul>
 			      

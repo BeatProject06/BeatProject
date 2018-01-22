@@ -6,13 +6,13 @@
 			        	<li><a href="/major">HOME </a></li>
 			           	<li><a href="../aboutus/">ABOUT US</a></li>
 						<li><a href="../notice/">공지사항</a></li>
-			            <li class="active"><a href=".">게시판<span class="sr-only">(current)</span></a></li>
+			            <li class="active"><a href="../board/1">게시판<span class="sr-only">(current)</span></a></li>
 			            <li><a href="../question/">문의사항</a></li>
 			      </ul>
-			      <form class="navbar-form navbar-left">
-			          <input type="text" class="form-control" placeholder="search">
-			        <button type="submit" class="btn btn-default">검색</button>
-			        </form>
+			      <form class="navbar-form navbar-left" id="bbssearchform" method="get" action="bbssearch" >
+			          <input type="text" class="form-control" placeholder="search" name="bbssearchkeyword" id="bbssearchkeyword">
+			          <button type="submit"class="btn btn-default" >검색</button>
+			      </form>
 <jsp:include page="../loginoutdel/login.jsp"></jsp:include>
 			      </div>
 	  </div>
@@ -49,11 +49,27 @@
 			<a class="btn btn-default pull-right" href="write" role="button">글쓰기</a>
 			<div class="text-center">
 				  <ul class="pagination">
-				    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-				    <li><a href="#">2</a></li>
-				    <li><a href="#">3</a></li>
-				    <li><a href="#">4</a></li>
-				    <li><a href="#">5</a></li>
+				  <li><a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                
+					
+				<!--게시글 10개 페이지 5개씩 동적 처리 -->
+		
+						<c:forEach var="paging" begin="${startpage }" end="${endpage}" step="1"  >
+							<c:choose>
+							<c:when test="${currentpage eq paging }">
+								<li class="active"> <a href="<c:out value='${ paging }' />"> <c:out value="${ paging }" />	</a></li>
+							</c:when>
+							<c:otherwise>
+								<li> <a href="<c:out value='${ paging }' />"> <c:out value="${ paging }" />	</a></li>
+							</c:otherwise>
+						</c:choose>
+						
+						
+						</c:forEach>
+				
+				
 				    <li>
 				      <a href="#" aria-label="Next">
 				        <span aria-hidden="true">&raquo;</span>
