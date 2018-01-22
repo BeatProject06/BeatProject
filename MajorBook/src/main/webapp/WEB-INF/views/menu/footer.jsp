@@ -4,7 +4,7 @@
     </div>
 <div class="row footer">
 		  <div class="col-md-12">
-		 company2018<a href="userdelete">회원탈퇴</a>
+		 company2018<a href="/major/userdelete">회원탈퇴</a>
 		 
 		  </div>
 		</div>

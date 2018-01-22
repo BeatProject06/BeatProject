@@ -6,13 +6,19 @@
   <script>
 	
 	var putnick = function(){
-	
+		
+	 var id=document.createElement("input");
+	 id.setAttribute("type","hidden");
+	 id.setAttribute("name","id");
+	 id.setAttribute("value",tempid);
+	 
 	 var nick=document.createElement("input");
 	 nick.setAttribute("type","hidden");
 	 nick.setAttribute("name","nickName");
 	 nick.setAttribute("value",tempnick);
 	 
 	 var wform = document.getElementById('writeform');
+		wform.appendChild(id);	
 		wform.appendChild(nick);	
 	};
  </script>
