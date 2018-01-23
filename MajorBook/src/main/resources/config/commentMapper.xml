@@ -13,5 +13,4 @@
   		INSERT INTO BBSCOMMENT(commId, commNick, bbsNo, commContent, commDay) VALUES (#{commId}, #{commNick}, #{bbsNo}, #{commContent}, NOW())
   	</insert>
   	
-  	
   </mapper>
