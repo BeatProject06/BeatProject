@@ -4,6 +4,11 @@ import com.hb.major.model.entity.UserVo;
 
 public interface UserService {
 	
-	void UserAddOne(UserVo bean);
-
+	void userInsertOne(UserVo bean);
+	void userDeleteOne(String no);
+	void userSelectOne(String no);
+	void userUpdateOne(UserVo bean);
+	
+	void userCheck(UserVo bean);
+	
 }

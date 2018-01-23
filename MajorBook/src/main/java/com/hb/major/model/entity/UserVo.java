@@ -1,92 +1,69 @@
 package com.hb.major.model.entity;
 
-import java.sql.Date;
-
 public class UserVo {
 
-	private int num;
-	private int id;
-	private String nickname;
-	private String profile_img;
-	private String thumb_img;
-	private Date register;
+	private String kakao_id;
+	private String kakao_nick;
+	private String kakao_profile_image;
+	private String kakao_thumbnail_image;
 	
 	public UserVo() {
 	}
 
-	public int getNum() {
-		return num;
+	public String getKakao_id() {
+		return kakao_id;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setKakao_id(String kakao_id) {
+		this.kakao_id = kakao_id;
 	}
 
-	public int getId() {
-		return id;
+	public String getKakao_nick() {
+		return kakao_nick;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setKakao_nick(String kakao_nick) {
+		this.kakao_nick = kakao_nick;
 	}
 
-	public String getNickname() {
-		return nickname;
+	public String getKakao_profile_image() {
+		return kakao_profile_image;
 	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setKakao_profile_image(String kakao_profile_image) {
+		this.kakao_profile_image = kakao_profile_image;
 	}
 
-	public String getProfile_img() {
-		return profile_img;
+	public String getKakao_thumbnail_image() {
+		return kakao_thumbnail_image;
 	}
 
-	public void setProfile_img(String profile_img) {
-		this.profile_img = profile_img;
-	}
-
-	public String getThumb_img() {
-		return thumb_img;
-	}
-
-	public void setThumb_img(String thumb_img) {
-		this.thumb_img = thumb_img;
-	}
-
-	public Date getRegister() {
-		return register;
-	}
-
-	public void setRegister(Date register) {
-		this.register = register;
-	}
-
-	public UserVo(int num, int id, String nickname, String profile_img, String thumb_img, Date register) {
-		super();
-		this.num = num;
-		this.id = id;
-		this.nickname = nickname;
-		this.profile_img = profile_img;
-		this.thumb_img = thumb_img;
-		this.register = register;
+	public void setKakao_thumbnail_image(String kakao_thumbnail_image) {
+		this.kakao_thumbnail_image = kakao_thumbnail_image;
 	}
 
 	@Override
 	public String toString() {
-		return "UserVo [num=" + num + ", id=" + id + ", nickname=" + nickname + ", profile_img=" + profile_img
-				+ ", thumb_img=" + thumb_img + ", register=" + register + "]";
+		return "UserVo [kakao_id=" + kakao_id + ", kakao_nick=" + kakao_nick + ", kakao_profile_image="
+				+ kakao_profile_image + ", kakao_thumbnail_image=" + kakao_thumbnail_image + "]";
+	}
+
+	public UserVo(String kakao_id, String kakao_nick, String kakao_profile_image, String kakao_thumbnail_image) {
+		super();
+		this.kakao_id = kakao_id;
+		this.kakao_nick = kakao_nick;
+		this.kakao_profile_image = kakao_profile_image;
+		this.kakao_thumbnail_image = kakao_thumbnail_image;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((nickname == null) ? 0 : nickname.hashCode());
-		result = prime * result + num;
-		result = prime * result + ((profile_img == null) ? 0 : profile_img.hashCode());
-		result = prime * result + ((thumb_img == null) ? 0 : thumb_img.hashCode());
+		result = prime * result + ((kakao_id == null) ? 0 : kakao_id.hashCode());
+		result = prime * result + ((kakao_nick == null) ? 0 : kakao_nick.hashCode());
+		result = prime * result + ((kakao_profile_image == null) ? 0 : kakao_profile_image.hashCode());
+		result = prime * result + ((kakao_thumbnail_image == null) ? 0 : kakao_thumbnail_image.hashCode());
 		return result;
 	}
 
@@ -99,26 +76,27 @@ public class UserVo {
 		if (getClass() != obj.getClass())
 			return false;
 		UserVo other = (UserVo) obj;
-		if (id != other.id)
-			return false;
-		if (nickname == null) {
-			if (other.nickname != null)
+		if (kakao_id == null) {
+			if (other.kakao_id != null)
 				return false;
-		} else if (!nickname.equals(other.nickname))
+		} else if (!kakao_id.equals(other.kakao_id))
 			return false;
-		if (num != other.num)
-			return false;
-		if (profile_img == null) {
-			if (other.profile_img != null)
+		if (kakao_nick == null) {
+			if (other.kakao_nick != null)
 				return false;
-		} else if (!profile_img.equals(other.profile_img))
+		} else if (!kakao_nick.equals(other.kakao_nick))
 			return false;
-		if (thumb_img == null) {
-			if (other.thumb_img != null)
+		if (kakao_profile_image == null) {
+			if (other.kakao_profile_image != null)
 				return false;
-		} else if (!thumb_img.equals(other.thumb_img))
+		} else if (!kakao_profile_image.equals(other.kakao_profile_image))
+			return false;
+		if (kakao_thumbnail_image == null) {
+			if (other.kakao_thumbnail_image != null)
+				return false;
+		} else if (!kakao_thumbnail_image.equals(other.kakao_thumbnail_image))
 			return false;
 		return true;
 	}
-	
+
 }
