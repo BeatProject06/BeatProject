@@ -3,13 +3,24 @@
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
 <jsp:include page="../../menu/menutest.jsp"></jsp:include>
-
+<script>
+	
+	var towritepage=function(){
+		var write=document.createElement("form");
+		write.setAttribute("method","post");
+		write.setAttribute("action", "write");
+		document.body.appendChild(write);
+		write.submit();
+		
+		//alert("클릭");
+	}
+</script>
 	<!-- 내용 -->	
 	<div class="container">
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>문의사항<small>관리자 전용</small></h1>
+			  <h1>문의사항  <small>관리자 전용</small></h1>
 			  <table class="table table-hover">
 			  <tr>
 			  	<th  class="col-md-1">번호</th>
@@ -22,13 +33,13 @@
 			  <tr>
 			  	<td>${bean.qnaNo }</td>
 			  	<td>${bean.qnaStatus }</td>
-			  	<td><a href="question/detail/${bean.qnaNo }">${bean.qnaTitle }</a></td>
+			  	<td><a href="${bean.qnaNo }">${bean.qnaTitle }</a></td>
 			  	<td>${bean.qnaNick }</td>
 			  	<td>${bean.qnaDay }</td>
 			  </tr>
 			  </c:forEach>
 			</table>
-			<a class="btn btn-default pull-right" href="notice/write" role="button">글쓰기</a>
+			<button class="btn btn-default pull-right" onclick="towritepage();" id="write" >글쓰기</button>
 			
 			<div class="text-center">
 				  <ul class="pagination">

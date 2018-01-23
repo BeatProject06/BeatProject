@@ -18,7 +18,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	public String complaint(Locale locale, Model model) throws Exception {
 		logger.info("문의사항 게시판", locale);
 		model.addAttribute("currentmenu", "question");
-		return "user/question";
+		return "user/qna/question";
 	}
 
 	

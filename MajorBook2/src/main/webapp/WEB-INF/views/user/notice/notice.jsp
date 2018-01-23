@@ -3,6 +3,18 @@
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
 <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+<script>
+	
+	var towritepage=function(){
+		var write=document.createElement("form");
+		write.setAttribute("method","post");
+		write.setAttribute("action", "write");
+		document.body.appendChild(write);
+		write.submit();
+		
+		//alert("클릭");
+	}
+</script>
 	<!-- 내용 -->	
 	<div class="container">
 		<div class="row content">
@@ -21,13 +33,13 @@
 			  <c:forEach items="${list }" var="bean">
 			  <tr>
 			  	<td>${bean.noticeNo }</td>
-			  	<td><a href="notice/detail/${bean.noticeNo }">${bean.noticeTitle }</a></td>
+			  	<td><a href="${bean.noticeNo }">${bean.noticeTitle }</a></td>
 			  	<td>${bean.noticeNick }</td>
 			  	<td>${bean.noticeDay }</td>
 			  </tr>
 			  </c:forEach>
 			</table>
-			<a class="btn btn-default pull-right" href="notice/write" role="button">글쓰기</a>
+			<button class="btn btn-default pull-right" onclick="towritepage();" id="write" >글쓰기</button>
 			
 			<div class="text-center">
 				  <ul class="pagination">

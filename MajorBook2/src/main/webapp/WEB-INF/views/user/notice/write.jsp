@@ -1,36 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
  <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+ <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
   <script type="text/javascript" >
 
 
-	var putnick = function(){
-	
-	 var nick=document.createElement("input");
-	 nick.setAttribute("type","hidden");
-	 nick.setAttribute("name","nickName");
-	 nick.setAttribute("value",tempnick);
-	 
-	 var wform = document.getElementById('writeform');
-		wform.appendChild(nick);	
-	};
-
+  var putnick = function(){
+		
+		 var id=document.createElement("input");
+		 id.setAttribute("type","hidden");
+		 id.setAttribute("name","id");
+		 id.setAttribute("value",tempid);
+		 
+		 var nick=document.createElement("input");
+		 nick.setAttribute("type","hidden");
+		 nick.setAttribute("name","nickName");
+		 nick.setAttribute("value",tempnick);
+		 
+		 var wform = document.getElementById('writeform');
+			wform.appendChild(id);	
+			wform.appendChild(nick);	
+		};
+		
 		$("#writeform").validate();
 	
 	
  </script>
  </head>
  <body>
-
 	<!-- 내용 -->	
 	<div class="container">
 		<div class="row content">
@@ -38,7 +37,7 @@
 		  	<div class="page-header">
 			  <h1>공지사항 작성 <small>설명</small></h1>
 			</div>
-			<form action="write" method="post" id="noticeform" onsubmit="putnick()">
+			<form action="write/writecom" method="post" id="writeform" onsubmit="putnick()">
 			
 				<div class="col-md-12">
 					<div class="form-group"> 
@@ -49,7 +48,7 @@
 				<div class="col-md-12">
 					<div class="form-group"> 
 						<label for="noticeContent">내용</label> 
-						<textarea class="form-control" rows="20" name="noticeContent" id="noticeContent"></textarea>  
+						<textarea class="form-control" rows="10" name="noticeContent" id="noticeContent" ></textarea>  
 					</div> 
 				</div>
 				<!-- <div class="col-md-6">

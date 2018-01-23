@@ -45,10 +45,17 @@
 			</table>
 			<button class="btn btn-default pull-right" onclick="towritepage();" id="write" >글쓰기</button>
 			<div class="text-center">
-				  <ul class="pagination">
-				  <li><a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
+				 <c:choose>
+                <c:when test="${currentpage eq 1 }">
+            
+                      </c:when>
+                   <c:otherwise>
+                    <li><a href="page${currentpage-1} " aria-label="Previous">
+                       <span aria-hidden="true">&laquo;</span>
+                     </a>
+                   
+                   </c:otherwise>
+                </c:choose>
                 
 					
 				<!--게시글 10개 페이지 5개씩 동적 처리 -->

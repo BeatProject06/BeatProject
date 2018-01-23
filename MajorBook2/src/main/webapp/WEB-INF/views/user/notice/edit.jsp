@@ -3,22 +3,33 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
 <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+
 	<!-- 내용 -->	
 	<div class="container">
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>공지사항 수정 <small>설명</small></h1>
+			  <h1>공지사항 수정</h1>
 			</div>
-			<form action=""  method="post" >
+			
+			<form action="completeedit/${bean.noticeNo}" method="post">
 				<input type="hidden" name="_method" value="put">
-				
-				<div class="col-md-12">
+				<div class="col-md-2"> 
+					<div class="form-group"> 
+						<label for="noticeStatus">상태</label> 
+						<select class="form-control" name="noticeStatus" id="noticeStatus">
+						  <option>상담중</option>
+						 <option>상담완료</option>
+						</select> 
+					</div> 
+				</div> 
+				<div class="col-md-10">
 					<div class="form-group"> 
 						<label for="noticeTitle">제목</label> 
 						<input type="text" class="form-control" name="noticeTitle" id="noticeTitle" value="${bean.noticeTitle }"/>  
 					</div> 
 				</div>
+				<input type="hidden" name="noticeDay" value="${bean.noticeDay}" disabled="disabled">
 				<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 				<div class="col-md-12">
 					<div class="form-group"> 
@@ -32,13 +43,11 @@
 						<input type="file" id="file"> 
 					</div> 
 				</div> -->
-						<input type="hidden" name="noticeNo" id="noticeNo" value="${bean.noticeNo }"><!-- 글번호 -->
-						<input type="hidden" name="noticeNick" value="${bean.noticeNick }" id="noticeNick"><!-- 닉네임이라고하지만 관리자 -->
-						<input type="hidden" name="noticeDay" value="${bean.noticeDay}" disabled="disabled"><!-- 작성일 -->
+						<input type="hidden" name="no" id="no" value="${bean.noticeNo }">
 					
 				<div class="col-md-12 text-center">
 						<button class="btn btn-primary" type="submit">수정완료</button>
-						<a class="btn btn-default" href="../../notice/">목록</a>
+						<a class="btn btn-default" href="/major/notice/">목록</a>
 				</div>
 			</form>
 				
