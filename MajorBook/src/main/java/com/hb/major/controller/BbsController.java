@@ -134,7 +134,7 @@ public class BbsController {
 		try {
 			req.setCharacterEncoding("UTF-8");
 			String keyword = req.getParameter("bbssearchkeyword");
-
+			model.addAttribute("currentmenu", "board");
 			bbsService.bbsSearch(model, keyword);
 
 		} catch (UnsupportedEncodingException e) {

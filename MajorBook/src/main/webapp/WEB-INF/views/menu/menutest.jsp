@@ -67,6 +67,10 @@ Kakao.Auth.getStatus(function(statusObj){
 			<li class="menus"><a href="/major/notice/">공지사항</a></li>
 			<li class="active menus"><a href="/major/board/1">게시판</a></li>
 			<li class="menus"><a href="/major/question/">문의사항</a></li>
+			<form class="navbar-form navbar-left" id="bbssearchform" method="get" action="bbssearch" >
+            	<input type="text" class="form-control" placeholder="search" name="bbssearchkeyword" id="bbssearchkeyword">
+             	<button type="submit"class="btn btn-default" >검색</button>
+            </form>
 					</c:when>
 					<c:when test="${currentmenu eq 'question' }">
 			<li class="menus"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>

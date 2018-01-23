@@ -21,4 +21,5 @@
 	<bean id="userDao" class="com.hb.major.model.user.UserDaoImpl" p:session-ref="sqlSession"></bean>
 	<bean id="bbsDao" class="com.hb.major.model.bbs.BbsDaoImpl" p:session-ref="sqlSession"></bean>
 	<bean id="commentDao" class="com.hb.major.model.comment.CommentDaoImpl" p:session-ref="sqlSession"></bean>
+	<bean id="noticeDao" class="com.hb.major.model.notice.NoticeDaoImpl" p:session-ref="sqlSession"></bean>
 </beans>
