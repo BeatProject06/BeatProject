@@ -22,9 +22,9 @@ import com.hb.major.service.bbs.BbsService;
 import com.hb.major.service.comment.CommentService;
 
 @Controller
-@RequestMapping(value="board/")
+@RequestMapping(value = "board/")
 public class BbsController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@Autowired
@@ -36,7 +36,7 @@ public class BbsController {
 	public String board(Locale locale, Model model) {
 
 		logger.info("게시판", locale);
-
+		model.addAttribute("currentmenu", "board");
 		bbsService.bbsListAll(model, 1);
 		return "user/board";
 	}
@@ -45,19 +45,23 @@ public class BbsController {
 	public String board(Locale locale, Model model, @PathVariable("bbspage") int bbspage) {
 
 		logger.info("게시판", locale);
+		model.addAttribute("currentmenu", "board");
 		bbsService.bbsListAll(model, bbspage);
 		System.out.println("게시판 페이지는 " + bbspage);
 
 		return "user/board";
 	}
-	
+
 	@RequestMapping(value = "/detail/{postno}", method = RequestMethod.GET)
-	public String detail(Locale locale, Model model, Model cmtmodel, @PathVariable("postno") int no) {
+	public String detail(Locale locale, Model model, @PathVariable("postno") int no, HttpServletRequest req) {
 
 		logger.info("게시글 상세 페이지", locale);
+
+		System.out.println("상세 아이디" + req.getParameter("tempid"));
+		model.addAttribute("currentmenu", "board");
+
 		bbsService.bbsDetailOne(no, model);
-		
-		commentService.commentList(no, cmtmodel);
+		commentService.commentList(no, model);
 
 		return "user/detail";
 	}
@@ -66,14 +70,16 @@ public class BbsController {
 	public String editpage(Locale locale, Model model, @PathVariable("postno") int no) {
 
 		logger.info("게시글 수정 페이지", locale);
+		model.addAttribute("currentmenu", "board");
 		bbsService.bbsDetailOne(no, model);
 
 		return "user/edit";
 	}
 
 	@RequestMapping(value = "/edit/{postno}", method = RequestMethod.PUT)
-	public String edit(@PathVariable("postno") int no, BbsVo bean) throws Exception {
+	public String edit(@PathVariable("postno") int no, BbsVo bean, Model model) throws Exception {
 		bbsService.bbsUpdateOne(bean);
+		model.addAttribute("currentmenu", "board");
 		System.out.println("내용 수정");
 		return "redirect:/board/";
 	}
@@ -83,38 +89,44 @@ public class BbsController {
 		bbsService.bbsDetailOne(no, model);
 		return "user/delete";
 	}
-	
+
 	@RequestMapping(value = "/delete/{postno}", method = RequestMethod.DELETE)
-	public String deletecompl(@PathVariable("postno") int no, BbsVo bean) throws Exception {
+	public String deletecompl(@PathVariable("postno") int no, BbsVo bean, Model model) throws Exception {
 		bbsService.bbsDeleteOne(no);
-		System.out.println(no+"번째 게시글 삭제");
+		model.addAttribute("currentmenu", "board");
+		System.out.println(no + "번째 게시글 삭제");
 		return "redirect:/board/";
 	}
-	
+
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String write(Locale locale, Model model) {
 		logger.info("게시글 작성페이지", locale);
+		model.addAttribute("currentmenu", "board");
 		System.out.println("add 겟 들어옴");
 		return "user/write";
 	}
 
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
-	public String writeadd(Locale locale, @ModelAttribute BbsVo bean, HttpServletRequest req) {
-		
+	public String writeadd(Locale locale, @ModelAttribute BbsVo bean, HttpServletRequest req, Model model) {
+
 		logger.info("게시글 작성", locale);
+		model.addAttribute("currentmenu", "board");
+
+		System.out.println(bean.getNickName() + bean.getId());
+
 		System.out.println("add 포스트 들어옴");
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
+
 		bbsService.bbsAddOne(bean);
 		System.out.println(bean);
 
 		return "redirect:/board/1";
 	}
-	
+
 	@RequestMapping(value = "/bbssearch", method = RequestMethod.GET)
 	protected String bbsSearch(Locale locale, Model model, HttpServletRequest req, HttpServletResponse res) {
 
@@ -127,11 +139,8 @@ public class BbsController {
 
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
-
 		return "user/board";
 	}
-	
+
 }

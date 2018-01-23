@@ -17,7 +17,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice(Locale locale, Model model) throws Exception {
 		logger.info("공지사항 게시판", locale);
-
+		model.addAttribute("currentmenu", "notice");
 		return "user/notice";
 	}
 

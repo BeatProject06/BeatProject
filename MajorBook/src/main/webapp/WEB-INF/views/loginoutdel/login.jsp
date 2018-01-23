@@ -16,10 +16,6 @@
 var tempid;
 var tempnick;
  $(document).ready(function(){
-    		
-    	     //Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //javascript 키 연습앱
-    	   Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625'); //전공책앱
-    	       
     	   
 Kakao.Auth.getStatus(function(statusObj){ //현재 로그인 상태를 확인
 

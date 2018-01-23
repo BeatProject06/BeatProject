@@ -1,16 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <jsp:include page="../menu/header.jsp"></jsp:include>
-			       		<li><a href="/major">HOME </a></li>
-			           	<li><a href="../../aboutus/">ABOUT US</a></li>
-						<li><a href="../../notice/">공지사항</a></li>
-			            <li  class="active"><a href="../../board/1">게시판<span class="sr-only">(current)</span></a></li>
-			            <li><a href="../../question/">문의사항</a></li>
-			      </ul>
-<jsp:include page="../loginoutdel/login.jsp"></jsp:include>
+<jsp:include page="../menu/menutest.jsp"></jsp:include>
+
+<script>
+$(document).ready(function(){
+	
+		//alert("1");
+		
+	 Kakao.Auth.getStatus(function(statusObj){ //현재 로그인 상태를 확인
+		//alert("2");
+   	  console.log("디텔"+statusObj.user.id);
+  
+   	var currentuser= statusObj.user.properties.nickname;
+ 	var writer = '${bean.nickName}';
+  	
+	//alert(currentuser);
+  	//alert( writer );
+	
+	if(writer==currentuser){
+		alert("같음");
+		 document.getElementById("btnplace").innerHTML='<a class="btn btn-default" href="../edit/${bean.no }" >수정</a>		<a class="btn btn-default" href="../delete/${bean.no }" >삭제</a>';
+		
+	}
+	
+	 });
+	 
+ 
+ }); 
+ </script>
+
+
+
+
 			      </div>
-			      
+
 	  </div>
 	</nav>
 	</div>
@@ -40,7 +66,7 @@
 				<div class="col-md-4">
 					<div class="form-group"> 
 						<label for="nickName">이름</label> 
-						<input type="text" class="form-control" name="nickName" id="nickName" value="${bean.nickName }" readonly="readonly">  
+						<input type="text" class="form-control" name="nickName" id="nickName" value="${bean.nickName }(${bean.id})" readonly="readonly">  
 					</div> 
 				</div>
 				<div class="col-md-4">
@@ -109,11 +135,14 @@
 						<input type="hidden" name="view" id="view"> 
 						<input type="hidden" name="day" id="day"> 
 				
-					<div class="col-md-6 pull-right">
-						<a class="btn btn-default" href="../edit/${bean.no }" >수정</a>
-						<a class="btn btn-default" href="../delete/${bean.no }" >삭제</a>
-						
+				
+					<div class="col-md-6 pull-right" id="btnplace">
+				
 					</div>
+					
+					
+					
+					
 				<div class="col-md-12 text-center">
 						<a class="btn btn-default" href="#">이전글</a>
 						<a class="btn btn-default" href="../../board/1">목록</a>
