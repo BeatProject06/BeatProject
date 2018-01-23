@@ -1,4 +1,4 @@
-package com.hb.major.model.comment;
+package com.hb.major.model.bbs.comment;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ public class CommentDaoImpl implements CommentDao {
 
 	@Override
 	public List<CommentVo> getCommentList(int postnum) throws Exception {
-		return session.selectList("com.hb.major.model.comment.CommentDao.getCommentList", postnum);
+		return session.selectList("com.hb.major.model.bbs.comment.CommentDao.getCommentList", postnum);
 		
 	}
 
 	@Override
 	public void commentInsertOne(CommentVo cmtbean) throws Exception {
-		session.insert("com.hb.major.model.comment.CommentDao.commentInsertOne", cmtbean);
+		session.insert("com.hb.major.model.bbs.comment.CommentDao.commentInsertOne", cmtbean);
 		
 	}
 	

@@ -1,11 +1,10 @@
-package com.hb.major.service.comment;
+package com.hb.major.service.bbs.comment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.hb.major.model.bbs.BbsDao;
-import com.hb.major.model.comment.CommentDao;
+import com.hb.major.model.bbs.comment.CommentDao;
 import com.hb.major.model.entity.CommentVo;
 
 @Service

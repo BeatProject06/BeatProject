@@ -1,4 +1,4 @@
-package com.hb.major.service.comment;
+package com.hb.major.service.bbs.comment;
 
 import org.springframework.ui.Model;
 

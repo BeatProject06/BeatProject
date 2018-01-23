@@ -1,6 +1,5 @@
 package com.hb.major.controller;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hb.major.model.entity.BbsVo;
 import com.hb.major.service.bbs.BbsService;
-import com.hb.major.service.comment.CommentService;
+import com.hb.major.service.bbs.comment.CommentService;
 
 @Controller
 @RequestMapping(value = "board/")

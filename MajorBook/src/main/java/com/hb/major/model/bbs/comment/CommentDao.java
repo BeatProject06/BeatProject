@@ -1,4 +1,4 @@
-package com.hb.major.model.comment;
+package com.hb.major.model.bbs.comment;
 
 import java.util.List;
 
