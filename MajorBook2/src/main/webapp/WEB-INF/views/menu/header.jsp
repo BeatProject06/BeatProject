@@ -47,6 +47,7 @@
     <script src=" ${pageContext.request.contextPath}/resources/js/jquery-1.12.4.min.js"></script>
     <script src=" ${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
     <script src=" ${pageContext.request.contextPath}/resources/js/kakao.min.js"></script>
+     
 </head>
 <body>
 	<div class="container header">

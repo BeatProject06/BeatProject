@@ -15,15 +15,9 @@
 			<form action="completeedit/${bean.noticeNo}" method="post">
 				<input type="hidden" name="_method" value="put">
 				<div class="col-md-2"> 
-					<div class="form-group"> 
-						<label for="noticeStatus">상태</label> 
-						<select class="form-control" name="noticeStatus" id="noticeStatus">
-						  <option>상담중</option>
-						 <option>상담완료</option>
-						</select> 
-					</div> 
+					
 				</div> 
-				<div class="col-md-10">
+				<div class="col-md-12">
 					<div class="form-group"> 
 						<label for="noticeTitle">제목</label> 
 						<input type="text" class="form-control" name="noticeTitle" id="noticeTitle" value="${bean.noticeTitle }"/>  

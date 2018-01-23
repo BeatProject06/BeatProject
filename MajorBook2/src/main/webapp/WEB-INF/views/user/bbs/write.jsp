@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
  <jsp:include page="../../menu/menutest.jsp"></jsp:include>
- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src=" ${pageContext.request.contextPath}/resources/js/jquery.validate.min.js"></script>
   <script type="text/javascript" >
 
 
@@ -24,7 +24,17 @@
 			wform.appendChild(nick);	
 		};
 		
-		$("#writeform").validate();
+		
+		$(function(){
+			$("#writeform").validate();
+			$.extend($.validator.messages, {
+				required: "필수항목 입니다.",
+				maxlength: $.validator.format("{0}자를 넘을 수 없습니다."),
+				minlength: $.validator.format("{0}자 이상 입력하세요"),
+				max: $.validator.format("{0} 이하의 값을 입력하세요"),
+				min: $.validator.format("{0} 이상의 값을 입력하세요")
+			});
+		});
 	
 	
  </script>
