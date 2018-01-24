@@ -34,7 +34,7 @@
 			  	<td>${bean.qnaNo }</td>
 			  	<td>${bean.qnaStatus }</td>
 			  	<td><a href="${bean.qnaNo }">${bean.qnaTitle }</a></td>
-			  	<td>${bean.qnaNick }</td>
+			  	<td>${bean.qnaNick }(${bean.qnaId })</td>
 			  	<td>${bean.qnaDay }</td>
 			  </tr>
 			  </c:forEach>

@@ -31,6 +31,16 @@ private QnaService qnaService;
 private QnaCommService qnaCommService;
 
 
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String board(Locale locale, Model model, HttpServletRequest req) {
+	
+		logger.info("게시판", locale);
+		model.addAttribute("currentmenu", "question");
+		qnaService.qnaListAll(model, 1);
+		return "user/qna/question";
+	}
+
+	
 	@RequestMapping(value = "/page{qnapage}", method = RequestMethod.GET)
 	public String board(Locale locale, Model model, @PathVariable("qnapage") int qnapage) {
 

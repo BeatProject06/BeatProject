@@ -140,7 +140,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "user/notice/board";
+		return "user/notice/notice";
 	}
 	
 	
