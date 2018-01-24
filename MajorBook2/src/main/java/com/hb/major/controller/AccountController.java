@@ -36,5 +36,10 @@ public class AccountController {
 		userService.userDeleteOne(delid);
 		return "redirect:/";
 	}
+	
+
+	
+	
+	
 
 }

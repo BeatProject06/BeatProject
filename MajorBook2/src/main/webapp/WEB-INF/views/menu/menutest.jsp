@@ -10,6 +10,7 @@
 <title>Insert title here</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){
 	var tempid;
 	var tempnick;
@@ -21,12 +22,47 @@ Kakao.Auth.getStatus(function(statusObj){
 	//console.log("메뉴"+statusObj.status);
 	//console.log("메뉴"+statusObj.user);
 	
-	 if(statusObj.status=="not_connected"){ //접속상태가 비로그인일때
+	 if(statusObj.status=="connected"){ //접속상태가 로그인일때 //비동기로 관리자값을 확인하고 로그인상태를 true로 변경
+	 //ajax로 값 넘김 "id값"
+	 
+	  var req = new XMLHttpRequest();
+	 	function checklogin(){//encodeURIComponent() 해줘야하나 id
+	 		 
+	 		 //굳이 폼을 만들어서 시리얼라이즈할 필요없으니 uri로 넘기기로..
+			req.open("POST", "/major/checkmasteraccount?checkid="+encodeURIComponent(statusObj.user.id), true);
+		 	req.onreadystatechange = checkProcess;
+		 	req.send(null);
+		 	
+		 }
+	 	 
+		 function checkProcess(){
+			 if(req.readyState==4 && req.status ==200){
+
+				 var obj = eval('('+ req.responseText +')');
+				 var result = obj.result;
+				 //alert(result.value);
+				 
+				 if(result.value){
+				 //통신성공해서 받아온 관리자확인 값이 트루면 이렇게 경로를 바꿈.
+					 var qnamenupath = document.getElementById("checkright");
+					 qnamenupath.setAttribute("href", "/major/aboutus/");
+
+				 }
+				 
+			 }
+		 }
+		 checklogin();
 		 
+	 
+	 }else{ //비로그인일때는 모든 메뉴를 전부 메인으로 돌려버림
+		
+		 var fakemenu =document.getElementById("showmenu");
+		 fakemenu.innerHTML='<ul class="nav navbar-nav"><li class="active menus"><a href="/major">HOME<span class="sr-only">(current)</span></a></li><li class="menus"><a href="/major">ABOUT zczxcxz US</a></li><li class="menus"><a href="/major">공지사항</a></li><li class="menus"><a href="/major">게시판</a></li><li class="menus"><a href="/major">문의사항</a></li></ul>';
+	
+		 ////비로그인으로 주소표시줄에서 주소 찍고 들어올때... 여기 미비점임 ㅠㅠ 일단 그 게시판에 들어갔다가 리로드 되기 때문에 퍼포먼스가 지저분하고 각 게시판 컨트롤러에서도 찍힘  
 		 var currenturl = location.href;
 		 var suburl = currenturl.split("/major/")[1];
 	
-		 
 		 if(suburl != ""){ //main아닐때는 main으로
 			 location.replace("/major");
 		 }
@@ -42,28 +78,32 @@ Kakao.Auth.getStatus(function(statusObj){
 </script>
 </head>
 <body>
-	
+
+<div id="showmenu">
+
+ <ul class="nav navbar-nav">
+ 
 			<c:choose>
 					<c:when test="${currentmenu eq 'home' }">
-			<li class="active menus"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
+			<li class="active menus"><a href="/major">HOME<span class="sr-only">(current)</span></a></li>
 			<li class="menus"><a href="/major/aboutus/">ABOUT US</a></li>
 			<li class="menus"><a href="/major/notice/page1">공지사항</a></li>
 			<li class="menus"><a href="/major/board/page1">게시판</a></li>
-			<li class="menus"><a href="/major/question/page1" class="checkright">문의사항</a></li>
+			<li class="menus"><a href="/major/question/page1" id="checkright">문의사항</a></li>
 					</c:when>
 					<c:when test="${currentmenu eq 'aboutus' }">
 			<li class="menus"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
 			<li class="activ menus"><a href="/major/aboutus/">ABOUT US</a></li>
 			<li class="menus"><a href="/major/notice/page1">공지사항</a></li>
 			<li class="menus"><a href="/major/board/page1">게시판</a></li>
-			<li class="menus"><a href="/major/question/page1"  class="checkright">문의사항</a></li>
+			<li class="menus"><a href="/major/question/page1"  id="checkright">문의사항</a></li>
 					</c:when>
 					<c:when test="${fn:startsWith(currentmenu,'notice') }">
 			<li class="menus"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
 			<li class="menus"><a href="/major/aboutus/">ABOUT US</a></li>
 			<li class="active menus"><a href="/major/notice/page1">공지사항</a></li>
 			<li class="menus"><a href="/major/board/page1">게시판</a></li>
-			<li class="menus"><a href="/major/question/page1"  class="checkright">문의사항</a></li>
+			<li class="menus"><a href="/major/question/page1"  id="checkright">문의사항</a></li>
 			
 						
 		<form class="navbar-form navbar-left" id="noticesearchform" method="get" action="/major/notice/noticesearch" >
@@ -77,7 +117,7 @@ Kakao.Auth.getStatus(function(statusObj){
 			<li class="menus"><a href="/major/aboutus/">ABOUT US</a></li>
 			<li class="menus"><a href="/major/notice/page1">공지사항</a></li>
 			<li class="active menus"><a href="/major/board/page1">게시판</a></li>
-			<li class="menus"><a href="/major/question/page1"  class="checkright">문의사항</a></li>
+			<li class="menus"><a href="/major/question/page1"  id="checkright">문의사항</a></li>
 			
 		<form class="navbar-form navbar-left" id="bbssearchform" method="get" action="/major/board/bbssearch" >
              <input type="text" class="form-control" placeholder="search" name="bbssearchkeyword" id="bbssearchkeyword">
@@ -89,7 +129,7 @@ Kakao.Auth.getStatus(function(statusObj){
 			<li class="menus"><a href="/major/aboutus/">ABOUT US</a></li>
 			<li class="menus"><a href="/major/notice/page1">공지사항</a></li>
 			<li class="menus"><a href="/major/board/page1">게시판</a></li>
-			<li class="active menus"><a href="/major/question/page1"  class="checkright">문의사항</a></li>
+			<li class="active menus"><a href="/major/question/page1"  id="checkright">문의사항</a></li>
 			
 						
 		<form class="navbar-form navbar-left" id="qnasearchform" method="get" action="/major/question/qnasearch" >
@@ -98,12 +138,16 @@ Kakao.Auth.getStatus(function(statusObj){
        </form>
 					</c:when>
 				</c:choose>
+
 			
-			
+	</div>	 
 			
 			<jsp:include page="../loginoutdel/login.jsp"></jsp:include>
 			
 		 </ul>
+		 
+		 
+		 
 		 
 		</div>
 	  </div>
@@ -111,29 +155,4 @@ Kakao.Auth.getStatus(function(statusObj){
 
 
 </body>
-
-
-<script type="text/javascript">
-
-$(document).on('click', 'a[class="checkright"]', function(e){
-	
-	//로그인시 관리자인지 아닌지 먼저 체크한 후에 카테고리부터 분기점 나누기....
-	e.preventDefault();
-	alert(tempnick+tempid);
-	
-	var toqna=document.createElement("form");
-	toqna.setAttribute("method","post");
-	toqna.setAttribute("action", "/major/question/");
-	
-	var checkid = document.createElement("input");
-	checkid.setAttribute("type","hidden");
-	checkid.setAttribute("name","checkid");
-	checkid.setAttribute("value",tempid);
-	toqna.appendChild(checkid);
-	
-	document.body.appendChild(toqna);
-	toqna.submit();
-	
-});
-</script>
 </html>

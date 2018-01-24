@@ -21,7 +21,7 @@
   	</select>
   	
 	<insert id="bbsInsertOne" parameterType="bbsbean">
-  	INSERT INTO BBSLIST(id, nickName, university, dept, bookName, publisher, author, ISBN, costPrice, salePrice, view, status, day, title, content) VALUES (#{id}, #{nickName}, #{university}, #{dept}, #{bookName}, #{publisher}, #{author}, #{ISBN}, #{costPrice}, #{salePrice}, #{view}, #{status}, now(), #{title}, #{content})
+  	INSERT INTO BBSLIST(id, nickName, university, dept, bookName, publisher, author, ISBN, costPrice, salePrice, status, day, title, content) VALUES (#{id}, #{nickName}, #{university}, #{dept}, #{bookName}, #{publisher}, #{author}, #{ISBN}, #{costPrice}, #{salePrice},  #{status}, now(), #{title}, #{content})
   	</insert>
   	
   	<update id="bbsUpdateOne" parameterType="bbsbean">
