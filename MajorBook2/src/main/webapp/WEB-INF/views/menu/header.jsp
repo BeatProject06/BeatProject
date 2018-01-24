@@ -73,6 +73,6 @@
           <a class="navbar-brand" href="/major">전공책을 찾아서</a>
         </div>
         
+        
         <div id="navbar" class="navbar-collapse collapse">
-         
           

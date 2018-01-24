@@ -14,14 +14,19 @@
 
 
 	var putnick = function(){
-	
-	 var nick=document.createElement("input");
-	 nick.setAttribute("type","hidden");
-	 nick.setAttribute("name","nickName");
-	 nick.setAttribute("value",tempnick);
-	 
-	 var wform = document.getElementById('writeform');
-		wform.appendChild(nick);	
+		var id=document.createElement("input");
+		 id.setAttribute("type","hidden");
+		 id.setAttribute("name","qnaId");
+		 id.setAttribute("value",tempid);
+		 
+		 var nick=document.createElement("input");
+		 nick.setAttribute("type","hidden");
+		 nick.setAttribute("name","qnaNick");
+		 nick.setAttribute("value",tempnick);
+		 
+		 var wform = document.getElementById('qnaform');
+			wform.appendChild(id);	
+			wform.appendChild(nick);	
 	};
 
 		$("#writeform").validate();
@@ -35,9 +40,11 @@
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>공지사항 작성 <small>설명</small></h1>
+			  <h1>문의사항 작성 <small>설명</small></h1>
 			</div>
-			<form action="write" method="post" id="qnaform" onsubmit="putnick()">
+			
+			
+			<form action="write/writecom" method="post" id="qnaform" onsubmit="putnick()">
 				<div class="col-md-2"> 
 					<div class="form-group"> 
 						<label for="status">상태</label> 
@@ -67,22 +74,31 @@
 				<button class="btn btn-default" type="reset">취소</button>
 				</div>
 			</form>
+			
+			
+			
+			
 			<table class="table table-hover">
-			  <tr>
-			  	<th  class="col-md-1">번호</th>
-			  	<th  class="col-md-2">상태</th>
-			  	<th  class="col-md-5">제목</th>
-			  	<th  class="col-md-2">글쓴이</th>
-			  	<th  class="col-md-2">작성일</th>
-			  </tr>
-			  <c:forEach items="${list }" var="bean">
-			  <tr>
-			  	<td>${bean.qnaNo }</td>
-			  	<td>${bean.qnaStatus }</td>
-			  	<td><a href="${bean.qnaNo }">${bean.qnaTitle }</a></td>
-			  	<td>${bean.qnaNick }</td>
-			  	<td>${bean.qnaDay }</td>
-			  </tr>
-			  </c:forEach>
-			</table>
+           <tr>
+              <th  class="col-md-1">번호</th>
+              <th  class="col-md-2">상태</th>
+              <th  class="col-md-5">제목</th>
+              <th  class="col-md-2">글쓴이</th>
+              <th  class="col-md-2">작성일</th>
+           </tr>
+           <c:forEach items="${mylist }" var="bean">
+           <tr>
+              <td>${bean.qnaNo }</td>
+              <td>${bean.qnaStatus }</td>
+              <td><a href="${bean.qnaNo }">${bean.qnaTitle }</a></td>
+              <td>${bean.qnaNick }</td>
+              <td>${bean.qnaDay }</td>
+           </tr>
+           </c:forEach>
+         </table>
+			
+			
+			
+			
+
 		<jsp:include page="../../menu/footer.jsp"></jsp:include>

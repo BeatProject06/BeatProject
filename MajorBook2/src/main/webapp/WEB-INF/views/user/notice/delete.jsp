@@ -12,7 +12,7 @@
 			  <h1>삭제확인</h1>
 			</div>
 			  <h2>정말로 공지사항을 삭제하시겠습니까?</h2>
-			  <form  action="delete/${bean.no}" method="post">
+			  <form  action="delete/${bean.noticeNo}" method="post">
 			  		<input name="_method" value="DELETE" type="hidden">
 					<button class="btn btn-danger">삭제</button>
 			 </form>

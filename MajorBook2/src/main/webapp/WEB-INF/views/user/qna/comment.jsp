@@ -32,20 +32,20 @@
 
 <c:forEach items="${cmtlist }" var="cmtbean">
 	<div class="list-group">
-	    <h4 class="list-group-item-heading">${cmtbean.qnaCommNo } :        ${cmtbean.qnaCommNick }(${cmtbean.qnaCommId })             ____${cmtbean.commDay}</h4>
+	    <h4 class="list-group-item-heading">${cmtbean.qnaCommNo } :        ${cmtbean.qnaCommNick }(${cmtbean.qnaCommId })             ____${cmtbean.qnaCommDay}</h4>
 	    <p class="list-group-item-text">${cmtbean.qnaCommContent }</p>
 	</div>
  </c:forEach>
  
 
 	<form action="writecomment" method="post" id="qnaCommentform" onsubmit="putcmtinf()">
-		<input type="hidden" name="bbsNo" value="${bean.qnaListNo }">
+		<input type="hidden" name="qnaListNo" value="${bean.qnaNo }">
 		
 		<div class="col-md-12">
 			<div class="form-group"> 
 			
 			<label for="qnaCommContent">코멘트 내용</label> 
-			<textarea class="form-control" rows="4" name="commContent" id="commContent"></textarea>  
+			<textarea class="form-control" rows="4" name="qnaCommContent" id="qnaCommContent"></textarea>  
 			<button class="btn btn-default col-md-12" type="submit">코멘트 등록</button> 
 			</div>
 		</div>

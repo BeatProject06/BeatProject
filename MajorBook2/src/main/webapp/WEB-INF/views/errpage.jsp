@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" isErrorPage="true"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
             <br/>
             <br/>
             <br/>
-            <h1><u>페이지 오류 안내</u></h1>
+            <h1><u>페이지 오류 안내: error code ( ${requestScope['javax.servlet.error.status_code']} )</u></h1>
             <br/>
             <br/>
             <br/>

@@ -9,7 +9,7 @@
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>공지사항 수정</h1>
+			  <h1>문의사항 수정</h1>
 			</div>
 			
 			<form action="completeedit/${bean.qnaNo}" method="post">
@@ -43,7 +43,7 @@
 						<input type="file" id="file"> 
 					</div> 
 				</div> -->
-						<input type="hidden" name="no" id="no" value="${bean.qnaNo }">
+						<input type="hidden" name="qnaNo" id="qnaNo" value="${bean.qnaNo }">
 					
 				<div class="col-md-12 text-center">
 						<button class="btn btn-primary" type="submit">수정완료</button>

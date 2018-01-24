@@ -4,6 +4,7 @@
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
  <jsp:include page="../../menu/menutest.jsp"></jsp:include>
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+ <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js"></script>
   <script type="text/javascript" >
 
 
@@ -25,6 +26,10 @@
 		};
 		
 		$("#writeform").validate();
+		
+		window.onload = function() {
+			CKEDITOR.replace('content');
+		}
 	
 	
  </script>

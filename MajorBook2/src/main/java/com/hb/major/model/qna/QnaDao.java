@@ -12,4 +12,8 @@ public interface QnaDao {
 	int qnaDeleteOne(int no) throws Exception;
 	List<QnaVo> qnaSelectPage(int currentpage) throws Exception;
 	List<QnaVo> qnaSelectWhere(String keyword) throws Exception;
+	
+	
+	List<QnaVo> qnaSelectWhereMylist(String userid) throws Exception;
+	
 }

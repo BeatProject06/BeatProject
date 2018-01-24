@@ -3,7 +3,6 @@ package com.hb.major.controller;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +28,7 @@ public class HomeController {
 	public String home(Locale locale, Model menumodel, HttpServletRequest req) {
 		logger.info("The client locale is {}.", locale);
 		menumodel.addAttribute("currentmenu", "home");
-	
+		
 		return "main";
 	}
 
@@ -38,9 +37,6 @@ public class HomeController {
 
 		req.setCharacterEncoding("UTF-8");
 		menumodel.addAttribute("constate","connected");
-		
-		
-		
 		menumodel.addAttribute("currentmenu", "home");
 		userService.userCheck(bean);
 		

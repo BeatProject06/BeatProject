@@ -16,7 +16,7 @@ $(document).ready(function(){
    	  console.log("디텔"+statusObj.user.id);
   
    	var currentuser= statusObj.user.properties.nickname;
- 	var writer = '${bean.nickName}';
+ 	var writer = '${bean.qnaNick}';
   	
 	//alert(currentuser);
   	//alert( writer );
@@ -29,7 +29,7 @@ $(document).ready(function(){
   		
   		 var f = document.createElement("form");
   	  	f.setAttribute("method", "post");
-      	f.setAttribute("action", "${bean.no}");
+      	f.setAttribute("action", "${bean.qnaNo}");
       	
       	 var confirmmethod=document.createElement("input");
       	confirmmethod.setAttribute("type","hidden");
@@ -73,7 +73,8 @@ $(document).ready(function(){
 				<div class="col-md-2"> 
 					<div class="form-group"> 
 						<label for="status">상태</label> 
-						<input type="text" class="form-control" name="qnaStatus" id="qnaStatus" value="상담중" readonly="readonly"/>
+<!-- 						<input type="text" class="form-control" name="qnaStatus" id="qnaStatus" value="상담중" readonly="readonly"/> -->
+						<input type="text" class="form-control" name="qnaStatus" id="qnaStatus" value="${bean.qnaStatus }" readonly="readonly"/>
 					</div> 
 				</div>
 				<div class="col-md-10">
@@ -105,5 +106,9 @@ $(document).ready(function(){
 						
 				</div>
 			</form>
+			
+			<div class="col-md-12">
+				<jsp:include page="comment.jsp"></jsp:include>
+			</div>
 				
 	<jsp:include page="../../menu/footer.jsp"></jsp:include>

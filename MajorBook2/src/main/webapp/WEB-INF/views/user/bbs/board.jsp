@@ -30,7 +30,6 @@
 			  	<th  class="col-md-4">제목</th>
 			  	<th  class="col-md-2">글쓴이</th>
 			  	<th  class="col-md-2">작성일</th>
-			  
 			  </tr>
 		<c:forEach items="${list }" var="bean">
 			  <tr>
@@ -39,7 +38,6 @@
 			  	<td><a href="${bean.no }">${bean.title }</a></td>
 			  	<td>${bean.nickName }(${bean.id })</td>
 			  	<td>${bean.day }</td>
-			  	
 			  </tr>
 			  </c:forEach>
 			</table>

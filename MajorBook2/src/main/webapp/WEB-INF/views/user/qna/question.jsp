@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"  errorPage="errpage.jsp"
     pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
 <jsp:include page="../../menu/menutest.jsp"></jsp:include>
 <script>
-	alert(tempid+temnick);
-	var towritepage=function(){
-		var write=document.createElement("form");
-		write.setAttribute("method","post");
-		write.setAttribute("action", "write");
-		document.body.appendChild(write);
-		write.submit();
+	
+	var qtowritepage=function(){
+		var qwrite=document.createElement("form");
+		qwrite.setAttribute("method","post");
+		qwrite.setAttribute("action", "write");
+		document.body.appendChild(qwrite);
+		qwrite.submit();
 		
-		//alert("클릭");
+// 		alert("클릭");
 	}
 </script>
 	<!-- 내용 -->	
@@ -34,20 +34,18 @@
 			  	<td>${bean.qnaNo }</td>
 			  	<td>${bean.qnaStatus }</td>
 			  	<td><a href="${bean.qnaNo }">${bean.qnaTitle }</a></td>
-			  	<td>${bean.qnaNick }</td>
+			  	<td>${bean.qnaNick }(${bean.qnaId })</td>
 			  	<td>${bean.qnaDay }</td>
 			  </tr>
 			  </c:forEach>
 			</table>
-			<button class="btn btn-default pull-right" onclick="towritepage();" id="write" >글쓰기</button>
-			
+		
 			<div class="text-center">
 				  <ul class="pagination">
 				  
 				  
 			 <c:choose>
 				 	<c:when test="${currentpage eq 1 }">
-				
                		 </c:when>
                 	<c:otherwise>
                 	 <li><a href="page${currentpage-1} " aria-label="Previous">
@@ -73,7 +71,6 @@
 				 <c:choose>
 				 	<c:when test="${currentpage eq totalpage }">
                		 </c:when>
-               		 
                 	<c:otherwise>
 				    <li>
 				      <a href="page${currentpage+1} " aria-label="Next">

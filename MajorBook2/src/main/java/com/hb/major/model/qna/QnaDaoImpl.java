@@ -22,7 +22,7 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Override
 	public void qnaInsertOne(QnaVo bean) throws Exception {
-		session.insert("com.hb.major.model.qna.qnaInsertOne", bean);
+		session.insert("com.hb.major.model.qna.QnaDao.qnaInsertOne", bean);
 	}
 
 	@Override
@@ -48,6 +48,11 @@ public class QnaDaoImpl implements QnaDao {
 	@Override
 	public List<QnaVo> qnaSelectWhere(String keyword) throws Exception {
 		return session.selectList("com.hb.major.model.qna.QnaDao.qnaSelectWhere", keyword);
+	}
+
+	@Override
+	public List<QnaVo> qnaSelectWhereMylist(String userid) throws Exception {
+		return session.selectList("com.hb.major.model.qna.QnaDao.qnaSelectWhereMylist",userid);
 	}
 
 }

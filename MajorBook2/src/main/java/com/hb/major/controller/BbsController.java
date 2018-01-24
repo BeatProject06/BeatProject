@@ -1,6 +1,5 @@
 package com.hb.major.controller;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
@@ -34,10 +33,6 @@ public class BbsController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String board(Locale locale, Model model, HttpServletRequest req) {
-		//System.out.println("req값"+req.getParameter("tempid"));
-		
-		
-		
 
 		logger.info("게시판", locale);
 		model.addAttribute("currentmenu", "board");
@@ -112,7 +107,7 @@ public class BbsController {
 	public String write(Locale locale, Model model) {
 		model.addAttribute("currentmenu", "board");
 		logger.info("게시글 작성페이지", locale );
-		System.out.println("add 들어옴");
+		System.out.println("add 겟 들어옴");
 		return "user/bbs/write";
 	}
 

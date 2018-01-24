@@ -5,7 +5,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
 <jsp:include page="../../menu/menutest.jsp"></jsp:include>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js"></script>
 <script>
 $(document).ready(function(){
 	
@@ -57,6 +57,10 @@ $(document).ready(function(){
 	 
  
  }); 
+ 
+window.onload = function() {
+	CKEDITOR.replace('content');
+} 
  </script>
 
 

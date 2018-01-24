@@ -40,8 +40,7 @@
 			  </tr>
 			  </c:forEach>
 			</table>
-			<button class="btn btn-default pull-right" onclick="towritepage();" id="write" >글쓰기</button>
-			
+			<div id="noticewritebtn"></div>
 			<div class="text-center">
 				  <ul class="pagination">
 				 <c:choose>

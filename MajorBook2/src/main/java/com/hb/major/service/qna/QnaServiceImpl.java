@@ -39,7 +39,8 @@ public class QnaServiceImpl implements QnaService {
 			model.addAttribute("startpage", startpage);
 			model.addAttribute("endpage", endpage);
 			model.addAttribute("currentpage", currentpage);
-
+			model.addAttribute("totalpage", totalpage);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -92,10 +93,23 @@ public class QnaServiceImpl implements QnaService {
 		}
 	}
 
+
+
 	@Override
-	public boolean qnaCheckMaster(int id) {
-		// TODO Auto-generated method stub
-		return false;
+	public void qnaMyListAll(Model model, String id) {
+		
+		System.out.println("왜 서블릿에 안들어옴??");
+		
+		try {
+			System.out.println("????");
+			System.out.println(qnaDao.qnaSelectWhereMylist(id));
+			
+			model.addAttribute("mylist", qnaDao.qnaSelectWhereMylist(id));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
