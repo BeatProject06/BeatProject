@@ -11,4 +11,6 @@ public interface QnaService {
 	void qnaUpdateOne(QnaVo bean);
 	void qnaDeleteOne(int no);
 	void qnaSearch(Model model, String keyword);
+	
+	boolean qnaCheckMaster(int id);
 }

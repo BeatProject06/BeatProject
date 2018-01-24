@@ -2,10 +2,13 @@ package com.hb.major.model.notice;
 
 import java.util.List;
 
+
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.hb.major.model.entity.NoticeVo;
 
+@Repository
 public class NoticeDaoImpl implements NoticeDao {
 	SqlSession session;
 	public void setSession(SqlSession session) {
@@ -30,6 +33,8 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public int noticeUpdateOne(NoticeVo bean) throws Exception {
+		
+		System.out.println(bean);
 		return session.update("com.hb.major.model.notice.NoticeDao.noticeUpdateOne", bean);
 	}
 

@@ -6,11 +6,12 @@
   <mapper namespace="com.hb.major.model.bbs.comment.CommentDao">
   
   	<select id="getCommentList" parameterType="int" resultType="commentbean">
-  		SELECT * FROM BBSCOMMENT WHERE BBSNO=#{value} ORDER BY COMMDAY DESC;
+  		SELECT * FROM BBSCOMMENT WHERE BBSNO=#{value} ORDER BY COMMNO ASC;
   	</select>
   	
   	<insert id="commentInsertOne" parameterType="commentbean">
   		INSERT INTO BBSCOMMENT(commId, commNick, bbsNo, commContent, commDay) VALUES (#{commId}, #{commNick}, #{bbsNo}, #{commContent}, NOW())
   	</insert>
+  	
   	
   </mapper>

@@ -17,7 +17,7 @@
   	</select>
   	
   	<select id="qnaSelectPage" parameterType="int" resultType="qnabean">
-  	SELECT TEMP.* FROM (SELECT * FROM QNALIST ORDER BY QNANO DESC) TEMP ORDER BY TEMP.NO DESC LIMIT #{value}, 10 
+  	SELECT TEMP.* FROM (SELECT * FROM QNALIST ORDER BY QNANO DESC) TEMP ORDER BY TEMP.QNANO DESC LIMIT #{value}, 10 
   	</select>
   	
 	<insert id="qnaInsertOne" parameterType="qnabean">

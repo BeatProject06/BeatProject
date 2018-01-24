@@ -25,7 +25,7 @@ public class HomeController {
 
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model menumodel) {
+	public String home(Locale locale, Model menumodel, HttpServletRequest req) {
 		logger.info("The client locale is {}.", locale);
 		menumodel.addAttribute("currentmenu", "home");
 		
@@ -36,7 +36,7 @@ public class HomeController {
 	public String login(@ModelAttribute UserVo bean, HttpServletRequest req, Model menumodel) throws Exception {
 
 		req.setCharacterEncoding("UTF-8");
-		
+		menumodel.addAttribute("constate","connected");
 		menumodel.addAttribute("currentmenu", "home");
 		userService.userCheck(bean);
 		

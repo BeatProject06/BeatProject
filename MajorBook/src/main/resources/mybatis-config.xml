@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   <configuration>
-  	<typeAliases>
+	<typeAliases>
   		<typeAlias alias="userbean" type="com.hb.major.model.entity.UserVo"/>
   		<typeAlias alias="bbsbean" type="com.hb.major.model.entity.BbsVo"/>
   		<typeAlias alias="commentbean" type="com.hb.major.model.entity.CommentVo"/>
@@ -16,7 +16,8 @@
   		<mapper resource="config/bbsMapper.xml"/>
   		<mapper resource="config/commentMapper.xml"/>
   		<mapper resource="config/noticeMapper.xml"/>
-  		<mapper resource="config/qnaMapper.xml"/>
+		<mapper resource="config/qnaMapper.xml"/>
   		<mapper resource="config/qnaCommentMapper.xml"/>
+  		<mapper resource="config/checkMasterMapper.xml"/>
   	</mappers>
   </configuration>

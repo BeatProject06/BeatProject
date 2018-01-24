@@ -13,8 +13,8 @@
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     
 <script>
-var tempid;
-var tempnick;
+/* var tempid;
+var tempnick; */
  $(document).ready(function(){
     	   
 Kakao.Auth.getStatus(function(statusObj){ //현재 로그인 상태를 확인

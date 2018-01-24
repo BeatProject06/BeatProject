@@ -2,10 +2,12 @@ package com.hb.major.model.qna.comment;
 
 import java.util.List;
 
+
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.hb.major.model.entity.QnaCommentVo;
-
+@Repository
 public class QnaCommDaoImpl implements QnaCommDao {
 	
 	SqlSession session;

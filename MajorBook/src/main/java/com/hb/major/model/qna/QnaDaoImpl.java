@@ -2,10 +2,13 @@ package com.hb.major.model.qna;
 
 import java.util.List;
 
+
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.hb.major.model.entity.QnaVo;
 
+@Repository
 public class QnaDaoImpl implements QnaDao {
 	SqlSession session;
 	public void setSession(SqlSession session) {
@@ -19,7 +22,7 @@ public class QnaDaoImpl implements QnaDao {
 
 	@Override
 	public void qnaInsertOne(QnaVo bean) throws Exception {
-		session.insert("com.hb.major.model.qna.qnaInsertOne", bean);
+		session.insert("com.hb.major.model.qna.QnaDao.qnaInsertOne", bean);
 	}
 
 	@Override

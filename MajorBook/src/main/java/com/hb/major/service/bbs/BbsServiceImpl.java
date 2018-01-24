@@ -18,7 +18,7 @@ public class BbsServiceImpl implements BbsService {
 
 			int posttotalnum = bbsDao.bbsSelectAll().size(); // 총 게시글 수
 			int totalpage;
-
+			int startpage;
 			if (posttotalnum % 10 == 0) {
 				totalpage = posttotalnum / 10; // 한페이지에 게시글 10개씩
 			} else {
@@ -26,7 +26,14 @@ public class BbsServiceImpl implements BbsService {
 			}
 
 			int tempstartpage = currentpage / 5; // 페이지는 5페이지씩
-			int startpage = tempstartpage * 5 + 1;
+			
+			if(currentpage%5==0) {
+				 startpage = (tempstartpage -1)* 5+1;
+			}else {
+				startpage = tempstartpage * 5 + 1;
+			}
+			
+		
 			int endpage;
 
 			if (totalpage - startpage < 4) {
@@ -39,6 +46,7 @@ public class BbsServiceImpl implements BbsService {
 			model.addAttribute("startpage", startpage);
 			model.addAttribute("endpage", endpage);
 			model.addAttribute("currentpage", currentpage);
+			model.addAttribute("totalpage", totalpage);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -76,6 +84,7 @@ public class BbsServiceImpl implements BbsService {
 	@Override
 	public void bbsDeleteOne(int no) {
 		try {
+			
 			bbsDao.bbsDeleteOne(no);
 		} catch (Exception e) {
 			e.printStackTrace();

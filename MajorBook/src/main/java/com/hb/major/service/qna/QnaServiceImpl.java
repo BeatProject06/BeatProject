@@ -1,11 +1,13 @@
 package com.hb.major.service.qna;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.hb.major.model.entity.QnaVo;
 import com.hb.major.model.qna.QnaDao;
 
+@Service
 public class QnaServiceImpl implements QnaService {
 	@Autowired
 	QnaDao qnaDao;
@@ -37,7 +39,8 @@ public class QnaServiceImpl implements QnaService {
 			model.addAttribute("startpage", startpage);
 			model.addAttribute("endpage", endpage);
 			model.addAttribute("currentpage", currentpage);
-
+			model.addAttribute("totalpage", totalpage);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -88,6 +91,12 @@ public class QnaServiceImpl implements QnaService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public boolean qnaCheckMaster(int id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
