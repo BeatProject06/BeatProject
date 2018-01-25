@@ -1,10 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"  errorPage="errpage.jsp"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
 <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-	
+$(document).ready(function(){
+	  history.replaceState({}, null, location.pathname)
+
+});
 	var qtowritepage=function(){
 		var qwrite=document.createElement("form");
 		qwrite.setAttribute("method","post");
@@ -39,9 +43,7 @@
 			  </tr>
 			  </c:forEach>
 			</table>
-			<button class="btn btn-default pull-right" onclick="qtowritepage();" id="write" >글쓰기</button>
-			${totalpage }
-			
+		
 			<div class="text-center">
 				  <ul class="pagination">
 				  

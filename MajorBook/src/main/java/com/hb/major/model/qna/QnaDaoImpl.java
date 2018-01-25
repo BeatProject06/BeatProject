@@ -50,4 +50,9 @@ public class QnaDaoImpl implements QnaDao {
 		return session.selectList("com.hb.major.model.qna.QnaDao.qnaSelectWhere", keyword);
 	}
 
+	@Override
+	public List<QnaVo> qnaSelectWhereMylist(String userid) throws Exception {
+		return session.selectList("com.hb.major.model.qna.QnaDao.qnaSelectWhereMylist",userid);
+	}
+
 }

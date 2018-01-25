@@ -27,6 +27,14 @@ $(document).ready(function(){
 	$(document).on('click', 'button[id="delbtn"]', function(){
   		//alert("삭제 클리익");
   		
+  			Kakao.Auth.getStatus(function(statusObj){
+					
+
+		if(statusObj.status=="connected"){ 
+		tempid = statusObj.user.id;
+		tempnick = statusObj.user.properties.nickname;
+		
+		alert("지울때"+tempid);
   		 var f = document.createElement("form");
   	  	f.setAttribute("method", "post");
       	f.setAttribute("action", "${bean.qnaNo}");
@@ -36,15 +44,31 @@ $(document).ready(function(){
       	confirmmethod.setAttribute("name","_method");
       	confirmmethod.setAttribute("value", "delete");
 
-    	 f.appendChild(confirmmethod);
+    	var id=document.createElement("input");
+		id.setAttribute("type","hidden");
+		id.setAttribute("name","qnaId");
+		id.setAttribute("value",tempid);
+					 
+		var nick=document.createElement("input");
+		nick.setAttribute("type","hidden");
+		nick.setAttribute("name","qnaNick");
+		nick.setAttribute("value",tempnick);
+      	
+		f.appendChild(id);	
+		f.appendChild(nick);
+    	f.appendChild(confirmmethod);
     	 
       	 document.body.appendChild(f);
     	           
     	 f.submit(); 
   		
-  		
-  		
-  	});
+  	
+	
+	
+  			}});
+	
+	});
+	
   	
   	
   	
@@ -102,7 +126,7 @@ $(document).ready(function(){
 				
 					</div>
 				<div class="col-md-12 text-center">
-						<a class="btn btn-primary" href="/major/question/">목록으로</a>
+						<a class="btn btn-primary" href="/major/myqna">목록으로</a>
 						
 				</div>
 			</form>

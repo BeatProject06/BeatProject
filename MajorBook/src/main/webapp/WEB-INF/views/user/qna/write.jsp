@@ -8,24 +8,56 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
  <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+ 
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script type="text/javascript" >
-	var putnick = function(){
-		var id=document.createElement("input");
-		 id.setAttribute("type","hidden");
-		 id.setAttribute("name","qnaId");
-		 id.setAttribute("value",tempid);
-		 
-		 var nick=document.createElement("input");
-		 nick.setAttribute("type","hidden");
-		 nick.setAttribute("name","qnaNick");
-		 nick.setAttribute("value",tempnick);
-		 
-		 var wform = document.getElementById('qnaform');
+
+  $(document).ready(function(){
+		  history.replaceState({}, null, location.pathname)
+
+
+	 $(document).on('submit', 'form',function(e){
+		//alert("이거 실행안해?");
+		e.preventDefault();
+						
+		 Kakao.Auth.getStatus(function(statusObj){
+
+			//console.log("메뉴"+statusObj.status);
+			//console.log("메뉴"+statusObj.user);
+								
+
+		if(statusObj.status=="connected"){ 
+			tempid = statusObj.user.id;
+			tempnick = statusObj.user.properties.nickname;
+		
+			var id=document.createElement("input");
+			id.setAttribute("type","hidden");
+			id.setAttribute("name","qnaId");
+			id.setAttribute("value",tempid);
+						 
+			var nick=document.createElement("input");
+			nick.setAttribute("type","hidden");
+			nick.setAttribute("name","qnaNick");
+			nick.setAttribute("value",tempnick);
+						 
+		/* 	var master=document.createElement("input");
+			master.setAttribute("type","hidden");
+			master.setAttribute("name","master");
+			master.setAttribute("value",checkmaster);
+			f.appendChild(master);  
+		*/
+			var wform = document.getElementById('qnaform');
 			wform.appendChild(id);	
-			wform.appendChild(nick);	
-	};
+			wform.appendChild(nick);
+			wform.submit();
+	 }}); 
+							 
+ 	});  
+
+});
 		$("#writeform").validate();
 	
 	
@@ -39,7 +71,9 @@
 		  	<div class="page-header">
 			  <h1>문의사항 작성 <small>설명</small></h1>
 			</div>
-			<form action="write/writecom" method="post" id="qnaform" onsubmit="putnick()">
+			
+			
+			<form action="/major/myqna/write/writecom" method="post" id="qnaform" >
 				<div class="col-md-2"> 
 					<div class="form-group"> 
 						<label for="status">상태</label> 
@@ -65,9 +99,35 @@
 					</div> 
 				</div> -->
 				<div class="col-md-12 text-center">
-				<button class="btn btn-primary" type="submit">완료</button>
+				<button class="btn btn-primary" type="submit" id="qnawritebtn">완료</button>
 				<button class="btn btn-default" type="reset">취소</button>
 				</div>
 			</form>
+			
+			
+			
+			
+			<table class="table table-hover">
+           <tr>
+              <th  class="col-md-1">번호</th>
+              <th  class="col-md-2">상태</th>
+              <th  class="col-md-5">제목</th>
+              <th  class="col-md-2">글쓴이</th>
+              <th  class="col-md-2">작성일</th>
+           </tr>
+           <c:forEach items="${mylist }" var="bean">
+           <tr>
+              <td>${bean.qnaNo }</td>
+              <td>${bean.qnaStatus }</td>
+              <td><a href="/major/myqna/${bean.qnaNo }">${bean.qnaTitle }</a></td>
+              <td>${bean.qnaNick }</td>
+              <td>${bean.qnaDay }</td>
+           </tr>
+           </c:forEach>
+         </table>
+			
+			
+			
+			
 
 		<jsp:include page="../../menu/footer.jsp"></jsp:include>

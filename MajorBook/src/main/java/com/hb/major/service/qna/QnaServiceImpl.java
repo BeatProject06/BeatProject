@@ -94,9 +94,15 @@ public class QnaServiceImpl implements QnaService {
 	}
 
 	@Override
-	public boolean qnaCheckMaster(int id) {
-		// TODO Auto-generated method stub
-		return false;
+	public void qnaMyListAll(Model model, String id) {
+		try {
+			System.out.println(qnaDao.qnaSelectWhereMylist(id));
+			
+			model.addAttribute("mylist", qnaDao.qnaSelectWhereMylist(id));
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

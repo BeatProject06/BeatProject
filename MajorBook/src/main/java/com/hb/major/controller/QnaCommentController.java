@@ -46,4 +46,26 @@ public class QnaCommentController {
 	}
 	
 	
+	
+	@RequestMapping(value = "/myqna/writecomment", method = RequestMethod.POST)
+	public String mywritecmt(Locale locale, @ModelAttribute QnaCommentVo cmtbean, HttpServletRequest req) {
+		
+		logger.info("코멘트 작성", locale);
+		System.out.println("코멘트 작성 post 들어옴");
+		
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		int boardNum = Integer.parseInt(req.getParameter("qnaListNo"));
+		System.out.println(boardNum);
+		cmtbean.setQnaListNo(boardNum);
+		qnaCommService.qnaCommentAddOne(cmtbean);
+		System.out.println(cmtbean);
+
+		return "redirect:/myqna/"+cmtbean.getQnaListNo();
+	}	
+	
 }
