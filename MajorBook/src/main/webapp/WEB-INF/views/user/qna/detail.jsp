@@ -125,14 +125,36 @@ $(document).ready(function(){
 					<div class="col-md-6 pull-right" id="btnplace">
 				
 					</div>
-				<div class="col-md-12 text-center">
-						<a class="btn btn-primary" href="/major/myqna">목록으로</a>
+<!-- 				<div class="col-md-12 text-center"> -->
+<!-- 						<a class="btn btn-primary" href="/major/myqna">목록으로</a> -->
 						
-				</div>
+<!-- 				</div> -->
 			</form>
 			
 			<div class="col-md-12">
 				<jsp:include page="comment.jsp"></jsp:include>
 			</div>
+			
+			
+			<table class="table table-hover">
+           <tr>
+              <th  class="col-md-1">번호</th>
+              <th  class="col-md-2">상태</th>
+              <th  class="col-md-5">제목</th>
+              <th  class="col-md-2">글쓴이</th>
+              <th  class="col-md-2">작성일</th>
+           </tr>
+           <c:forEach items="${mylist }" var="bean">
+           <tr>
+              <td>${bean.qnaNo }</td>
+              <td>${bean.qnaStatus }</td>
+              <td><a href="/major/myqna/${bean.qnaNo }">${bean.qnaTitle }</a></td>
+              <td>${bean.qnaNick }</td>
+              <td>${bean.qnaDay }</td>
+           </tr>
+           </c:forEach>
+         </table>
+			
+			
 				
 	<jsp:include page="../../menu/footer.jsp"></jsp:include>

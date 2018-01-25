@@ -143,6 +143,8 @@ private QnaCommService qnaCommService;
 
 		qnaService.qnaDetailOne(no, model);
 		qnaCommService.qnaCommentList(no, model);
+		String userid = req.getParameter("userid");
+		qnaService.qnaMyListAll(model, userid);
 
 		return "user/qna/detail";
 	}

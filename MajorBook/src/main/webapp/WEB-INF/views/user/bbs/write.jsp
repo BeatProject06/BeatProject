@@ -48,16 +48,7 @@
 			CKEDITOR.replace('content');
 		}
 		
-		$(function(){
-			$("#writeform").validate();
-			$.extend($.validator.messages, {
-				required: "필수항목 입니다.",
-				maxlength: $.validator.format("{0}자를 넘을 수 없습니다."),
-				minlength: $.validator.format("{0}자 이상 입력하세요"),
-				max: $.validator.format("{0} 이하의 값을 입력하세요"),
-				min: $.validator.format("{0} 이상의 값을 입력하세요")
-			});
-		});
+		$("#writeform").validate();
 		
  </script>
 <script type="text/javascript">
