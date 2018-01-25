@@ -11,8 +11,6 @@
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
  <jsp:include page="../../menu/menutest.jsp"></jsp:include>
   <script type="text/javascript" >
-
-
 	var putnick = function(){
 		var id=document.createElement("input");
 		 id.setAttribute("type","hidden");
@@ -28,7 +26,6 @@
 			wform.appendChild(id);	
 			wform.appendChild(nick);	
 	};
-
 		$("#writeform").validate();
 	
 	

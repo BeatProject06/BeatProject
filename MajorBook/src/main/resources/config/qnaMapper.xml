@@ -7,7 +7,7 @@
   	<select id="qnaSelectAll" resultType="qnabean">
   	SELECT * FROM QNALIST ORDER BY QNANO DESC
   	</select>
-  	
+
   	<select id="qnaSelectOne" parameterType="int" resultType="qnabean">
   	SELECT * FROM QNALIST WHERE QNANO=#{value}
   	</select>

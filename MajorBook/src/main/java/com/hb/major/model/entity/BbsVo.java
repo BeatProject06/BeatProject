@@ -19,6 +19,7 @@ public class BbsVo {
 	private Date day;
 	private String title;
 	private String content;
+	private String imgFile;
 	
 	public BbsVo() {
 	}
@@ -151,17 +152,25 @@ public class BbsVo {
 		this.content = content;
 	}
 
+	public String getImgFile() {
+		return imgFile;
+	}
+
+	public void setImgFile(String imgFile) {
+		this.imgFile = imgFile;
+	}
+
 	@Override
 	public String toString() {
 		return "BbsVo [no=" + no + ", id=" + id + ", nickName=" + nickName + ", university=" + university + ", dept="
 				+ dept + ", bookName=" + bookName + ", publisher=" + publisher + ", author=" + author + ", ISBN=" + ISBN
 				+ ", costPrice=" + costPrice + ", salePrice=" + salePrice + ", view=" + view + ", status=" + status
-				+ ", day=" + day + ", title=" + title + ", content=" + content + "]";
+				+ ", day=" + day + ", title=" + title + ", content=" + content + ", imgFile=" + imgFile + "]";
 	}
 
 	public BbsVo(int no, String id, String nickName, String university, String dept, String bookName, String publisher,
 			String author, String iSBN, int costPrice, int salePrice, int view, String status, Date day, String title,
-			String content) {
+			String content, String imgFile) {
 		super();
 		this.no = no;
 		this.id = id;
@@ -179,6 +188,7 @@ public class BbsVo {
 		this.day = day;
 		this.title = title;
 		this.content = content;
+		this.imgFile = imgFile;
 	}
 
 	@Override
@@ -192,6 +202,7 @@ public class BbsVo {
 		result = prime * result + costPrice;
 		result = prime * result + ((dept == null) ? 0 : dept.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((imgFile == null) ? 0 : imgFile.hashCode());
 		result = prime * result + ((nickName == null) ? 0 : nickName.hashCode());
 		result = prime * result + no;
 		result = prime * result + ((publisher == null) ? 0 : publisher.hashCode());
@@ -244,6 +255,11 @@ public class BbsVo {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (imgFile == null) {
+			if (other.imgFile != null)
+				return false;
+		} else if (!imgFile.equals(other.imgFile))
+			return false;
 		if (nickName == null) {
 			if (other.nickName != null)
 				return false;
@@ -277,5 +293,5 @@ public class BbsVo {
 			return false;
 		return true;
 	}
-
+	
 }

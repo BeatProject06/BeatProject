@@ -10,19 +10,22 @@
     <link href=" ${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
 	.navbar{
-		background-color:orange;
+		background-color:#FFE3EE;
 		
 	}
 	
 	.navbar-default .navbar-nav>li>a {
-    	color: #fff;
+    	color: #EB7EA7;
+    	font-weight: bold;
+    	
 	}
 	.navbar-default .navbar-brand {
-    	color: #fff;
+    	color: #CD4275;
+    	font-weight: bold;
 	}
 	 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
-		color: #fff;
-    	background-color: yellow;
+		color: #505050;
+    	background-color: #D7567F;
 	}
 	#logotext h1{
 		margin-top: 30px;

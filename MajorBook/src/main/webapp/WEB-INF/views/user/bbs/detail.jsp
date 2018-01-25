@@ -148,7 +148,8 @@ window.onload = function() {
 				<!-- ///////////////////////////////////////////////////////////////////////////////// -->
 				<div class="col-md-12">
 					<div class="form-group"> 
-						<label for="content">내용</label> 
+						<label for="content">내용</label>
+						<img src="${pageContext.request.contextPath}/resources/file/${bean.imgFile}"/>
 						<textarea class="form-control" rows="20" name="content" id="content" readonly="readonly">${bean.content }</textarea>  
 					</div> 
 				</div>
@@ -158,7 +159,6 @@ window.onload = function() {
 						<input type="file" id="file"> 
 					</div> 
 				</div>
-						<input type="hidden" name="view" id="view"> 
 						<input type="hidden" name="day" id="day"> 
 				
 				

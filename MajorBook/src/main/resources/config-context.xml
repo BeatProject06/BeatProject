@@ -26,5 +26,7 @@
 	<bean id="qnaDao" class="com.hb.major.model.qna.QnaDaoImpl" p:session-ref="sqlSession"></bean>
 	<bean id="qnaCommDao" class="com.hb.major.model.qna.comment.QnaCommDaoImpl" p:session-ref="sqlSession"></bean>
 	<bean id="checkMasterDao" class="com.hb.major.model.checkMaster.CheckMasterDaoImple" p:session-ref="sqlSession"></bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
 </beans>
