@@ -98,15 +98,13 @@ window.onload = function() {
 				<div class="col-md-12">
 					<div class="form-group"> 
 						<label for="content">내용</label> 
+						<%-- <c:if test="${bean.imgFile ne '' }">
+						<img src="${pageContext.request.contextPath}/resources/file/${bean.imgFile}"/>
+						</c:if> --%>
 						<textarea class="form-control" rows="20" name="content" id="content" >${bean.content }</textarea>  
 					</div> 
 				</div>
-				<div class="col-md-6">
-					<div class="form-group"> 
-						<label for="file">사진첨부</label> 
-						<input type="file" id="file"> 
-					</div> 
-				</div>
+				
 						<input type="hidden" name="no" id="no" value="${bean.no }">
 					
 				<div class="col-md-12 text-center">

@@ -146,7 +146,7 @@ Kakao.Auth.getStatus(function(statusObj){
                   </c:when>
                   <c:when test="${currentmenu eq 'aboutus' }">
             <li class="menus"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
-            <li class="activ menus"><a href="/major/aboutus/">ABOUT US</a></li>
+            <li class="active menus"><a href="/major/aboutus/">ABOUT US</a></li>
             <li class="menus"><a href="/major/notice/page1">공지사항</a></li>
             <li class="menus"><a href="/major/board/page1">게시판</a></li>
             <li class="menus"><a href="/major/myqna/"  id="checkright">문의사항</a></li>
