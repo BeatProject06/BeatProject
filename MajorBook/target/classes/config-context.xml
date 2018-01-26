@@ -18,7 +18,15 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 	
+	
 	<bean id="userDao" class="com.hb.major.model.user.UserDaoImpl" p:session-ref="sqlSession"></bean>
 	<bean id="bbsDao" class="com.hb.major.model.bbs.BbsDaoImpl" p:session-ref="sqlSession"></bean>
-	<bean id="commentDao" class="com.hb.major.model.comment.CommentDaoImpl" p:session-ref="sqlSession"></bean>
+	<bean id="commentDao" class="com.hb.major.model.bbs.comment.CommentDaoImpl" p:session-ref="sqlSession"></bean>
+	<bean id="noticeDao" class="com.hb.major.model.notice.NoticeDaoImpl" p:session-ref="sqlSession"></bean>
+	<bean id="qnaDao" class="com.hb.major.model.qna.QnaDaoImpl" p:session-ref="sqlSession"></bean>
+	<bean id="qnaCommDao" class="com.hb.major.model.qna.comment.QnaCommDaoImpl" p:session-ref="sqlSession"></bean>
+	<bean id="checkMasterDao" class="com.hb.major.model.checkMaster.CheckMasterDaoImple" p:session-ref="sqlSession"></bean>
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+
 </beans>

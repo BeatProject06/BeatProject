@@ -25,24 +25,20 @@ public class HomeController {
 
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale) {
+	public String home(Locale locale, Model menumodel, HttpServletRequest req) {
 		logger.info("The client locale is {}.", locale);
-
+		menumodel.addAttribute("currentmenu", "home");
+		
 		return "main";
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String login(@ModelAttribute UserVo bean, HttpServletRequest req) throws Exception {
+	public String login(@ModelAttribute UserVo bean, HttpServletRequest req, Model menumodel) throws Exception {
 
 		req.setCharacterEncoding("UTF-8");
-
-		bean.setKakao_id(req.getParameter("kakao_id"));
-		bean.setKakao_nick(req.getParameter("kakao_nick"));
-		bean.setKakao_profile_image(req.getParameter("kakao_profile_image"));
-		bean.setKakao_thumbnail_image(req.getParameter("kakao_thumbnail_image"));
-		userService.userInsertOne(bean);
-		System.out.println(bean);
-		System.out.println("메인");
+		menumodel.addAttribute("constate","connected");
+		menumodel.addAttribute("currentmenu", "home");
+		userService.userCheck(bean);
 		
 		return "main";
 	}
@@ -50,9 +46,9 @@ public class HomeController {
 	@RequestMapping(value = "/aboutus", method = RequestMethod.GET)
 	public String aboutus(Locale locale, Model model) throws Exception {
 		logger.info("ABOUT US", locale);
-
+		
+		model.addAttribute("currentmenu", "aboutus");
 		return "user/aboutus";
 	}
-
 
 }

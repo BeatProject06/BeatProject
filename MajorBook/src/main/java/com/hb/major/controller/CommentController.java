@@ -27,11 +27,11 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	
-	@RequestMapping(value = "/board/detail/writecomment", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/writecomment", method = RequestMethod.POST)
 	public String writecmt(Locale locale, @ModelAttribute CommentVo cmtbean, HttpServletRequest req) {
 		
-		logger.info("ÄÚ¸àÆ®ÀÛ¼º", locale);
-		System.out.println("ÄÚ¸àÆ®ÀÛ¼º postµé¾î¿È");
+		logger.info("ì½”ë©˜íŠ¸ ìž‘ì„±", locale);
+		System.out.println("ì½”ë©˜íŠ¸ ìž‘ì„± post ë“¤ì–´ì˜´");
 		
 		try {
 			req.setCharacterEncoding("UTF-8");
@@ -45,7 +45,7 @@ public class CommentController {
 		commentService.commentAddOne(cmtbean);
 		System.out.println(cmtbean);
 
-		return "redirect:/board/detail/"+cmtbean.getBbsNo();
+		return "redirect:/board/"+cmtbean.getBbsNo();
 	}
 	
 	

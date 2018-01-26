@@ -13,4 +13,12 @@
   	DELETE FROM USERINFO WHERE KAKAO_ID=#{value}
   	</delete>
   	
+  	<select id="userSelectOne" parameterType="String" resultType="userbean">
+  	SELECT * FROM USERINFO WHERE KAKAO_ID LIKE CONCAT('%',#{kakao_id},'%')
+  	</select>
+  	
+  	<update id="userUpdateOne" parameterType="userbean">
+  	UPDATE USERINFO SET KAKAO_NICK=#{kakao_nick}, KAKAO_PROFILE_IMAGE=#{kakao_profile_image}, KAKAO_THUMBNAIL_IMAGE=#{kakao_thumbnail_image} WHERE KAKAO_ID=#{kakao_id}
+  	</update>
+  	
   </mapper>

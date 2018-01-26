@@ -1,17 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="menu/header.jsp"></jsp:include>
-			        <li class="active"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
-			           	<li><a href="aboutus/">ABOUT US</a></li>
-						<li><a href="notice/">공지사항</a></li>
-			            <li><a href="board/">게시판</a></li>
-			            <li><a href="question/">문의사항</a></li>
-			      </ul>
-			      
-			        <div>
-			        <a id="kakao-login-btn" class="pull-right"></a>
-			        </div>
-<jsp:include page="loginoutdel/login.jsp"></jsp:include>
+<jsp:include page="menu/menutest.jsp"></jsp:include>
 			        </div>
 		</div>
 	  </div>
@@ -23,7 +13,9 @@
 		  <div class="col-md-12">
 		  	<div class="jumbotron">
 			  <h1>전공책을 찾아서</h1>
-			  <p>설명</p>
+			  <p>'전공책을 찾아서'를 방문해주셔서 감사합니다.<br/>
+			 
+			  </p>
 			</div>
 
 	<jsp:include page="/WEB-INF/views/menu/footer.jsp"></jsp:include>

@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class BbsVo {
 	private int no;
+	private String id;
 	private String nickName;
 	private String university;
 	private String dept;
@@ -18,6 +19,7 @@ public class BbsVo {
 	private Date day;
 	private String title;
 	private String content;
+	private String imgFile;
 	
 	public BbsVo() {
 	}
@@ -28,6 +30,14 @@ public class BbsVo {
 
 	public void setNo(int no) {
 		this.no = no;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getNickName() {
@@ -142,19 +152,28 @@ public class BbsVo {
 		this.content = content;
 	}
 
-	@Override
-	public String toString() {
-		return "BbsVo [no=" + no + ", nickName=" + nickName + ", university=" + university + ", dept=" + dept
-				+ ", bookName=" + bookName + ", publisher=" + publisher + ", author=" + author + ", ISBN=" + ISBN
-				+ ", costPrice=" + costPrice + ", salePrice=" + salePrice + ", view=" + view + ", status=" + status
-				+ ", day=" + day + ", title=" + title + ", content=" + content + "]";
+	public String getImgFile() {
+		return imgFile;
 	}
 
-	public BbsVo(int no, String nickName, String university, String dept, String bookName, String publisher,
+	public void setImgFile(String imgFile) {
+		this.imgFile = imgFile;
+	}
+
+	@Override
+	public String toString() {
+		return "BbsVo [no=" + no + ", id=" + id + ", nickName=" + nickName + ", university=" + university + ", dept="
+				+ dept + ", bookName=" + bookName + ", publisher=" + publisher + ", author=" + author + ", ISBN=" + ISBN
+				+ ", costPrice=" + costPrice + ", salePrice=" + salePrice + ", view=" + view + ", status=" + status
+				+ ", day=" + day + ", title=" + title + ", content=" + content + ", imgFile=" + imgFile + "]";
+	}
+
+	public BbsVo(int no, String id, String nickName, String university, String dept, String bookName, String publisher,
 			String author, String iSBN, int costPrice, int salePrice, int view, String status, Date day, String title,
-			String content) {
+			String content, String imgFile) {
 		super();
 		this.no = no;
+		this.id = id;
 		this.nickName = nickName;
 		this.university = university;
 		this.dept = dept;
@@ -169,6 +188,7 @@ public class BbsVo {
 		this.day = day;
 		this.title = title;
 		this.content = content;
+		this.imgFile = imgFile;
 	}
 
 	@Override
@@ -181,6 +201,8 @@ public class BbsVo {
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + costPrice;
 		result = prime * result + ((dept == null) ? 0 : dept.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((imgFile == null) ? 0 : imgFile.hashCode());
 		result = prime * result + ((nickName == null) ? 0 : nickName.hashCode());
 		result = prime * result + no;
 		result = prime * result + ((publisher == null) ? 0 : publisher.hashCode());
@@ -227,6 +249,16 @@ public class BbsVo {
 			if (other.dept != null)
 				return false;
 		} else if (!dept.equals(other.dept))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (imgFile == null) {
+			if (other.imgFile != null)
+				return false;
+		} else if (!imgFile.equals(other.imgFile))
 			return false;
 		if (nickName == null) {
 			if (other.nickName != null)

@@ -43,4 +43,16 @@ public class BbsDaoImpl implements BbsDao {
 		return session.delete("com.hb.major.model.bbs.BbsDao.bbsDeleteOne",no);
 	}
 
+	@Override
+	public List<BbsVo> bbsSelectPage(int currentpage) throws Exception {
+		
+		return session.selectList("com.hb.major.model.bbs.BbsDao.bbsSelectPage", (currentpage-1)*10);
+	}
+
+	@Override
+	public List<BbsVo> bbsSelectWhere(String keyword) throws Exception {
+		
+		return  session.selectList("com.hb.major.model.bbs.BbsDao.bbsSelectWhere", keyword);
+	}
+
 }

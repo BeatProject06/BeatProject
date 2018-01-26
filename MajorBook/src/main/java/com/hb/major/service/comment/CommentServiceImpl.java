@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.hb.major.model.bbs.BbsDao;
-import com.hb.major.model.comment.CommentDao;
+import com.hb.major.model.bbs.comment.CommentDao;
 import com.hb.major.model.entity.CommentVo;
 
 @Service
@@ -26,9 +26,7 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public void commentAddOne(CommentVo cmtbean){
 		try {
-			System.out.println("�ڸ�Ʈ ���� ����");
 			commentDao.commentInsertOne(cmtbean);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

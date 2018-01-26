@@ -2,15 +2,11 @@
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../menu/header.jsp"></jsp:include>
-<script type="text/javascript">
-$(document).ready(function(){
-	
+<jsp:include page="../menu/menutest.jsp"></jsp:include>
+<script src=" ${pageContext.request.contextPath}/resources/js/jquery-1.12.4.min.js"></script>
 
-	//Kakao.init('920ab8edbd5f0f27b6f8c7df2c8d5532'); //연습
-	
-	Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625');//전공
-	
-	
+<script type="text/javascript">
+Kakao.init('fe2b9e6e9dc19c730ad3d547e0772625'); //전공책앱
 	Kakao.Auth.getStatus(function(statusObj){
 	//	console.log(tempid);
 		
@@ -32,7 +28,7 @@ $(document).ready(function(){
 						  deleteid.setAttribute("name","delid");
 						  deleteid.setAttribute("value", statusObj.user.id);
 		    	          document.getElementById('accountdeleteform').appendChild(deleteid);
-						  
+						alert("앱 해제 성공");
 						
 						//location.replace("/major"); //해제시 홈페이지로 돌아감
 						
@@ -46,7 +42,6 @@ $(document).ready(function(){
 			    	        		
 			    	        console.log("상태는 "+statusObj.status+"상태");
 			    	        console.log(statusObj.user+"유저");
-			    	        
 			    	        
 			    	        		
 			    	        });
@@ -63,24 +58,9 @@ $(document).ready(function(){
 		
 		
 	}); //Kakao.Auth.getStatus 엔드
- 
- 
- 
-});
 
 </script>
 
-			        	<li><a href="/major">HOME </a></li>
-			           	<li><a href="/major/aboutus">ABOUT US</a></li>
-						<li><a href="/major/notice">공지사항</a></li>
-			            <li  class="active"><a href="/major/board">게시판<span class="sr-only">(current)</span></a></li>
-			            <li><a href="/major/question">문의사항</a></li>
-			      </ul>
-<jsp:include page="../loginoutdel/login.jsp"></jsp:include>
-			      </div>
-	  </div>
-	</nav>
-	</div>
 	<!-- 내용 -->	
 	<div class="container">
 		<div class="row content">
@@ -93,7 +73,7 @@ $(document).ready(function(){
 			  	"전공책을 찾아서" 서비스에 남아있는 삭제를 위해 회원탈퇴를 클릭해주세요
 			  </p>
 			  <br/><br/>
-			 <form  action="userdelete" method="post" id="accountdeleteform">
+			 <form  action="/major/userdelete" method="post" id="accountdeleteform">
 			  		<input name="_method" value="DELETE" type="hidden">
 					<button class="btn btn-danger" id="accountdeletebtn">회원탈퇴</button>
 			</form>
