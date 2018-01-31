@@ -123,8 +123,8 @@ public class BbsController {
 		logger.info("게시글 작성", locale);
 		
 		// 테스트할 서버 저장소
-		String path="C:\\project3\\MajorBook\\src\\main\\webapp\\resources\\file\\";
-		//String path="C:\\sts\\2017spring\\MajorBook3\\src\\main\\webapp\\resources\\file\\";
+//		String path="C:\\project3\\MajorBook3\\src\\main\\webapp\\resources\\file\\";
+		String path="C:\\sts\\2017spring\\MajorBook3\\src\\main\\webapp\\resources\\file\\";
 		System.out.println("되니");
 		try {
 			req.setCharacterEncoding("UTF-8");
@@ -139,18 +139,14 @@ public class BbsController {
 		System.out.println(dateformat.format(calendar.getTime()));
 		System.out.println(file.size());
 		String originalName=null;
-		String nameExtension=null;
 		for(MultipartFile image : file) {
+			
 			originalName = image.getOriginalFilename();
-			nameExtension= originalName.substring(originalName.lastIndexOf(".") + 1);
 			System.out.println("파일이름이다네"+originalName);
-			if(!originalName.equals("")) {
-			//System.out.println(f);
-			File f = new File(path+ dateformat.format(calendar.getTime())+"."+nameExtension);
-			System.out.println("파일이 있을때: "+f);
+			File f = new File(path+ dateformat.format(calendar.getTime())+"."+originalName.substring(originalName.lastIndexOf(".") + 1));
+			System.out.println(f);
 			
 				try {
-					
 					image.transferTo(f);
 				} catch (IllegalStateException e) {
 					// TODO Auto-generated catch block
@@ -159,10 +155,6 @@ public class BbsController {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}else {
-				System.out.println("파일없다네");
-			}
-			
 			model.addAttribute("fname", image.getOriginalFilename());
 			//확장자 검사
 //			String RESULT_EXCEED_SIZE = "용량과다";
@@ -189,23 +181,17 @@ public class BbsController {
 		String imgpath=path+dateformat.format(calendar.getTime())+"."+originalName.substring(originalName.lastIndexOf(".") + 1);
 		
 
-		imgpath = imgpath.replace("C:\\project3\\MajorBook\\src\\main\\webapp\\resources\\file", "");
-	//	imgpath = imgpath.replace("C:\\sts\\2017spring\\MajorBook3\\src\\main\\webapp\\resources\\file\\", "");
+//		imgpath = imgpath.replace("C:\\project3\\MajorBook3\\src\\main\\webapp\\resources\\file", "");
+		imgpath = imgpath.replace("C:\\sts\\2017spring\\MajorBook3\\src\\main\\webapp\\resources\\file\\", "");
 		imgpath = imgpath.replace("\\", "/");
 		System.out.println("이미지패스 잘 바뀌었나~~~"+imgpath);
-		if(originalName.substring(originalName.lastIndexOf(".") + 1).equals("")) {
-			imgpath="";
-			bean.setImgFile(imgpath);
-		}else {
-			
-			bean.setImgFile(imgpath);
-		}
+		
+		bean.setImgFile(imgpath);
 		bbsService.bbsAddOne(bean);
 		System.out.println(bean);
 
 		return "redirect:/board/";
 	}
-
 
 	@RequestMapping(value = "/bbssearch", method = RequestMethod.GET)
 	protected String bbsSearch(Locale locale, Model model, HttpServletRequest req, HttpServletResponse res) {
@@ -223,6 +209,5 @@ public class BbsController {
 		}
 		return "user/bbs/board";
 	}
-
 
 }

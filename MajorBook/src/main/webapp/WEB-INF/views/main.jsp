@@ -13,9 +13,7 @@
 		  <div class="col-md-12">
 		  	<div class="jumbotron">
 			  <h1>전공책을 찾아서</h1>
-			  <p>'전공책을 찾아서'를 방문해주셔서 감사합니다.<br/>
-			 
-			  </p>
+			  <p>설명</p>
 			</div>
 
 	<jsp:include page="/WEB-INF/views/menu/footer.jsp"></jsp:include>

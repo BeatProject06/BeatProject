@@ -44,17 +44,6 @@
 		}
 	}
 	
-	table tr th,td{
-		text-align:center;
-	}
-	table tr th{
-		color: #505050;
-		background-color:#FFE3EE;
-	}
-	table a:link { color: black; text-decoration: none;}
-	table a:visited { color: grey; text-decoration: none;}
-	table a:hover { color: #D7567F; text-decoration: underline;}
-	
 	
 </style>
 

@@ -35,7 +35,7 @@
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>공지사항 작성</h1>
+			  <h1>공지사항 작성 <small>설명</small></h1>
 			</div>
 			<form action="write/writecom" method="post" id="writeform" onsubmit="putnick()">
 			

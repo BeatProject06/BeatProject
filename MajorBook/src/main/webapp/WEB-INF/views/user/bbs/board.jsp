@@ -20,7 +20,7 @@
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>게시판</h1>
+			  <h1>게시판 <small>설명</small></h1>
 			</div>
 			
 			<table class="table table-hover">

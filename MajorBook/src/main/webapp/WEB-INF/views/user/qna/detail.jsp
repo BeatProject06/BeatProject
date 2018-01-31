@@ -74,7 +74,7 @@ $(document).ready(function(){
   	
 	if(writer==currentuser){
 		//alert("니가 글슨이로구나...");
-		 document.getElementById("btnplace").innerHTML='<button type="button" id="delbtn" class="btn btn-danger pull-right">삭제</button><button type="submit" id="editbtn" class="btn btn-default pull-right" >수정</button>';
+		 document.getElementById("btnplace").innerHTML='<button type="submit" id="editbtn" class="btn btn-default" >수정</button><button type="button" id="delbtn" class="btn btn-default">삭제</button>';
 	}
 	
 	 });
@@ -134,5 +134,27 @@ $(document).ready(function(){
 			<div class="col-md-12">
 				<jsp:include page="comment.jsp"></jsp:include>
 			</div>
+			
+			
+			<table class="table table-hover">
+           <tr>
+              <th  class="col-md-1">번호</th>
+              <th  class="col-md-2">상태</th>
+              <th  class="col-md-5">제목</th>
+              <th  class="col-md-2">글쓴이</th>
+              <th  class="col-md-2">작성일</th>
+           </tr>
+           <c:forEach items="${mylist }" var="bean">
+           <tr>
+              <td>${bean.qnaNo }</td>
+              <td>${bean.qnaStatus }</td>
+              <td><a href="/major/myqna/${bean.qnaNo }">${bean.qnaTitle }</a></td>
+              <td>${bean.qnaNick }</td>
+              <td>${bean.qnaDay }</td>
+           </tr>
+           </c:forEach>
+         </table>
+			
+			
 				
 	<jsp:include page="../../menu/footer.jsp"></jsp:include>

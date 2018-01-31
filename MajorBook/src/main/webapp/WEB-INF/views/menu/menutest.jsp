@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>전공책을 찾아서</title>
+<title>Insert title here</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 var tempid;
@@ -146,7 +146,7 @@ Kakao.Auth.getStatus(function(statusObj){
                   </c:when>
                   <c:when test="${currentmenu eq 'aboutus' }">
             <li class="menus"><a href="/major">HOME <span class="sr-only">(current)</span></a></li>
-            <li class="active menus"><a href="/major/aboutus/">ABOUT US</a></li>
+            <li class="activ menus"><a href="/major/aboutus/">ABOUT US</a></li>
             <li class="menus"><a href="/major/notice/page1">공지사항</a></li>
             <li class="menus"><a href="/major/board/page1">게시판</a></li>
             <li class="menus"><a href="/major/myqna/"  id="checkright">문의사항</a></li>
