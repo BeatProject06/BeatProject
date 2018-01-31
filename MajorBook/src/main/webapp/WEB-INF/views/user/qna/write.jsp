@@ -11,8 +11,11 @@
 
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
  <jsp:include page="../../menu/menutest.jsp"></jsp:include>
- 
+ <style type="text/css">
+
+ </style>
    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <script src=" ${pageContext.request.contextPath}/resources/js/jquery.validate.min.js"></script>
   <script type="text/javascript" >
 
   $(document).ready(function(){
@@ -69,7 +72,7 @@
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>문의사항 작성 <small>설명</small></h1>
+			  <h1>문의사항 작성</h1>
 			</div>
 			
 			
@@ -103,9 +106,6 @@
 				<button class="btn btn-default" type="reset">취소</button>
 				</div>
 			</form>
-			
-			
-			
 			
 			<table class="table table-hover">
            <tr>

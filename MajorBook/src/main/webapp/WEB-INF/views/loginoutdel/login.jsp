@@ -8,6 +8,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>전공책을 찾아서</title>
+    <style type="text/css">
+    	#newDiv{
+    		margin-top : 10px;
+    	}
+    </style>
     <script src=" ${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -153,7 +158,7 @@ if(statusObj.status=="not_connected"){
     	    
     		
 	}else{//접속상태면
-    		newDiv.innerHTML= statusObj.user.id+"님 웰컴 ㅎ <button id='outbtn' class='btn btn-default'>로그아웃</button>";
+    		newDiv.innerHTML= statusObj.user.id+"님 WELCOME! <button id='outbtn' class='btn btn-default'>로그아웃</button>";
     		tempid = statusObj.user.id;
     		tempnick = statusObj.user.properties.nickname;
    			

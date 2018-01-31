@@ -3,6 +3,7 @@
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
 <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+
 <script>
 	
 	var towritepage=function(){
@@ -21,7 +22,7 @@
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>공지사항 <small>설명</small></h1>
+			  <h1>공지사항</h1>
 			</div>
 			
 			<table class="table table-hover">
