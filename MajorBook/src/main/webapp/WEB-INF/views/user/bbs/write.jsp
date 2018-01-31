@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
  <jsp:include page="../../menu/menutest.jsp"></jsp:include>
- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+ <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
  <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js"></script>
-<%--  <script src=" ${pageContext.request.contextPath}/resources/js/jquery.validate.min.js"></script> --%>
+ <script src=" ${pageContext.request.contextPath}/resources/js/jquery.validate.min.js"></script>
 
 <style>
 	
@@ -18,7 +18,7 @@
 	overflow: hidden;
 }
 .preview-box {
-	border: 1px solid;
+	border: 1px solid grey;
 	padding: 5px;
 	border-radius: 2px;
 	margin-bottom: 10px;
@@ -48,7 +48,51 @@
 			CKEDITOR.replace('content');
 		}
 		
-		$("#writeform").validate();
+		$('#writeform').validate();
+		
+		/*  $(function(){
+			$("#writeform").validate();
+			$.extend($.validator.messages, {
+				required: "필수항목 입니다.",
+				maxlength: $.validator.format("{0}자를 넘을 수 없습니다."),
+				minlength: $.validator.format("{0}자 이상 입력하세요"),
+				max: $.validator.format("{0} 이하의 값을 입력하세요"),
+				min: $.validator.format("{0} 이상의 값을 입력하세요")
+			});
+
+		});		 */
+		/* $(document).ready(function(){
+			$("#writeform").validate({
+				rules :{
+					title:{required:true, minlength:2, maxlength: 100},
+					bookName:{required:true, minlength:1},
+					costPrice{required:true, min:100, max: 500000},
+					salePrice{required:true, min:1, max:100000}
+				},messages:{
+					title:{
+						 required:"필수입력사항",
+	                     minlength: jQuery.format("글자는 {0}자 이상 입력해주세요!"),
+	                     maxlength : jQuery.format("글자는 {0}자 이하 입력해주세요! ")
+					},
+					bookName:{
+						required:"필수입력사항",
+	                     minlength: jQuery.format("글자는 {0}자 이상 입력해주세요!")
+					},
+					costPrice{
+						required:"필수입력사항",
+	                     min: jQuery.format("값은 {0}원 이상 입력해주세요!"),
+	                     max: jQuery.format("값은 {0}원 이하 입력해주세요!")
+					},
+					salePrice{
+						required:"필수입력사항",
+	                     min: jQuery.format("값은 {0}원 이상 입력해주세요!"),
+	                     max: jQuery.format("값은 {0}원 이하 입력해주세요!")
+					}
+				},submitHandler : function(e){
+					e.submit();
+				}
+			});
+		}); */
 		
  </script>
 <script type="text/javascript">
@@ -63,11 +107,11 @@ function addPreview(input) {
 	// input = file object[]
 	
 	
-	console.log(input);
+	/* console.log(input);
 alert("!!!!");
 
 
-	alert(input[10].files[0].name);
+	alert(input[10].files[0].name); */
 	
 	if (input[10].files) {
 		//파일 선택이 여러개였을 시의 대응
@@ -125,14 +169,17 @@ function validation(fileName) {
 	$('.submit').on('click',function() {						
 		var form = $('#writeform')[0];
 		var formData = new FormData(form);
-
+		alert(formData);
 		for (var index = 0; index < Object.keys(files).length; index++) {
 			//formData 공간에 files라는 이름으로 파일을 추가한다.
 			//동일명으로 계속 추가할 수 있다.
-			formData.append('files',files[index]);
+			if(!Object.keys(files).length==0){
+				alert(Object.keys(files));
+			formxData.append('files',files[index]);
+			}
 		}
 		//ajax 통신으로 multipart form을 전송한다.
-		$.ajax({
+		/* $.ajax({
 			type : 'POST',
 			enctype : 'multipart/form-data',
 			processData : false,
@@ -158,7 +205,7 @@ function validation(fileName) {
 				}
 			}
 			//전송실패에대한 핸들링은 고려하지 않음
-		});
+		}); */
 	});
 	// <input type=file> 태그 기능 구현
 	$('#attach input[type="file"]').change(function() {

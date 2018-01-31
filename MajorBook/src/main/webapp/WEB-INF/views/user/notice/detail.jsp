@@ -50,7 +50,7 @@ $(document).ready(function(){
   	
 	if(writer==currentuser){
 		//alert("니가 글슨이로구나...");
-		 document.getElementById("btnplace").innerHTML='<button type="submit" id="editbtn" class="btn btn-default" >수정</button><button type="button" id="delbtn" class="btn btn-default">삭제</button>';
+		 document.getElementById("btnplace").innerHTML='<button type="button" id="delbtn" class="btn btn-danger pull-right">삭제</button><button type="submit" id="editbtn" class="btn btn-default pull-right" >수정</button>';
 	}
 	
 	 });
