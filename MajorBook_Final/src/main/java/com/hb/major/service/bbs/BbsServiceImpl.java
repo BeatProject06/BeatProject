@@ -101,5 +101,14 @@ public class BbsServiceImpl implements BbsService {
 		}
 	}
 
+	@Override
+	public void bbsStatus(Model model, String status) {
+		try {
+			model.addAttribute("list", bbsDao.bbsSelectStatus(status));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 
 }

@@ -5,6 +5,14 @@
 <jsp:include page="../../menu/menutest.jsp"></jsp:include>
 <script>
 	
+	function toSellPage(e){
+		location.href='/major/board/sale';
+	}
+	function toBuyPage(){
+		location.href='/major/board/buy';
+	}
+	
+	
 	var towritepage=function(){
 		var write=document.createElement("form");
 		write.setAttribute("method","post");
@@ -20,7 +28,11 @@
 		<div class="row content">
 		  <div class="col-md-12">
 		  	<div class="page-header">
-			  <h1>게시판</h1>
+			  <h1>게시판
+			  <button onclick="toSellPage()" class="btn btn-default pull-right">팔래요</button>
+			  <button id="buy" onclick="toBuyPage()" class="btn btn-default pull-right">살래요</button>
+			  </h1>
+           	  
 			</div>
 			
 			<table class="table table-hover">

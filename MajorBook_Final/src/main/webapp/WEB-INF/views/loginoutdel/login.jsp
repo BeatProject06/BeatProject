@@ -19,7 +19,7 @@
     
 <script>
 /* var tempid;
-var tempnick; */
+var tempnick; */ 
  $(document).ready(function(){
     	   
 Kakao.Auth.getStatus(function(statusObj){ //현재 로그인 상태를 확인

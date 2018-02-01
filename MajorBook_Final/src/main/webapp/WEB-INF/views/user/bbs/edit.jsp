@@ -63,13 +63,13 @@ window.onload = function() {
 				<div class="col-md-3">
 					<div class="form-group"> 
 						<label for="author">저자</label> 
-						<input type="text" class="form-control" name="author" id="author" value="${bean.publisher }" />  
+						<input type="text" class="form-control" name="author" id="author" value="${bean.author }" />  
 					</div> 
 				</div>
 				<div class="col-md-3">
 					<div class="form-group"> 
 						<label for="publisher">출판사</label> 
-						<input type="text" class="form-control" name="publisher" id="publisher" value="${bean.author }" />  
+						<input type="text" class="form-control" name="publisher" id="publisher" value="${bean.publisher }" />  
 					</div> 
 				</div>
 				<!-- ///////////////////////////////////////////////////////////////////////////////// -->

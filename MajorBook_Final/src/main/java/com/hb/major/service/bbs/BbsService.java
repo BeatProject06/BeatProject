@@ -11,4 +11,5 @@ public interface BbsService {
 	void bbsUpdateOne(BbsVo bean);
 	void bbsDeleteOne(int no);
 	void bbsSearch(Model model, String keyword);
+	void bbsStatus(Model model, String status);
 }

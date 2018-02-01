@@ -20,6 +20,10 @@
   	SELECT TEMP.* FROM (SELECT * FROM BBSLIST ORDER BY NO DESC) TEMP ORDER BY TEMP.NO DESC LIMIT #{value}, 10 
   	</select>
   	
+  	<select id="bbsSelectStatus" parameterType="String" resultType="bbsbean">
+  	SELECT * FROM BBSLIST WHERE STATUS=#{value};
+  	</select>
+  	
 	<insert id="bbsInsertOne" parameterType="bbsbean">
   	INSERT INTO BBSLIST(id, nickName, university, dept, bookName, publisher, author, ISBN, costPrice, salePrice, status, day, title, content, imgFile) VALUES (#{id}, #{nickName}, #{university}, #{dept}, #{bookName}, #{publisher}, #{author}, #{ISBN}, #{costPrice}, #{salePrice}, #{status}, now(), #{title}, #{content}, #{imgFile})
   	</insert>

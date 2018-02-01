@@ -12,4 +12,5 @@ public interface BbsDao {
 	int bbsDeleteOne(int no) throws Exception;
 	List<BbsVo> bbsSelectPage(int currentpage) throws Exception;
 	List<BbsVo> bbsSelectWhere(String keyword) throws Exception;
+	List<BbsVo> bbsSelectStatus(String status) throws Exception;
 }
