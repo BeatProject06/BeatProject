@@ -2,7 +2,27 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
-<jsp:include page="../../menu/menutest.jsp"></jsp:include>
+<jsp:include page="../../menu/menurest.jsp"></jsp:include>
+
+<script>
+$(document).ready(function(){
+var checkmaster = '<%= session.getAttribute("mastercheck")%>';
+
+if(checkmaster=="true"){
+	  document.getElementById('noticewritebtn').innerHTML='<button class="btn btn-default pull-right" onclick="towritepage();" id="write" >글쓰기</button>';
+}
+});
+	
+	var towritepage=function(){
+		var write=document.createElement("form");
+		write.setAttribute("method","post");
+		write.setAttribute("action", "write");
+		document.body.appendChild(write);
+		write.submit();
+		
+		//alert("클릭");
+	}
+</script>
 <script>
 	
 	function toSellPage(e){

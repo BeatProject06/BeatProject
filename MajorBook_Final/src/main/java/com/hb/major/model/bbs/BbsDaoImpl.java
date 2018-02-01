@@ -57,7 +57,7 @@ public class BbsDaoImpl implements BbsDao {
 
 	@Override
 	public List<BbsVo> bbsSelectStatus(String status) throws Exception {
-		
+
 		return session.selectList("com.hb.major.model.bbs.BbsDao.bbsSelectStatus", status);
 	}
 

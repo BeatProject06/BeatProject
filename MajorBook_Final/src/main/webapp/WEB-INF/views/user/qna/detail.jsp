@@ -4,42 +4,25 @@
  
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
-<jsp:include page="../../menu/menutest.jsp"></jsp:include>
+<jsp:include page="../../menu/menurest.jsp"></jsp:include>
 
 <script>
 $(document).ready(function(){
 	
-		//alert("1");
-		
-	 Kakao.Auth.getStatus(function(statusObj){ //현재 로그인 상태를 확인
-		//alert("2");
-   	  console.log("디텔"+statusObj.user.id);
-  
-   	var currentuser= statusObj.user.properties.nickname;
- 	var writer = '${bean.qnaNick}';
-  	
-	//alert(currentuser);
-  	//alert( writer );
 	
-
-  	
+   	var tempid ='<%= request.getSession().getAttribute("userid")%>';
+   	var tempnick ='<%= request.getSession().getAttribute("usernick")%>';
+ 	var writer = '${bean.qnaId}';
 
 	$(document).on('click', 'button[id="delbtn"]', function(){
-  		//alert("삭제 클리익");
+  		alert("삭제 클리익");
   		
-  			Kakao.Auth.getStatus(function(statusObj){
-					
-
-		if(statusObj.status=="connected"){ 
-		tempid = statusObj.user.id;
-		tempnick = statusObj.user.properties.nickname;
-		
-		alert("지울때"+tempid);
-  		 var f = document.createElement("form");
+  		
+  		var f = document.createElement("form");
   	  	f.setAttribute("method", "post");
       	f.setAttribute("action", "${bean.qnaNo}");
       	
-      	 var confirmmethod=document.createElement("input");
+      	var confirmmethod=document.createElement("input");
       	confirmmethod.setAttribute("type","hidden");
       	confirmmethod.setAttribute("name","_method");
       	confirmmethod.setAttribute("value", "delete");
@@ -56,6 +39,7 @@ $(document).ready(function(){
       	
 		f.appendChild(id);	
 		f.appendChild(nick);
+		
     	f.appendChild(confirmmethod);
     	 
       	 document.body.appendChild(f);
@@ -64,20 +48,17 @@ $(document).ready(function(){
   		
   	
 	
-	
-  			}});
-	
 	});
 	
   	
   	
   	
-/* 	if(writer==currentuser){
+	if(writer==tempid){
 		//alert("니가 글슨이로구나...");
 		 document.getElementById("btnplace").innerHTML='<button type="button" id="delbtn" class="btn btn-danger pull-right">삭제</button><button type="submit" id="editbtn" class="btn btn-default pull-right" >수정</button>';
-	} */
+	}
 	
-	 });
+
 	 
  
  }); 
@@ -123,13 +104,11 @@ $(document).ready(function(){
 				
 				
 					<div class="col-md-6 pull-right" id="btnplace">
-					<!--  <button type="button" id="delbtn" class="btn btn-danger pull-right">삭제</button> -->
-					 <button type="submit" id="editbtn" class="btn btn-default pull-right" >수정</button>
+				
 					</div>
-<!-- 				<div class="col-md-12 text-center"> -->
-<!-- 						<a class="btn btn-primary" href="/major/myqna">목록으로</a> -->
-						
-<!-- 				</div> -->
+ 				<div class="col-md-12 text-center">
+						<a class="btn btn-primary" href="/major/myqna">목록으로</a> 	
+				</div> 
 			</form>
 			
 			<div class="col-md-12">

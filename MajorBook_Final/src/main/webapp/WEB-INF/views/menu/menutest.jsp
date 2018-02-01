@@ -87,7 +87,7 @@ Kakao.Auth.getStatus(function(statusObj){
           var suburl = currenturl.split("/major/")[1];
       
           if(suburl != ""){ //main아닐때는 main으로
-             location.replace("/major");
+           //  location.replace("/major");
           }
        }    
    });

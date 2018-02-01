@@ -7,10 +7,12 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<jsp:include page="../../loginoutdel/login.jsp"></jsp:include>
 
   <script>
-	
+  
+ 	var tempnick ='<%= request.getSession().getAttribute("usernick")%>';
+ 	var tempid ='<%= request.getSession().getAttribute("userid")%>';
+
 	var putcmtinf = function(){
 	
 	 var cmtnick=document.createElement("input");

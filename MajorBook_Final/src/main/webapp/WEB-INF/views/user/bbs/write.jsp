@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
- <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+ <jsp:include page="../../menu/menurest.jsp"></jsp:include>
  <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
  <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js"></script>
  <script src=" ${pageContext.request.contextPath}/resources/js/jquery.validate.min.js"></script>
@@ -26,7 +26,12 @@
 </style>
  <script type="text/javascript" >
 
+   
 
+   var tempid ='<%= request.getSession().getAttribute("userid")%>';
+   var tempnick ='<%= request.getSession().getAttribute("usernick")%>';
+
+   
   var putnick = function(){
       
        var id=document.createElement("input");
@@ -44,61 +49,11 @@
          wform.appendChild(nick);   
       };
       
-      /* window.onload = function() {
-         CKEDITOR.replace('content', {
-            
-            'filebrowserImageUploadUrl': '${pageContext.request.contextPath}/resources/ckeditor/upload'
-                  /*  +'realUrl=http://203.236.209.212:8080/major/resources/file/'
-                  +'&realDir=C:\project3\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\MajorBook_Final\resources\file' */ 
-         });
-         
-      } */
+      window.onload = function() {
+         CKEDITOR.replace('content');
+      }
       
       $('#writeform').validate();
-      
-      /*  $(function(){
-         $("#writeform").validate();
-         $.extend($.validator.messages, {
-            required: "필수항목 입니다.",
-            maxlength: $.validator.format("{0}자를 넘을 수 없습니다."),
-            minlength: $.validator.format("{0}자 이상 입력하세요"),
-            max: $.validator.format("{0} 이하의 값을 입력하세요"),
-            min: $.validator.format("{0} 이상의 값을 입력하세요")
-         });
-
-      });       */
-      /* $(document).ready(function(){
-         $("#writeform").validate({
-            rules :{
-               title:{required:true, minlength:2, maxlength: 100},
-               bookName:{required:true, minlength:1},
-               costPrice{required:true, min:100, max: 500000},
-               salePrice{required:true, min:1, max:100000}
-            },messages:{
-               title:{
-                   required:"필수입력사항",
-                        minlength: jQuery.format("글자는 {0}자 이상 입력해주세요!"),
-                        maxlength : jQuery.format("글자는 {0}자 이하 입력해주세요! ")
-               },
-               bookName:{
-                  required:"필수입력사항",
-                        minlength: jQuery.format("글자는 {0}자 이상 입력해주세요!")
-               },
-               costPrice{
-                  required:"필수입력사항",
-                        min: jQuery.format("값은 {0}원 이상 입력해주세요!"),
-                        max: jQuery.format("값은 {0}원 이하 입력해주세요!")
-               },
-               salePrice{
-                  required:"필수입력사항",
-                        min: jQuery.format("값은 {0}원 이상 입력해주세요!"),
-                        max: jQuery.format("값은 {0}원 이하 입력해주세요!")
-               }
-            },submitHandler : function(e){
-               e.submit();
-            }
-         });
-      }); */
       
  </script>
 <script type="text/javascript">

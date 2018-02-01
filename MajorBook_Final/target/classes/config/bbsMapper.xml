@@ -13,7 +13,7 @@
   	</select>
   	
   	<select id="bbsSelectWhere" parameterType="String" resultType="bbsbean">
-  	SELECT * FROM BBSLIST WHERE TITLE LIKE CONCAT('%',#{value},'%') OR CONTENT LIKE CONCAT('%',#{value},'%') OR NICKNAME LIKE CONCAT('%',#{value},'%') OR ID LIKE CONCAT('%',#{value},'%') OR BOOKNAME LIKE CONCAT('%',#{value},'%') ORDER BY NO DESC
+  	SELECT * FROM BBSLIST WHERE TITLE LIKE CONCAT('%',#{value},'%') OR CONTENT LIKE CONCAT('%',#{value},'%') OR NICKNAME LIKE CONCAT('%',#{value},'%') OR ID LIKE CONCAT('%',#{value},'%') ORDER BY NO DESC
   	</select>
   	
   	<select id="bbsSelectPage" parameterType="int" resultType="bbsbean">

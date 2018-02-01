@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
- <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+ <jsp:include page="../../menu/menurest.jsp"></jsp:include>
  <style type="text/css">
 
  </style>
@@ -19,22 +19,17 @@
   <script type="text/javascript" >
 
   $(document).ready(function(){
-		  history.replaceState({}, null, location.pathname)
+		//  history.replaceState({}, null, location.pathname)
 
 
 	 $(document).on('submit', 'form',function(e){
 		//alert("이거 실행안해?");
 		e.preventDefault();
 						
-		 Kakao.Auth.getStatus(function(statusObj){
 
-			//console.log("메뉴"+statusObj.status);
-			//console.log("메뉴"+statusObj.user);
-								
+		var tempid ='<%= request.getSession().getAttribute("userid")%>';
+		var tempnick ='<%= request.getSession().getAttribute("usernick")%>';
 
-		if(statusObj.status=="connected"){ 
-			tempid = statusObj.user.id;
-			tempnick = statusObj.user.properties.nickname;
 		
 			var id=document.createElement("input");
 			id.setAttribute("type","hidden");
@@ -56,7 +51,7 @@
 			wform.appendChild(id);	
 			wform.appendChild(nick);
 			wform.submit();
-	 }}); 
+	 
 							 
  	});  
 

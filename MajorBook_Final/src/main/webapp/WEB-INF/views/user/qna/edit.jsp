@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
-<jsp:include page="../../menu/menutest.jsp"></jsp:include>
+<jsp:include page="../../menu/menurest.jsp"></jsp:include>
 
 	<!-- 내용 -->	
 	<div class="container">
@@ -47,7 +47,7 @@
 					
 				<div class="col-md-12 text-center">
 						<button class="btn btn-primary" type="submit">수정완료</button>
-<!-- 						<a class="btn btn-default" href="/major/question/">목록</a> -->
+						<a class="btn btn-default" href="/major/question/">목록</a>
 				</div>
 			</form>
 				

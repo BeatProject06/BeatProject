@@ -4,22 +4,17 @@
  
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
-<jsp:include page="../../menu/menutest.jsp"></jsp:include>
+<jsp:include page="../../menu/menurest.jsp"></jsp:include>
 
 <script>
 $(document).ready(function(){
 	
-		//alert("1");
-		
-	 Kakao.Auth.getStatus(function(statusObj){ //현재 로그인 상태를 확인
-		//alert("2");
-   	  console.log("디텔"+statusObj.user.id);
-  
-   	var currentuser= statusObj.user.properties.nickname;
- 	var writer = '${bean.noticeNick}';
+
+   	var tempid ='<%= request.getSession().getAttribute("userid")%>';
+ 	var writer = '${bean.noticeId}';
   	
-	//alert(currentuser);
-  	//alert( writer );
+	//alert(tempid);
+  	//alert(writer);
 	
 
   	
@@ -48,12 +43,12 @@ $(document).ready(function(){
   	
   	
   	
-	if(writer==currentuser){
+	if(writer==tempid){
 		//alert("니가 글슨이로구나...");
 		 document.getElementById("btnplace").innerHTML='<button type="button" id="delbtn" class="btn btn-danger pull-right">삭제</button><button type="submit" id="editbtn" class="btn btn-default pull-right" >수정</button>';
 	}
 	
-	 });
+
 	 
  
  }); 

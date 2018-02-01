@@ -32,16 +32,17 @@ public class HomeController {
 		return "main";
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+/*	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String login(@ModelAttribute UserVo bean, HttpServletRequest req, Model menumodel) throws Exception {
 
 		req.setCharacterEncoding("UTF-8");
 		menumodel.addAttribute("constate","connected");
 		menumodel.addAttribute("currentmenu", "home");
-		userService.userCheck(bean);
+		
+	//	userService.userCheck(bean);
 		
 		return "main";
-	}
+	}*/
 
 	@RequestMapping(value = "/aboutus", method = RequestMethod.GET)
 	public String aboutus(Locale locale, Model model) throws Exception {

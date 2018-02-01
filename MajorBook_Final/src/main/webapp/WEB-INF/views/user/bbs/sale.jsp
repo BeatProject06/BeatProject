@@ -2,28 +2,33 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../../menu/header.jsp"></jsp:include>
-<jsp:include page="../../menu/menutest.jsp"></jsp:include>
+<jsp:include page="../../menu/menurest.jsp"></jsp:include>
+
 <script>
-   
-   var towritepage=function(){
-      var write=document.createElement("form");
-      write.setAttribute("method","post");
-      write.setAttribute("action", "write");
-      document.body.appendChild(write);
-      write.submit();
-      
-      //alert("클릭");
-   }
+$(document).ready(function(){
+var checkmaster = '<%= session.getAttribute("mastercheck")%>';
+
+if(checkmaster=="true"){
+	  document.getElementById('noticewritebtn').innerHTML='<button class="btn btn-default pull-right" onclick="towritepage();" id="write" >글쓰기</button>';
+}
+});
+	
+	var towritepage=function(){
+		var write=document.createElement("form");
+		write.setAttribute("method","post");
+		write.setAttribute("action", "write");
+		document.body.appendChild(write);
+		write.submit();
+		
+		//alert("클릭");
+	}
 </script>
    <!-- 내용 -->   
    <div class="container">
       <div class="row content">
         <div class="col-md-12">
            <div class="page-header">
-           <h1>팔래요 게시판
-           <a class="btn btn-default pull-right" href="">살래요</a>
-           <a class="btn btn-default pull-right" href="">팔래요</a>
-           </h1>
+           <h1>팔래요 게시판</h1>
           
          </div>
          

@@ -108,7 +108,7 @@ public class BbsController {
       System.out.println(bean);
       System.out.println("내용 수정");
 
-      return "redirect:/board/";
+      return "redirect:/board/"+no;
    }
 
    @RequestMapping(value = "/{postno}", method = RequestMethod.DELETE)

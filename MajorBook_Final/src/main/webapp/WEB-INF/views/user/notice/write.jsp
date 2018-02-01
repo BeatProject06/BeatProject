@@ -2,13 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <jsp:include page="../../menu/header.jsp" ></jsp:include>
- <jsp:include page="../../menu/menutest.jsp"></jsp:include>
+ <jsp:include page="../../menu/menurest.jsp"></jsp:include>
+ 
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-  <script type="text/javascript" >
+  
+<script type="text/javascript" >
+var tempid ='<%= request.getSession().getAttribute("userid")%>';
+var tempnick ='<%= request.getSession().getAttribute("usernick")%>';
 
 
-  var putnick = function(){
-		
+ var putnick = function(){
+
 		 var id=document.createElement("input");
 		 id.setAttribute("type","hidden");
 		 id.setAttribute("name","noticeId");
@@ -24,6 +29,7 @@
 			wform.appendChild(nick);	
 		};
 		
+
 		$("#writeform").validate();
 	
 	
