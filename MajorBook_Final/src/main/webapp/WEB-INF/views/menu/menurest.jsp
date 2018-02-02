@@ -9,6 +9,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>전공책을 찾아서</title>
+<style type="text/css">
+	.icon{
+		margin-top:10px;
+	}
+</style>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 
@@ -64,8 +69,8 @@ $(document).ready(function(){
           
       </div>    
   
-	<a href="https://kauth.kakao.com/oauth/authorize?client_id=6f1f5ce92db4949ae9395f384a2366f5&redirect_uri=http://203.236.209.213:8080/major/kauth&response_type=code"><img src="${pageContext.request.contextPath}/resources/img/kakao_login_btn_small_ov.png"/></a>
-	로그인 후에 이용할 수 있습니다. 이거 컨트롤러 쪽에서 전부 체크해야하나?
+	<a href="https://kauth.kakao.com/oauth/authorize?client_id=6f1f5ce92db4949ae9395f384a2366f5&redirect_uri=http://203.236.209.213:8080/major/kauth&response_type=code"><img class="icon pull-right" src="${pageContext.request.contextPath}/resources/img/kakao_login_btn_small_ov.png"/></a>
+	<!-- 로그인 후에 이용할 수 있습니다. 이거 컨트롤러 쪽에서 전부 체크해야하나? -->
 	
 	
 	<%}else{ %>
@@ -133,15 +138,15 @@ $(document).ready(function(){
       </div>    
   
 
-	<%= request.getSession().getAttribute("userid")%> 님 환영합니다<br/><a href="/major/logout"><button>logout</button></a>
+	<%= request.getSession().getAttribute("userid")%> 님 환영합니다   <a href="/major/logout"><button class="icon btn btn-default">logout</button></a>
 <%} %>
 
 
 
 <br/>
-세션값은 <%= request.getSession().getAttribute("userid")%>
+<%-- 세션값은 <%= request.getSession().getAttribute("userid")%>
 <%= request.getSession().getAttribute("mastercheck")%>
-<%=request.getSession().getMaxInactiveInterval() %>
+<%=request.getSession().getMaxInactiveInterval() %> --%>
 
 
 
